@@ -5,5 +5,12 @@
   "main": "index.js",
   "repository": "https://github.com/ikcb/animated-tailwindcss.git",
   "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^2.0.0"
+  }
 }

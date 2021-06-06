@@ -1,3 +1,8 @@
+const get = require('lodash.get');
+const set = require('lodash.set');
+
+const plugin = require('tailwindcss/plugin');
+
 const keyframes = {
   bounce: {
     'from, 20%, 53%, to': {
@@ -548,6 +553,8 @@ const keyframes = {
   },
 };
 
+const animation = Object.keys(keyframes).reduce((a, b) => ((a[b] = b), a), {});
+
 const utilities = {
   animated: { animationDuration: 'var(--animate-duration, 1s)', animationFillMode: 'both' },
   infinite: { animationIterationCount: 'infinite' },
@@ -609,10 +616,27 @@ const utilities = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
-module.exports = {
-  keyframes,
-  animation: Object.keys(keyframes).reduce((a, b) => ((a[b] = b), a), {}),
-  utilities: Object.fromEntries(
-    Object.entries(utilities).map((o) => ((o[0] = `.animate-${o[0]}`), o)),
-  ),
+const withAnimations = (config) => {
+  Object.entries(get(config, 'theme.extend.keyframes', {})).forEach(
+    ([key, value]) => (keyframes[key] = value),
+  );
+  set(config, 'theme.extend.keyframes', keyframes);
+
+  Object.entries(get(config, 'theme.extend.animation', {})).forEach(
+    ([key, value]) => ((animation[key] = value), delete utilities[key]),
+  );
+  set(config, 'theme.extend.animation', animation);
+
+  config.plugins = [
+    plugin(({ addUtilities }) =>
+      addUtilities(
+        Object.fromEntries(Object.entries(utilities).map((o) => ((o[0] = `.animate-${o[0]}`), o))),
+      ),
+    ),
+    ...config.plugins,
+  ];
+
+  return config;
 };
+
+module.exports = withAnimations;
