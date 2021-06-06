@@ -2,18 +2,20 @@
 <p align="center">
   <img alt="Animated Tailwind CSS" src="./logo.svg" width="400">
   <br>
-  A configuration to use <a href="https://github.com/animate-css/animate.css"
-  rel="noopener noreferrer" target="_blank">Animate.css</a> with <a href=
-  "https://github.com/tailwindlabs/tailwindcss" rel="noopener noreferrer"
-  target="_blank">Tailwind CSS</a>.
+  A configuration to use <a href="https://github.com/animate-css/animate.css">
+  Animate.css</a> with <a href="https://github.com/tailwindlabs/tailwindcss">
+  Tailwind CSS</a>.
   <br>
   <br>
+  <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
   <img alt="animate-css" src=
-  "https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square">
+  "https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square"></a>
+  <a href="https://www.npmjs.com/package/animated-tailwindcss">
   <img alt="version" src=
-  "https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square">
+  "https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square"></a>
+  <a href="https://github.com/ikcb/animated-tailwindcss/blob/main/LICENSE">
   <img alt="license" src=
-  "https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square">
+  "https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square"></a>
 </p>
 
 ---
