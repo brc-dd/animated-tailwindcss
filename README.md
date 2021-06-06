@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD033 MD041 -->
 <p align="center">
     <img alt="Animated Tailwind CSS" src="./logo.svg" width="400">
     <br>
@@ -34,8 +35,8 @@ module.exports = {
   theme: {
     extend: {
       // ...
-      keyframes,
       animation,
+      keyframes,
     },
   },
   plugins: [
@@ -51,7 +52,7 @@ After proper configuration, you can use the classes of Animate.css just like you
 
 **Note that you'll need to reference the classes as `.animate-...` instead of `.animate__-...`**.
 
-#### Example (Basic Usage):
+### Example (Basic Usage)
 
 ```html
 <h1 class="animate-animated animate-infinite animate-bounce">Bouncing Element</h1>
@@ -61,15 +62,15 @@ Please refer to the [Animate.css docs](https://animate.style/) to learn about th
 
 ## Notes
 
-#### Using with [Tailwind Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+### Using with [Tailwind Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
 You do not need to do any additional configuration, the intellisense will automatically detect the animation classes.
 
-#### Adding/modifying animations/keyframes
+### Adding/modifying animations/keyframes
 
 We currently do not provide any direct method to modify the existing (or add new) animations. But you can refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing), and [merge the object(s)](https://stackoverflow.com/q/27936772/11613622) exported by our configuration with your overrides/extensions.
 
-#### Accessibility
+### Accessibility
 
 `motion-safe` and `motion-reduce` variants will be available for use soon. For now, you can use the following CSS:
 

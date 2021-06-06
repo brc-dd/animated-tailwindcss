@@ -1,0 +1,9 @@
+{
+  "name": "animated-tailwindcss",
+  "version": "1.0.0",
+  "description": "A configuration to use Animate.css with Tailwind CSS",
+  "main": "index.js",
+  "repository": "https://github.com/ikcb/animated-tailwindcss.git",
+  "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
+  "license": "MIT"
+}
