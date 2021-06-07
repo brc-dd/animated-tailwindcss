@@ -553,10 +553,12 @@ const keyframes = {
   },
 };
 
-const animation = Object.keys(keyframes).reduce((a, b) => ((a[b] = b), a), {});
-
 const utilities = {
-  animated: { animationDuration: 'var(--animate-duration, 1s)', animationFillMode: 'both' },
+  animated: {
+    animationDuration: 'var(--animate-duration, 1s)',
+    animationFillMode: 'both',
+    '@apply print:animate-none motion-reduce:animate-none': {},
+  },
   infinite: { animationIterationCount: 'infinite' },
   'repeat-1': { animationIterationCount: 'var(--animate-repeat, 1)' },
   'repeat-2': { animationIterationCount: 'calc(var(--animate-repeat, 1) * 2)' },
@@ -616,7 +618,21 @@ const utilities = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
+const animation = Object.keys(keyframes).reduce((a, b) => {
+  a[b] = b;
+  if (b.includes('Out')) set(utilities, [b, '@apply print:opacity-0 motion-reduce:opacity-0'], {});
+  return a;
+}, {});
+
 const withAnimations = (config) => {
+  set(config, 'theme.extend.screens.print.raw', 'print');
+  set(config, 'variants.extend.animation', [
+    ...new Set([...(get(config, 'variants.extend.animation') ?? []), 'motion-reduce']),
+  ]);
+  set(config, 'variants.extend.opacity', [
+    ...new Set([...(get(config, 'variants.extend.opacity') ?? []), 'motion-reduce']),
+  ]);
+
   Object.entries(get(config, 'theme.extend.keyframes', {})).forEach(
     ([key, value]) => (keyframes[key] = value),
   );

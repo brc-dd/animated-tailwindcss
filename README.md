@@ -8,14 +8,17 @@
   <br>
   <br>
   <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
-  <img alt="animate-css" src=
-  "https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square"></a>
+    <img alt="animate-css" src=
+    "https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square">
+  </a>
   <a href="https://www.npmjs.com/package/animated-tailwindcss">
-  <img alt="version" src=
-  "https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square"></a>
+    <img alt="version" src=
+    "https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square">
+  </a>
   <a href="https://github.com/ikcb/animated-tailwindcss/blob/main/LICENSE">
-  <img alt="license" src=
-  "https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square"></a>
+    <img alt="license" src=
+    "https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square">
+  </a>
 </p>
 
 ---
@@ -56,7 +59,7 @@ Please refer to the [Animate.css docs](https://animate.style/) to learn about th
 
 ## Notes
 
-### Using with [Tailwind Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+### Using with [Tailwind Intellisense](vscode:extension/bradlc.vscode-tailwindcss)
 
 You don't need to do any additional configuration, Intellisense will automatically detect the animation classes.
 
@@ -66,18 +69,4 @@ Refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing)
 
 ### Accessibility
 
-`motion-safe` and `motion-reduce` variants will be available for use soon. For now, you can use following CSS:
-
-```css
-@media print, (prefers-reduced-motion: reduce) {
-  .animated {
-    animation-duration: 1ms !important;
-    transition-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-  }
-
-  .animated[class*='Out'] {
-    opacity: 0;
-  }
-}
-```
+The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS. The configuration will also add [`print`](https://tailwindcss.com/docs/breakpoints#styling-for-print) breakpoint.
