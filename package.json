@@ -1,20 +1,27 @@
 {
   "name": "animated-tailwindcss",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A configuration to use Animate.css with Tailwind CSS",
-  "main": "index.js",
-  "repository": "https://github.com/ikcb/animated-tailwindcss.git",
   "keywords": [
     "animate.css",
     "tailwindcss",
     "animations",
     "configuration"
   ],
-  "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
+  "repository": "https://github.com/ikcb/animated-tailwindcss.git",
   "license": "MIT",
+  "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
+  "main": "dist/index.min.js",
+  "scripts": {
+    "prepublish": "mkdirp dist && uglifyjs -c -m -o dist/index.min.js index.js"
+  },
   "dependencies": {
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2"
+  },
+  "devDependencies": {
+    "mkdirp": "^1.0.4",
+    "uglify-js": "^3.13.9"
   },
   "peerDependencies": {
     "tailwindcss": "^2.1.0"
