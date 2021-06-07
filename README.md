@@ -15,7 +15,7 @@
     <img alt="version" src=
     "https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square">
   </a>
-  <a href="https://github.com/ikcb/animated-tailwindcss/blob/main/LICENSE">
+  <a href="LICENSE">
     <img alt="license" src=
     "https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square">
   </a>
@@ -69,4 +69,25 @@ Refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing)
 
 ### Accessibility
 
-The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS. The configuration will also add [`print`](https://tailwindcss.com/docs/breakpoints#styling-for-print) breakpoint.
+The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS. The configuration also adds [`print`](https://tailwindcss.com/docs/breakpoints#styling-for-print) breakpoint for you.
+
+### Removing Unused Keyframes
+
+Please refer: [Optimizing for Production - Tailwind CSS](https://tailwindcss.com/docs/optimizing-for-production#removing-unused-keyframes). (Won't be necessary in JIT mode.)
+
+---
+
+## License
+
+This configuration is licensed under [the MIT license](LICENSE).
+
+## Credits
+
+- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities and keyframes &ndash; used under [the MIT license](https://github.com/animate-css/animate.css/blob/main/LICENSE).
+- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to JSS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
+
+## Contributors
+
+| ![Divyansh Singh](https://avatars1.githubusercontent.com/u/40380293?v=4&s=100) |
+| :----------------------------------------------------------------------------: |
+|      <sub> [Divyansh Singh](https://github.com/brc-dd) <br> Author </sub>      |
