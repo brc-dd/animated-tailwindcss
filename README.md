@@ -106,4 +106,4 @@ When you submit code changes, your submissions are understood to be under the sa
 
 | ![Divyansh Singh](https://avatars1.githubusercontent.com/u/40380293?v=4&s=100) |
 | :----------------------------------------------------------------------------: |
-|      <sub> [Divyansh Singh](https://github.com/brc-dd) <br> Author </sub>      |
+|            [Divyansh Singh](https://github.com/brc-dd) <br> Author             |
