@@ -1,6 +1,8 @@
 <!-- markdownlint-disable MD033 MD041 -->
 <p align="center">
-  <img alt="Animated Tailwind CSS" src="./logo.svg" width="400">
+  <a href="https://github.com/ikcb/animated-tailwindcss">
+    <img alt="Animated Tailwind CSS" src="logo.svg" width="400">
+  </a>
   <br>
   A configuration to use <a href="https://github.com/animate-css/animate.css">
   Animate.css</a> with <a href="https://github.com/tailwindlabs/tailwindcss">
