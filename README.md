@@ -19,6 +19,10 @@
     <img alt="license" src=
     "https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square">
   </a>
+  <a href="https://conventionalcommits.org">
+    <img alt="conventional commits" src=
+    "https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg?style=flat-square">
+  </a>
 </p>
 
 ---
@@ -80,6 +84,16 @@ Please refer: [Optimizing for Production - Tailwind CSS](https://tailwindcss.com
 ## License
 
 This configuration is licensed under [the MIT license](LICENSE).
+
+## Code of Conduct
+
+This project and everyone participating in it is governed by the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [contact@ikcb.org](mailto:contact@ikcb.org).
+
+## Contributing
+
+Any sort of contributions are welcome here! But please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) and [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/#specification).
+
+When you submit code changes, your submissions are understood to be under the same MIT license that covers the project. Feel free to contact the maintainers if that's a concern.
 
 ## Credits
 
