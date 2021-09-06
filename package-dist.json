@@ -1,0 +1,26 @@
+{
+  "name": "animated-tailwindcss",
+  "version": "2.1.2",
+  "description": "A configuration to use Animate.css with Tailwind CSS",
+  "license": "MIT",
+  "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
+  "repository": "https://github.com/ikcb/animated-tailwindcss.git",
+  "main": "./index.min.js",
+  "scripts": {},
+  "dependencies": {
+    "lodash.get": "4.4.2",
+    "lodash.set": "4.3.2"
+  },
+  "peerDependencies": {
+    "tailwindcss": "*"
+  },
+  "keywords": [
+    "animate.css",
+    "animatecss",
+    "animations",
+    "configuration",
+    "css",
+    "tailwind",
+    "tailwindcss"
+  ]
+}

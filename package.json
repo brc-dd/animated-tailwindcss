@@ -1,29 +1,50 @@
 {
-  "name": "animated-tailwindcss",
-  "version": "2.1.2",
-  "description": "A configuration to use Animate.css with Tailwind CSS",
-  "keywords": [
-    "animate.css",
-    "tailwindcss",
-    "animations",
-    "configuration"
-  ],
-  "repository": "https://github.com/ikcb/animated-tailwindcss.git",
-  "license": "MIT",
-  "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
-  "main": "dist/index.min.js",
+  "private": true,
   "scripts": {
-    "prepublish": "mkdirp dist && uglifyjs -c -m -o dist/index.min.js index.js"
-  },
-  "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.set": "^4.3.2"
-  },
-  "devDependencies": {
-    "mkdirp": "^1.0.4",
-    "uglify-js": "^3.13.9"
+    "audit:fix": "npx npm-check-updates -u; npm i --package-lock-only; npm audit fix; rm yarn.lock; yarn import; rm package-lock.json",
+    "build": "./build",
+    "postinstall": "patch-package",
+    "lint:code": "eslint . --ext .ts --fix --ignore-path .gitignore 1>/dev/null",
+    "lint:staged": "lint-staged --allow-empty --concurrent 1",
+    "prepare": "husky install",
+    "preprettify": "git ls-files '*.js' '*.ts' '*.json' | xargs sed -i ':a;N;$!ba;s/{\\s*\\n/{ /g'",
+    "prettify": "prettier --write . --ignore-path .gitignore --loglevel warn",
+    "postprettify": "prettier-package-json --write package*.json",
+    "prestart": "yarn build",
+    "start": "func start"
   },
   "peerDependencies": {
-    "tailwindcss": "^2.1.0"
+    "tailwindcss": "*"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/lodash.get": "^4.4.6",
+    "@types/lodash.set": "^4.3.6",
+    "@types/node": "^16.7.10",
+    "@types/tailwindcss": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "csstype": "^3.0.8",
+    "esbuild": "^0.12.25",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2",
+    "patch-package": "^6.4.7",
+    "prettier": "^2.3.2",
+    "prettier-package-json": "^2.6.0",
+    "release-it": "^14.11.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
   }
 }

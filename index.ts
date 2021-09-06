@@ -1,9 +1,14 @@
-const get = require('lodash.get');
-const set = require('lodash.set');
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+import type * as CSS from 'csstype';
+import type { TailwindConfig } from 'tailwindcss/tailwind-config';
 
+import get from 'lodash.get';
+import set from 'lodash.set';
+
+// eslint-disable-next-line
 const plugin = require('tailwindcss/plugin');
 
-const keyframes = {
+const keyframes: Record<string, Record<string, CSS.Properties>> = {
   bounce: {
     'from, 20%, 53%, to': {
       animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
@@ -553,10 +558,11 @@ const keyframes = {
   },
 };
 
-const utilities = {
+const utilities: Record<string, CSS.Properties> = {
   animated: {
     animationDuration: 'var(--animate-duration, 1s)',
     animationFillMode: 'both',
+    // @ts-expect-error Tailwind-style PostCSS JSS property are not recognized by CSSType
     '@apply print:animate-none motion-reduce:animate-none': {},
   },
   infinite: { animationIterationCount: 'infinite' },
@@ -584,15 +590,15 @@ const utilities = {
   bounceIn: { animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)' },
   bounceOut: { animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)' },
   flip: { backfaceVisibility: 'visible' },
-  flipInX: { backfaceVisibility: 'visible !important' },
-  flipInY: { backfaceVisibility: 'visible !important' },
+  flipInX: { backfaceVisibility: 'visible' },
+  flipInY: { backfaceVisibility: 'visible' },
   flipOutX: {
     animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)',
-    backfaceVisibility: 'visible !important',
+    backfaceVisibility: 'visible',
   },
   flipOutY: {
     animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)',
-    backfaceVisibility: 'visible !important',
+    backfaceVisibility: 'visible',
   },
   lightSpeedInRight: { animationTimingFunction: 'ease-out' },
   lightSpeedInLeft: { animationTimingFunction: 'ease-out' },
@@ -618,37 +624,39 @@ const utilities = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
-const animation = Object.keys(keyframes).reduce((a, b) => {
+const animation = Object.keys(keyframes).reduce<Record<string, string>>((a, b) => {
   a[b] = b;
   if (b.includes('Out')) set(utilities, [b, '@apply print:opacity-0 motion-reduce:opacity-0'], {});
   return a;
 }, {});
 
-const withAnimations = (config) => {
+const withAnimations = (config: TailwindConfig): TailwindConfig => {
+  //
   set(config, 'theme.extend.screens.print.raw', 'print');
   set(config, 'variants.extend.animation', [
-    ...new Set([...(get(config, 'variants.extend.animation') ?? []), 'motion-reduce']),
+    ...new Set([...(get(config, 'variants.extend.animation') || []), 'motion-reduce']),
   ]);
   set(config, 'variants.extend.opacity', [
-    ...new Set([...(get(config, 'variants.extend.opacity') ?? []), 'motion-reduce']),
+    ...new Set([...(get(config, 'variants.extend.opacity') || []), 'motion-reduce']),
   ]);
 
   Object.entries(get(config, 'theme.extend.keyframes', {})).forEach(
-    ([key, value]) => (keyframes[key] = value),
+    ([key, value]) => (keyframes[key] = value as Record<string, CSS.Properties>),
   );
   set(config, 'theme.extend.keyframes', keyframes);
 
   Object.entries(get(config, 'theme.extend.animation', {})).forEach(
-    ([key, value]) => ((animation[key] = value), delete utilities[key]),
+    ([key, value]) => ((animation[key] = value as string), delete utilities[key]),
   );
   set(config, 'theme.extend.animation', animation);
 
   config.plugins = [
-    plugin(({ addUtilities }) =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    plugin(({ addUtilities }: { addUtilities: (u: Record<string, CSS.Properties>) => void }) => {
       addUtilities(
         Object.fromEntries(Object.entries(utilities).map((o) => ((o[0] = `.animate-${o[0]}`), o))),
-      ),
-    ),
+      );
+    }),
     ...config.plugins,
   ];
 
