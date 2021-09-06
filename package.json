@@ -23,7 +23,7 @@
     "@types/lodash.set": "^4.3.6",
     "@types/node": "^16.7.10",
     "@types/tailwindcss": "^2.2.1",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.30.0",
     "csstype": "^3.0.8",
     "esbuild": "^0.12.25",
