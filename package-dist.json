@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
   "repository": "https://github.com/ikcb/animated-tailwindcss.git",
-  "main": "./index.min.js",
+  "main": "index.min.js",
   "scripts": {},
   "dependencies": {
     "lodash.get": "4.4.2",
@@ -22,5 +22,8 @@
     "css",
     "tailwind",
     "tailwindcss"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
 }

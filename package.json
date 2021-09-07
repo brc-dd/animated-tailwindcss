@@ -2,7 +2,6 @@
   "private": true,
   "scripts": {
     "audit:fix": "npx npm-check-updates -u; npm i --package-lock-only; npm audit fix; rm yarn.lock; yarn import; rm package-lock.json",
-    "build": "./build",
     "postinstall": "patch-package",
     "lint:code": "eslint . --ext .ts --fix --ignore-path .gitignore 1>/dev/null",
     "lint:staged": "lint-staged --allow-empty --concurrent 1",
@@ -10,8 +9,8 @@
     "preprettify": "git ls-files '*.js' '*.ts' '*.json' | xargs sed -i ':a;N;$!ba;s/{\\s*\\n/{ /g'",
     "prettify": "prettier --write . --ignore-path .gitignore --loglevel warn",
     "postprettify": "prettier-package-json --write package*.json",
-    "prestart": "yarn build",
-    "start": "func start"
+    "prerelease": "./build",
+    "release": "release-it"
   },
   "peerDependencies": {
     "tailwindcss": "*"
@@ -19,6 +18,7 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@release-it/conventional-changelog": "^3.3.0",
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.set": "^4.3.6",
     "@types/node": "^16.7.10",
@@ -44,6 +44,7 @@
     "prettier": "^2.3.2",
     "prettier-package-json": "^2.6.0",
     "release-it": "^14.11.5",
+    "release-it-yarn-workspaces": "^2.0.1",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
   }
