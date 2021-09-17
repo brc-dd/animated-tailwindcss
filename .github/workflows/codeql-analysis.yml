@@ -1,21 +1,21 @@
-name: CodeQL
+name: Code Quality
 
 on:
   push:
-    branches: [ main ]
-    paths: [ '**/*.js', '**/*.ts', '**/*.tsx' ]
+    branches: [main]
+    paths: ['**/*.js', '**/*.ts', '**/*.tsx']
   pull_request:
-    branches: [ main ]
-    paths: [ '**/*.js', '**/*.ts', '**/*.tsx' ]
+    branches: [main]
+    paths: ['**/*.js', '**/*.ts', '**/*.tsx']
   schedule:
     - cron: '0 0 */7 * *'
   workflow_dispatch:
 
 jobs:
   analyze:
-    name: Analyze
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' || github.actor != 'dependabot[bot]' }}
+
     permissions:
       actions: read
       contents: read
@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript' ]
+        language: ['javascript']
 
     steps:
       - uses: actions/checkout@v2
