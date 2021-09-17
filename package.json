@@ -2,6 +2,9 @@
   "private": true,
   "scripts": {
     "audit:fix": "npx npm-check-updates -u; npm i --package-lock-only; npm audit fix; rm yarn.lock; yarn import; rm package-lock.json",
+    "prebuild": "tsc",
+    "build": "esbuild ./dist/index.js --outfile=./dist/index.min.js --minify",
+    "postbuild": "rm dist/index.js",
     "postinstall": "patch-package",
     "lint:code": "eslint . --ext .ts --fix --ignore-path .gitignore 1>/dev/null",
     "lint:staged": "lint-staged --allow-empty --concurrent 1",

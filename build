@@ -3,9 +3,7 @@
 rm -rf dist
 mkdir dist
 
-npx tsc
-npx esbuild ./dist/index.js --outfile=./dist/index.min.js --minify
-rm dist/index.js
+yarn build
 
 cp .npmignore LICENSE README.md dist
 cp package-dist.json dist/package.json
