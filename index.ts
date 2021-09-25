@@ -1,12 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 import type * as CSS from 'csstype';
-import type { TailwindConfig } from 'tailwindcss/tailwind-config';
+import type { TailwindConfig as StrictTailwindConfig } from 'tailwindcss/tailwind-config';
 
 import get from 'lodash.get';
 import set from 'lodash.set';
 
 // eslint-disable-next-line
 const plugin = require('tailwindcss/plugin');
+
+type TailwindConfig = Partial<StrictTailwindConfig>;
 
 const keyframes: Record<string, Record<string, CSS.Properties>> = {
   bounce: {
@@ -630,14 +632,16 @@ const animation = Object.keys(keyframes).reduce<Record<string, string>>((a, b) =
   return a;
 }, {});
 
-const withAnimations = (config: TailwindConfig): TailwindConfig => {
+const withAnimations = (config: TailwindConfig = {}): TailwindConfig => {
   //
   set(config, 'theme.extend.screens.print.raw', 'print');
+
   set(config, 'variants.extend.animation', [
-    ...new Set([...(get(config, 'variants.extend.animation') || []), 'motion-reduce']),
+    ...new Set([...get(config, 'variants.extend.animation', []), 'motion-reduce']),
   ]);
+
   set(config, 'variants.extend.opacity', [
-    ...new Set([...(get(config, 'variants.extend.opacity') || []), 'motion-reduce']),
+    ...new Set([...get(config, 'variants.extend.opacity', []), 'motion-reduce']),
   ]);
 
   Object.entries(get(config, 'theme.extend.keyframes', {})).forEach(
@@ -650,15 +654,15 @@ const withAnimations = (config: TailwindConfig): TailwindConfig => {
   );
   set(config, 'theme.extend.animation', animation);
 
-  config.plugins = [
+  set(config, 'plugins', [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     plugin(({ addUtilities }: { addUtilities: (u: Record<string, CSS.Properties>) => void }) => {
       addUtilities(
         Object.fromEntries(Object.entries(utilities).map((o) => ((o[0] = `.animate-${o[0]}`), o))),
       );
     }),
-    ...config.plugins,
-  ];
+    ...get(config, 'plugins', []),
+  ]);
 
   return config;
 };
