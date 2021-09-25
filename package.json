@@ -9,7 +9,7 @@
     "preprettify": "git ls-files '*.js' '*.ts' '*.json' | xargs sed -i ':a;N;$!ba;s/{\\s*\\n/{ /g'",
     "prettify": "prettier --write . --ignore-path .gitignore --loglevel warn",
     "postprettify": "prettier-package-json --write package*.json",
-    "prerelease": "./build",
+    "prerelease": "./lint && ./build",
     "release": "release-it"
   },
   "peerDependencies": {
