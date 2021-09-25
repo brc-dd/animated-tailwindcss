@@ -9,8 +9,9 @@ import set from 'lodash.set';
 const plugin = require('tailwindcss/plugin');
 
 type TailwindConfig = Partial<StrictTailwindConfig>;
+type CSSProperties = CSS.Properties & Record<`--${string}`, number | string>;
 
-const keyframes: Record<string, Record<string, CSS.Properties>> = {
+const keyframes: Record<string, Record<string, CSSProperties>> = {
   bounce: {
     'from, 20%, 53%, to': {
       animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
@@ -560,48 +561,41 @@ const keyframes: Record<string, Record<string, CSS.Properties>> = {
   },
 };
 
-const utilities: Record<string, CSS.Properties> = {
+const utilities: Record<string, CSSProperties> = {
   animated: {
+    animationDelay: 'var(--animate-delay, 0s)',
     animationDuration: 'var(--animate-duration, 1s)',
     animationFillMode: 'both',
+    animationIterationCount: 'var(--animate-repeat, 1)',
     // @ts-expect-error Tailwind-style PostCSS JSS property are not recognized by CSSType
     '@apply print:animate-none motion-reduce:animate-none': {},
   },
-  infinite: { animationIterationCount: 'infinite' },
-  'repeat-1': { animationIterationCount: 'var(--animate-repeat, 1)' },
-  'repeat-2': { animationIterationCount: 'calc(var(--animate-repeat, 1) * 2)' },
-  'repeat-3': { animationIterationCount: 'calc(var(--animate-repeat, 1) * 3)' },
-  'delay-1s': { animationDelay: 'var(--animate-delay, 1s)' },
-  'delay-2s': { animationDelay: 'calc(var(--animate-delay, 1s) * 2)' },
-  'delay-3s': { animationDelay: 'calc(var(--animate-delay, 1s) * 3)' },
-  'delay-4s': { animationDelay: 'calc(var(--animate-delay, 1s) * 4)' },
-  'delay-5s': { animationDelay: 'calc(var(--animate-delay, 1s) * 5)' },
-  faster: { animationDuration: 'calc(var(--animate-duration, 1s) / 2)' },
-  fast: { animationDuration: 'calc(var(--animate-duration, 1s) * 0.8)' },
-  slow: { animationDuration: 'calc(var(--animate-duration, 1s) * 2)' },
-  slower: { animationDuration: 'calc(var(--animate-duration, 1s) * 3)' },
+  infinite: { '--animate-repeat': 'infinite' },
+  'repeat-1': { '--animate-repeat': '1' },
+  'repeat-2': { '--animate-repeat': '2' },
+  'repeat-3': { '--animate-repeat': '3' },
+  'delay-1s': { '--animate-delay': '1s' },
+  'delay-2s': { '--animate-delay': '2s' },
+  'delay-3s': { '--animate-delay': '3s' },
+  'delay-4s': { '--animate-delay': '4s' },
+  'delay-5s': { '--animate-delay': '5s' },
+  faster: { '--animate-duration': '0.5s' },
+  fast: { '--animate-duration': '0.8s' },
+  slow: { '--animate-duration': '2s' },
+  slower: { '--animate-duration': '3s' },
   bounce: { transformOrigin: 'center bottom' },
   pulse: { animationTimingFunction: 'ease-in-out' },
   headShake: { animationTimingFunction: 'ease-in-out' },
   swing: { transformOrigin: 'top center' },
   jello: { transformOrigin: 'center' },
-  heartBeat: {
-    animationDuration: 'calc(var(--animate-duration, 1s) * 1.3)',
-    animationTimingFunction: 'ease-in-out',
-  },
-  bounceIn: { animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)' },
-  bounceOut: { animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)' },
+  heartBeat: { '--animate-duration': '1.3s', animationTimingFunction: 'ease-in-out' },
+  bounceIn: { '--animate-duration': '0.75s' },
+  bounceOut: { '--animate-duration': '0.75s' },
   flip: { backfaceVisibility: 'visible' },
   flipInX: { backfaceVisibility: 'visible' },
   flipInY: { backfaceVisibility: 'visible' },
-  flipOutX: {
-    animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)',
-    backfaceVisibility: 'visible',
-  },
-  flipOutY: {
-    animationDuration: 'calc(var(--animate-duration, 1s) * 0.75)',
-    backfaceVisibility: 'visible',
-  },
+  flipOutX: { '--animate-duration': '0.75s', backfaceVisibility: 'visible' },
+  flipOutY: { '--animate-duration': '0.75s', backfaceVisibility: 'visible' },
   lightSpeedInRight: { animationTimingFunction: 'ease-out' },
   lightSpeedInLeft: { animationTimingFunction: 'ease-out' },
   lightSpeedOutRight: { animationTimingFunction: 'ease-in' },
@@ -616,10 +610,7 @@ const utilities: Record<string, CSS.Properties> = {
   rotateOutDownRight: { transformOrigin: 'right bottom' },
   rotateOutUpLeft: { transformOrigin: 'left bottom' },
   rotateOutUpRight: { transformOrigin: 'right bottom' },
-  hinge: {
-    animationDuration: 'calc(var(--animate-duration, 1s) * 2)',
-    transformOrigin: 'top left',
-  },
+  hinge: { '--animate-duration': '2s', transformOrigin: 'top left' },
   zoomOutDown: { transformOrigin: 'center bottom' },
   zoomOutLeft: { transformOrigin: 'left center' },
   zoomOutRight: { transformOrigin: 'right center' },
@@ -645,7 +636,7 @@ const withAnimations = (config: TailwindConfig = {}): TailwindConfig => {
   ]);
 
   Object.entries(get(config, 'theme.extend.keyframes', {})).forEach(
-    ([key, value]) => (keyframes[key] = value as Record<string, CSS.Properties>),
+    ([key, value]) => (keyframes[key] = value as Record<string, CSSProperties>),
   );
   set(config, 'theme.extend.keyframes', keyframes);
 
@@ -656,7 +647,7 @@ const withAnimations = (config: TailwindConfig = {}): TailwindConfig => {
 
   set(config, 'plugins', [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    plugin(({ addUtilities }: { addUtilities: (u: Record<string, CSS.Properties>) => void }) => {
+    plugin(({ addUtilities }: { addUtilities: (u: Record<string, CSSProperties>) => void }) => {
       addUtilities(
         Object.fromEntries(Object.entries(utilities).map((o) => ((o[0] = `.animate-${o[0]}`), o))),
       );
