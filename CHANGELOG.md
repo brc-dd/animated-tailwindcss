@@ -1,3 +1,9 @@
+### [2.2.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.2.0...v2.2.1) (2021-09-25)
+
+### Bug Fixes
+
+- allow empty configurations ([59753eb](https://github.com/ikcb/animated-tailwindcss/commit/59753eb0e93890b23b1e74955c6d896e0b3e235a))
+
 ## [2.2.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.1.2...v2.2.0) (2021-09-07)
 
 ### Features
