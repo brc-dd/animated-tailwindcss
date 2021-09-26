@@ -1,9 +1,9 @@
 {
   "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "editor.formatOnSave": false,
   "eslint.packageManager": "yarn",
-  "eslint.probe": ["typescript"],
-  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" }
+  "eslint.probe": ["typescript"]
 }
