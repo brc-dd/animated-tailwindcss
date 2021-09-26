@@ -4,6 +4,7 @@ import type { TailwindConfig as StrictTailwindConfig } from 'tailwindcss/tailwin
 
 import get from 'lodash.get';
 import set from 'lodash.set';
+import createUtilityPlugin from 'tailwindcss/lib/util/createUtilityPlugin';
 
 // eslint-disable-next-line
 const plugin = require('tailwindcss/plugin');
@@ -588,14 +589,17 @@ const utilities: Record<string, CSSProperties> = {
   headShake: { animationTimingFunction: 'ease-in-out' },
   swing: { transformOrigin: 'top center' },
   jello: { transformOrigin: 'center' },
-  heartBeat: { '--animate-duration': '1.3s', animationTimingFunction: 'ease-in-out' },
-  bounceIn: { '--animate-duration': '0.75s' },
-  bounceOut: { '--animate-duration': '0.75s' },
+  heartBeat: {
+    animationDuration: 'var(--animate-duration, 1.3s)',
+    animationTimingFunction: 'ease-in-out',
+  },
+  bounceIn: { animationDuration: 'var(--animate-duration, 0.75s)' },
+  bounceOut: { animationDuration: 'var(--animate-duration, 0.75s)' },
   flip: { backfaceVisibility: 'visible' },
   flipInX: { backfaceVisibility: 'visible' },
   flipInY: { backfaceVisibility: 'visible' },
-  flipOutX: { '--animate-duration': '0.75s', backfaceVisibility: 'visible' },
-  flipOutY: { '--animate-duration': '0.75s', backfaceVisibility: 'visible' },
+  flipOutX: { animationDuration: 'var(--animate-duration, 0.75s)', backfaceVisibility: 'visible' },
+  flipOutY: { animationDuration: 'var(--animate-duration, 0.75s)', backfaceVisibility: 'visible' },
   lightSpeedInRight: { animationTimingFunction: 'ease-out' },
   lightSpeedInLeft: { animationTimingFunction: 'ease-out' },
   lightSpeedOutRight: { animationTimingFunction: 'ease-in' },
@@ -610,7 +614,7 @@ const utilities: Record<string, CSSProperties> = {
   rotateOutDownRight: { transformOrigin: 'right bottom' },
   rotateOutUpLeft: { transformOrigin: 'left bottom' },
   rotateOutUpRight: { transformOrigin: 'right bottom' },
-  hinge: { '--animate-duration': '2s', transformOrigin: 'top left' },
+  hinge: { animationDuration: 'var(--animate-duration, 2s)', transformOrigin: 'top left' },
   zoomOutDown: { transformOrigin: 'center bottom' },
   zoomOutLeft: { transformOrigin: 'left center' },
   zoomOutRight: { transformOrigin: 'right center' },
@@ -650,18 +654,12 @@ const withAnimations = (
 
   const jitPlugins: Array<unknown> = [];
 
-  if (config.mode === 'jit' && experimental) {
-    // eslint-disable-next-line
-    const createUtilityPlugin = require('tailwindcss/lib/util/createUtilityPlugin');
-
+  if (config.mode === 'jit' && experimental)
     jitPlugins.push(
-      /* eslint-disable @typescript-eslint/no-unsafe-call */
       createUtilityPlugin('animationDelay', [['animate-delay', ['--animate-delay']]]),
       createUtilityPlugin('animationDuration', [['animate-duration', ['--animate-duration']]]),
       createUtilityPlugin('animationIterationCount', [['animate-repeat', ['--animate-repeat']]]),
-      /* eslint-enable */
     );
-  }
 
   set(config, 'plugins', [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
