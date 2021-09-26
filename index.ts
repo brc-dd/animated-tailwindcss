@@ -8,7 +8,7 @@ import set from 'lodash.set';
 // eslint-disable-next-line
 const plugin = require('tailwindcss/plugin');
 
-type TailwindConfig = Partial<StrictTailwindConfig>;
+type TailwindConfig = Partial<StrictTailwindConfig & { mode: 'jit' }>;
 type CSSProperties = CSS.Properties & Record<`--${string}`, number | string>;
 
 const keyframes: Record<string, Record<string, CSSProperties>> = {
@@ -623,7 +623,10 @@ const animation = Object.keys(keyframes).reduce<Record<string, string>>((a, b) =
   return a;
 }, {});
 
-const withAnimations = (config: TailwindConfig = {}): TailwindConfig => {
+const withAnimations = (
+  config: TailwindConfig = {},
+  { experimental = false }: Partial<{ experimental: boolean }> = {},
+): TailwindConfig => {
   //
   set(config, 'theme.extend.screens.print.raw', 'print');
 
@@ -645,6 +648,21 @@ const withAnimations = (config: TailwindConfig = {}): TailwindConfig => {
   );
   set(config, 'theme.extend.animation', animation);
 
+  const jitPlugins: Array<unknown> = [];
+
+  if (config.mode === 'jit' && experimental) {
+    // eslint-disable-next-line
+    const createUtilityPlugin = require('tailwindcss/lib/util/createUtilityPlugin');
+
+    jitPlugins.push(
+      /* eslint-disable @typescript-eslint/no-unsafe-call */
+      createUtilityPlugin('animationDelay', [['animate-delay', ['--animate-delay']]]),
+      createUtilityPlugin('animationDuration', [['animate-duration', ['--animate-duration']]]),
+      createUtilityPlugin('animationIterationCount', [['animate-repeat', ['--animate-repeat']]]),
+      /* eslint-enable */
+    );
+  }
+
   set(config, 'plugins', [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     plugin(({ addUtilities }: { addUtilities: (u: Record<string, CSSProperties>) => void }) => {
@@ -652,6 +670,7 @@ const withAnimations = (config: TailwindConfig = {}): TailwindConfig => {
         Object.fromEntries(Object.entries(utilities).map((o) => ((o[0] = `.animate-${o[0]}`), o))),
       );
     }),
+    ...jitPlugins,
     ...get(config, 'plugins', []),
   ]);
 

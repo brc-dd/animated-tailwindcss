@@ -86,7 +86,6 @@
     "comma-spacing": "off",
     "default-param-last": "off",
     "dot-notation": "off",
-    "eslint-comments/disable-enable-pair": "off",
     "eslint-comments/no-unlimited-disable": "off",
     "eslint-comments/no-unused-disable": "error",
     "func-call-spacing": "off",
