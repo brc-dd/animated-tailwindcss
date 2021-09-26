@@ -1,4 +1,5 @@
 {
+  "root": true,
   "env": { "node": true },
   "extends": [
     "plugin:eslint-comments/recommended",
@@ -15,7 +16,8 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "ecmaVersion": "latest", "project": "tsconfig.json", "sourceType": "module" },
   "plugins": ["@typescript-eslint", "simple-import-sort", "prettier"],
-  "root": true,
+  "settings": { "import/parsers": { "@typescript-eslint/parser": [".ts"] } },
+
   "rules": {
     "@typescript-eslint/array-type": ["error", { "default": "generic" }],
     "@typescript-eslint/ban-tslint-comment": "error",
@@ -80,21 +82,33 @@
     "@typescript-eslint/switch-exhaustiveness-check": "error",
     "@typescript-eslint/type-annotation-spacing": "error",
     "@typescript-eslint/unified-signatures": "error",
-    "brace-style": "off",
-    "camelcase": "off",
-    "comma-dangle": "off",
-    "comma-spacing": "off",
-    "default-param-last": "off",
-    "dot-notation": "off",
+
     "eslint-comments/no-unlimited-disable": "off",
     "eslint-comments/no-unused-disable": "error",
-    "func-call-spacing": "off",
+
     "import/no-extraneous-dependencies": [
       "error",
       { "devDependencies": true, "peerDependencies": true }
     ],
     "import/order": "off",
     "import/prefer-default-export": "off",
+
+    "security/detect-object-injection": "off",
+
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      { "groups": [["^.*\\u0000$"], ["^\\u0000"], ["^@?\\w"], ["^"], ["^\\."]] }
+    ],
+
+    // conflicting rules
+    "brace-style": "off",
+    "camelcase": "off",
+    "comma-dangle": "off",
+    "comma-spacing": "off",
+    "default-param-last": "off",
+    "dot-notation": "off",
+    "func-call-spacing": "off",
     "init-declarations": "off",
     "keyword-spacing": "off",
     "lines-between-class-members": "off",
@@ -118,13 +132,6 @@
     "object-curly-spacing": "off",
     "quotes": "off",
     "semi": "off",
-    "security/detect-object-injection": "off",
-    "simple-import-sort/exports": "error",
-    "simple-import-sort/imports": [
-      "error",
-      { "groups": [["^.*\\u0000$"], ["^\\u0000"], ["^@?\\w"], ["^"], ["^\\."]] }
-    ],
     "space-infix-ops": "off"
-  },
-  "settings": { "import/parsers": { "@typescript-eslint/parser": [".ts"] } }
+  }
 }

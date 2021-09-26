@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "module": "commonjs",
-    "moduleResolution": "node",
     "noImplicitAny": true,
     "outDir": "dist",
     "rootDir": ".",
