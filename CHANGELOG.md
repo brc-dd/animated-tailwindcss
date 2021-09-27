@@ -1,3 +1,9 @@
+### [2.3.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.3.0...v2.3.1) (2021-09-27)
+
+### Bug Fixes
+
+- broken config for tw v1 ([0bda19d](https://github.com/ikcb/animated-tailwindcss/commit/0bda19d242ab0ff1bbac6f36eb7fd143778d8a56))
+
 ## [2.3.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.2.1...v2.3.0) (2021-09-27)
 
 ### Features
