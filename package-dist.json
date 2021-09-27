@@ -12,7 +12,7 @@
     "lodash.set": "4.3.2"
   },
   "peerDependencies": {
-    "tailwindcss": "*"
+    "tailwindcss": ">=1.2.0"
   },
   "keywords": [
     "animate.css",

@@ -13,7 +13,7 @@
     "release": "release-it"
   },
   "peerDependencies": {
-    "tailwindcss": "*"
+    "tailwindcss": ">=1.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
