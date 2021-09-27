@@ -1,6 +1,6 @@
 {
   "name": "animated-tailwindcss",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "A configuration to use Animate.css with Tailwind CSS",
   "license": "MIT",
   "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
