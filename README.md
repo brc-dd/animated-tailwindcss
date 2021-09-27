@@ -130,6 +130,8 @@ Refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing)
 
 ### Accessibility
 
+> :warning: This functionality is currently broken. A fix is on its way.
+
 The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS. The configuration also adds [`print`](https://tailwindcss.com/docs/breakpoints#styling-for-print) breakpoint for you.
 
 ### Removing Unused Keyframes

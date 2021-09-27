@@ -569,7 +569,7 @@ const utilities: Record<string, CSSProperties> = {
     animationDuration: 'var(--animate-duration, 1s)',
     animationFillMode: 'both',
     animationIterationCount: 'var(--animate-repeat, 1)',
-    '@apply print:animate-none motion-reduce:animate-none': {},
+    // '@apply print:animate-none motion-reduce:animate-none': {},
   },
   infinite: { '--animate-repeat': 'infinite' },
   'repeat-1': { '--animate-repeat': '1' },
@@ -623,7 +623,7 @@ const utilities: Record<string, CSSProperties> = {
 
 const animation = Object.keys(keyframes).reduce<Record<string, string>>((a, b) => {
   a[b] = b;
-  if (b.includes('Out')) set(utilities, [b, '@apply print:opacity-0 motion-reduce:opacity-0'], {});
+  // if (b.includes('Out')) set(utilities, [b, '@apply print:opacity-0 motion-reduce:opacity-0'], {});
   return a;
 }, {});
 
