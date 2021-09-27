@@ -68,9 +68,9 @@ module.exports = require('animated-tailwindcss')();
 
 ## Getting Started
 
-After proper configuration, you can use the classes of Animate.css just like you use that of Tailwind CSS.
+After proper config, you can use the classes of Animate.css just like you use that of Tailwind CSS.
 
-**Note that you'll need to reference the classes as `.animate-...` instead of `.animate__...`**.
+**Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`**.
 
 ### Example (Basic Usage)
 
@@ -80,11 +80,49 @@ After proper configuration, you can use the classes of Animate.css just like you
 
 Please refer to the [Animate.css docs](https://animate.style/) to learn about the available classes.
 
+### Experimental Arbitrary Value Support
+
+#### Configuration
+
+Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode and then modify your `tailwind.config.js`:
+
+```js
+const withAnimations = require('animated-tailwindcss');
+
+module.exports = withAnimations(
+  {
+    mode: 'jit',
+    purge: [
+      // ...
+    ],
+    theme: {
+      // ...
+    },
+    // ...
+  },
+  { experimental: true },
+);
+```
+
+After configuration, you'll be able to customize `animation-delay`, `animation-duration`, `animation-iteration-count`:
+
+```html
+<div class="... animate-delay-[300ms] animate-duration-[5s] animate-repeat-[5] ...">...</div>
+```
+
+- **This feature is currently in preview.** Preview features are not covered by semantic versioning, and some details may change as we continue to refine them.
+
+- Please try to [create an issue](https://github.com/ikcb/animated-tailwindcss/issues/new/choose) in case you encounter any bug or version incompatibility. We would also like to hear what more can be done with the package.
+
+- Switching to experimental mode does **NOT** remove the classic Animate.css utility classes like `animate-infinite`, `animate-repeat-1`, `animate-delay-1s`, `animate-faster`. You are free to use them if you wish.
+
+- Also, note that just enabling the JIT mode does **NOT** enable the experimental arbitrary value support provided by this package. You need to explicitly opt-in by passing `{experimental: true}` as second param.
+
 ## Notes
 
-### Using with [Tailwind Intellisense](vscode:extension/bradlc.vscode-tailwindcss)
+### Using with [Tailwind IntelliSense](vscode:extension/bradlc.vscode-tailwindcss)
 
-You don't need to do any additional configuration, Intellisense will automatically detect the animation classes.
+You don't need to do any additional configuration. IntelliSense will automatically detect the animation classes.
 
 ### Custom Animations/Keyframes
 
@@ -110,7 +148,7 @@ This project and everyone participating in it is governed by the [Contributor Co
 
 ## Contributing
 
-Any sort of contributions are welcome here! But please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) while creating PRs.
+All sorts of contributions are welcome here! But please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) while creating PRs.
 
 When you submit code changes, your submissions are understood to be under the same MIT license that covers the project. Feel free to contact the maintainers if that's a concern.
 

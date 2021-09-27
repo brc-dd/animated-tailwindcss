@@ -20,6 +20,7 @@
 
   "rules": {
     "@typescript-eslint/array-type": ["error", { "default": "generic" }],
+    "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/ban-tslint-comment": "error",
     "@typescript-eslint/brace-style": "error",
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],

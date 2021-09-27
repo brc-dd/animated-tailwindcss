@@ -10,7 +10,8 @@ import createUtilityPlugin from 'tailwindcss/lib/util/createUtilityPlugin';
 const plugin = require('tailwindcss/plugin');
 
 type TailwindConfig = Partial<StrictTailwindConfig & { mode: 'jit' }>;
-type CSSProperties = CSS.Properties & Record<`--${string}`, number | string>;
+type CSSProperties = CSS.Properties &
+  (Record<`--${string}`, number | string> | Record<`@apply ${string}`, Record<string, never>>);
 
 const keyframes: Record<string, Record<string, CSSProperties>> = {
   bounce: {
@@ -568,7 +569,6 @@ const utilities: Record<string, CSSProperties> = {
     animationDuration: 'var(--animate-duration, 1s)',
     animationFillMode: 'both',
     animationIterationCount: 'var(--animate-repeat, 1)',
-    // @ts-expect-error Tailwind-style PostCSS JSS property are not recognized by CSSType
     '@apply print:animate-none motion-reduce:animate-none': {},
   },
   infinite: { '--animate-repeat': 'infinite' },
