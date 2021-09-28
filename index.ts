@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-redeclare
 import type * as CSS from 'csstype';
 import type { TailwindConfig as StrictTailwindConfig } from 'tailwindcss/tailwind-config';
 
