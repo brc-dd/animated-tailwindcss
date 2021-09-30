@@ -6,7 +6,7 @@
   <a href="https://github.com/tailwindlabs/tailwindcss">Tailwind CSS</a>.
   <br />
   <br />
-  <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1"></a>
+  <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
     <img src="https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square" />
   </a>
   <a href="https://www.npmjs.com/package/animated-tailwindcss">
@@ -156,8 +156,8 @@ When you submit code changes, your submissions are understood to be under the sa
 
 ## Credits
 
-- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities and keyframes &ndash; used under [the MIT license](https://github.com/animate-css/animate.css/blob/main/LICENSE).
-- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to JSS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
+- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities and keyframes &ndash; used under [Hippocratic License](https://github.com/animate-css/animate.css/blob/main/LICENSE).
+- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to CSS-in-JS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
 
 ## Contributors
 
