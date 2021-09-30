@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "module": "commonjs",
     "noImplicitAny": true,
     "outDir": "dist",
-    "rootDir": ".",
+    "paths": { "@/*": ["*"] },
+    "rootDir": "src",
     "strict": true,
     "target": "es5"
   }

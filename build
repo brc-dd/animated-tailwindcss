@@ -3,7 +3,6 @@ set -e
 
 yarn
 rm -rf dist || :
-mkdir dist
 
 npx tsc
 npx esbuild ./dist/index.js --outfile=./dist/index.min.js --minify
