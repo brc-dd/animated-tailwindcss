@@ -55,4 +55,4 @@ const utilities: CSSBlock = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
-export default utilities;
+export = utilities;

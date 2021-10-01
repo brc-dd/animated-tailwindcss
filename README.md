@@ -112,7 +112,7 @@ After configuration, you'll be able to customize `animation-delay`, `animation-d
 
 - **This feature is currently in preview.** Preview features are not covered by semantic versioning, and some details may change as we continue to refine them.
 
-- Please try to [create an issue](https://github.com/ikcb/animated-tailwindcss/issues/new/choose) in case you encounter any bug or version incompatibility. We would also like to hear what more can be done with the package.
+- Please [create an issue](https://github.com/ikcb/animated-tailwindcss/issues/new/choose) in case you encounter any bug or face version incompatibility. We would also like to hear your feedback on what more can be done.
 
 - Switching to experimental mode does **NOT** remove the classic Animate.css utility classes like `animate-infinite`, `animate-repeat-1`, `animate-delay-1s`, `animate-faster`. You are free to use them if you wish.
 

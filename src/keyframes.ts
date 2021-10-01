@@ -548,4 +548,4 @@ const keyframes: Keyframes = {
   },
 };
 
-export default keyframes;
+export = keyframes;
