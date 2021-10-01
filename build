@@ -1,12 +1,23 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 yarn
 rm -rf dist || :
 
 npx tsc
-npx esbuild ./dist/index.js --outfile=./dist/index.min.js --minify
-rm dist/index.js
+sed -i 's/require("@\//require(".\//g' dist/index.js
+
+npx esbuild ./dist/index.js \
+  --bundle \
+  --external:lodash* \
+  --external:tailwindcss \
+  --minify \
+  --outfile=./dist/index.min.js \
+  --platform=node \
+  --target=es5
+
+shopt -s extglob
+rm ./dist/!(*.!(js))
 
 cp .npmignore LICENSE README.md dist
 cp package-dist.json dist/package.json
