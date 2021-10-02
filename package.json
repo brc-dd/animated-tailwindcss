@@ -2,14 +2,18 @@
   "private": true,
   "scripts": {
     "audit:fix": "npx npm-check-updates -u; npm i --package-lock-only; npm audit fix; rm yarn.lock; yarn import; rm package-lock.json",
+    "prebuild": "ttsc",
+    "build": "NODE_OPTIONS='--unhandled-rejections=strict' ts-node --skip-project build.ts",
     "postinstall": "patch-package",
-    "lint:code": "eslint . --ext .ts --fix --ignore-path .gitignore 1>/dev/null",
+    "prelint": "yarn prettify",
+    "lint": "eslint . --ext .ts --fix --ignore-path .gitignore 1>/dev/null",
+    "postlint": "[ -z \"$(git status --porcelain)\" ]",
     "lint:staged": "lint-staged --allow-empty --concurrent 1",
     "prepare": "husky install",
     "preprettify": "git ls-files '*.js' '*.ts' '*.json' | xargs sed -i ':a;N;$!ba;s/{\\s*\\n/{ /g'",
     "prettify": "prettier --write . --ignore-path .gitignore --loglevel warn",
     "postprettify": "prettier-package-json --write package*.json",
-    "prerelease": "./lint && ./build",
+    "prerelease": "yarn lint && yarn build",
     "release": "release-it"
   },
   "peerDependencies": {
@@ -25,6 +29,7 @@
     "@types/tailwindcss": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
+    "@zerollup/ts-transform-paths": "^1.7.18",
     "csstype": "^3.0.9",
     "esbuild": "^0.13.3",
     "eslint": "^7.32.0",
@@ -44,6 +49,8 @@
     "prettier-package-json": "^2.6.0",
     "release-it": "^14.11.6",
     "release-it-yarn-workspaces": "^2.0.1",
+    "ts-node": "^10.2.1",
+    "ttypescript": "^1.5.12",
     "typescript": "^4.4.3"
   }
 }

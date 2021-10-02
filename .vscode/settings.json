@@ -5,5 +5,6 @@
   "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "editor.formatOnSave": false,
   "eslint.packageManager": "yarn",
-  "eslint.probe": ["typescript"]
+  "eslint.probe": ["typescript"],
+  "typescript.tsdk": "node_modules/ttypescript/lib"
 }
