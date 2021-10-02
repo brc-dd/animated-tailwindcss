@@ -8,8 +8,10 @@
     "noImplicitAny": true,
     "outDir": "dist",
     "paths": { "@/*": ["*"] },
+    "plugins": [{ "transform": "@zerollup/ts-transform-paths" }],
     "rootDir": "src",
     "strict": true,
     "target": "es5"
-  }
+  },
+  "exclude": ["build.ts"]
 }

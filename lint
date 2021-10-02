@@ -1,8 +1,0 @@
-#!/bin/bash
-set -e
-
-yarn
-yarn prettify
-yarn lint:code
-
-[ -z "$(git status --porcelain)" ]
