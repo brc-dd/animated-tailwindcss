@@ -1,3 +1,9 @@
+### [2.3.2](https://github.com/ikcb/animated-tailwindcss/compare/v2.3.1...v2.3.2) (2021-10-02)
+
+### Bug Fixes
+
+- major refactor ([#36](https://github.com/ikcb/animated-tailwindcss/issues/36)) ([5e535da](https://github.com/ikcb/animated-tailwindcss/commit/5e535da80dbb682f5daaf9004e5a0e6033dcf340))
+
 ### [2.3.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.3.0...v2.3.1) (2021-09-27)
 
 ### Bug Fixes
