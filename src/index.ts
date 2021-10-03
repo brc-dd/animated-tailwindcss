@@ -7,8 +7,6 @@ import createPlugin from 'tailwindcss/plugin';
 import keyframes from '@/keyframes';
 import utilities from '@/utilities';
 
-// overrides tailwind animations
-
 const withAnimations: Main = (config = {}, { experimental = false } = {}) => {
   // keyframes
   const configKeyframes: typeof keyframes = get(config, 'theme.extend.keyframes', {});
@@ -21,6 +19,10 @@ const withAnimations: Main = (config = {}, { experimental = false } = {}) => {
   set(config, 'theme.animation', { ...animation, ...configAnimations });
 
   // utilities
+  Object.keys(animation).forEach((key) => {
+    if (key.includes('Out')) set(utilities, [key, '--animate-opacity'], '0');
+  });
+
   const prefixed = Object.fromEntries(
     Object.entries(utilities).flatMap(([k, v]) =>
       configAnimations[k] ? [] : [[`.animate-${k}`, v]],

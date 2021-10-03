@@ -7,6 +7,7 @@ const utilities: CSSBlock = {
     '@media print, (prefers-reduced-motion: reduce)': {
       '--animate-duration': '1ms',
       '--animate-repeat': '1',
+      opacity: 'var(--animate-opacity)',
     },
   },
   infinite: { '--animate-repeat': 'infinite' },
@@ -61,8 +62,8 @@ const utilities: CSSBlock = {
   rotateOutUpRight: { transformOrigin: 'right bottom' },
   hinge: {
     animationDuration: 'var(--animate-duration, 2s)',
-    transformOrigin: 'top left',
     animationTimingFunction: 'ease-in-out',
+    transformOrigin: 'top left',
   },
   zoomOutDown: { transformOrigin: 'center bottom' },
   zoomOutLeft: { transformOrigin: 'left center' },
