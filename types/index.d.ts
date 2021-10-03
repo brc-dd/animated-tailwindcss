@@ -12,7 +12,7 @@ declare module 'tailwindcss/plugin' {
 type TailwindConfig =
   | Partial<import('tailwindcss/tailwind-config').TailwindConfig> & { mode?: 'jit' };
 
-type CSSBlock = Record<string, CSSProperties>;
+type CSSBlock = Record<string, CSSProperties | Record<string, CSSProperties>>;
 
 type CSSExtensions =
   | Record<`--${string}`, number | string>

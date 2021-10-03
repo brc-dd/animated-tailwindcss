@@ -7,16 +7,18 @@ import createPlugin from 'tailwindcss/plugin';
 import keyframes from '@/keyframes';
 import utilities from '@/utilities';
 
+// overrides tailwind animations
+
 const withAnimations: Main = (config = {}, { experimental = false } = {}) => {
   // keyframes
   const configKeyframes: typeof keyframes = get(config, 'theme.extend.keyframes', {});
-  set(config, 'theme.extend.keyframes', { ...keyframes, ...configKeyframes });
+  set(config, 'theme.keyframes', { ...keyframes, ...configKeyframes });
 
   // animation
   const animation = Object.fromEntries(Object.keys(keyframes).map((k) => [k, k]));
   const configAnimations: typeof animation = get(config, 'theme.extend.animation', {});
 
-  set(config, 'theme.extend.animation', { ...animation, ...configAnimations });
+  set(config, 'theme.animation', { ...animation, ...configAnimations });
 
   // utilities
   const prefixed = Object.fromEntries(
