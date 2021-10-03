@@ -1,31 +1,7 @@
-Add accessibility support
 Add examples
 Add tests
   basic -- just check the generated files
   advanced -- unit tests to ensure that the package actually works
 Improve npm package ratings
 Write medium article
-Fix issues with Animate.css
-
-
----
-
-const plugin = require('tailwindcss/plugin');
-const withAnimations = require('animated-tailwindcss');
-
-module.exports = withAnimations({
-  variants: { animation: ['motion-reduce'] },
-  plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        '.animate-animated': {
-          '@media print, (prefers-reduced-motion: reduce)': {
-            '--animate-duration': '1ms',
-            '--animate-repeat': '1',
-          },
-        },
-        '.animate-foo': { '@media print, (prefers-reduced-motion: reduce)': { opacity: '0' } },
-      });
-    }),
-  ],
-});
+Better type definitions and declaration emitting with package
