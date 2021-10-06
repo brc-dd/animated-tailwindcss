@@ -68,9 +68,11 @@ module.exports = require('animated-tailwindcss')();
 
 ## Getting Started
 
-After proper config, you can use the classes of Animate.css just like you use that of Tailwind CSS. For compatibility reasons, the builtin animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
+After proper config, you can use the classes of Animate.css just like you use that of Tailwind CSS.
 
-**Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`**.
+**Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`**
+
+**Also for compatibility reasons, the builtin animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts)**.
 
 ### Example (Basic Usage)
 
@@ -84,7 +86,7 @@ Please refer [this page](https://ikcb.org/animated-tailwindcss) to learn about t
 
 #### Configuration
 
-Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode (enabled in Tailwind CSS v3 by default) and then modify your `tailwind.config.js`:
+Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode (enabled in Tailwind CSS v3 by default), and then modify your `tailwind.config.js`:
 
 ```js
 const withAnimations = require('animated-tailwindcss');
@@ -132,12 +134,12 @@ Refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing)
 
 The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS.
 
-**Details:**
+#### Details
 
 If a user prefers reduced motion (or if in print preview mode) -
 
-- All _exit_ classes will be transparent and hidden. They will also be removed from the accessibility tree.
-- All animations will complete instantly and won't repeat, unless you mark duration/iteration as important.
+- All elements having _exit_ animations will be transparent. They will also be hidden from the accessibility tree.
+- All animations will complete instantly and will not repeat, unless you mark duration/iteration as important.
 
 ### Removing Unused Keyframes
 
