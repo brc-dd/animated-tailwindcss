@@ -68,23 +68,23 @@ module.exports = require('animated-tailwindcss')();
 
 ## Getting Started
 
-After proper config, you can use the classes of Animate.css just like you use that of Tailwind CSS.
+After proper config, you can use the classes of Animate.css just like you use that of Tailwind CSS. For compatibility reasons, the builtin animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
 
 **Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`**.
 
 ### Example (Basic Usage)
 
 ```html
-<h1 class="animate-animated animate-infinite animate-bounce">Bouncing Element</h1>
+<h1 class="animate-bounce animate-animated animate-infinite">Bouncing Heading</h1>
 ```
 
-Please refer to the [Animate.css docs](https://animate.style/) to learn about the available classes.
+Please refer [this page](https://ikcb.org/animated-tailwindcss) to learn about the available classes.
 
 ### Experimental Arbitrary Value Support
 
 #### Configuration
 
-Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode and then modify your `tailwind.config.js`:
+Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode (enabled in Tailwind CSS v3 by default) and then modify your `tailwind.config.js`:
 
 ```js
 const withAnimations = require('animated-tailwindcss');
@@ -130,13 +130,22 @@ Refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing)
 
 ### Accessibility
 
-> :warning: This functionality is currently broken. A fix is on its way.
+The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS.
 
-The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS. The configuration also adds [`print`](https://tailwindcss.com/docs/breakpoints#styling-for-print) breakpoint for you.
+**Details:**
+
+If a user prefers reduced motion (or if in print preview mode) -
+
+- All _exit_ classes will be transparent and hidden. They will also be removed from the accessibility tree.
+- All animations will complete instantly and won't repeat, unless you mark duration/iteration as important.
 
 ### Removing Unused Keyframes
 
 Please refer: [Optimizing for Production - Tailwind CSS](https://tailwindcss.com/docs/optimizing-for-production#removing-unused-keyframes). (Won't be necessary in JIT mode.)
+
+### Disclaimer
+
+The animation classes this package provides are similar but not exactly same as the Animate.css utilities. We have done some cleaning up and provided you with better accessibility and more consistent animations.
 
 ---
 
@@ -158,9 +167,10 @@ When you submit code changes, your submissions are understood to be under the sa
 
 - [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [Hippocratic License 2.1](https://github.com/animate-css/animate.css/blob/main/LICENSE).
 - [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to CSS-in-JS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
+- [daisyUI](https://github.com/saadeghi/daisyui) &ndash; used to quickly prototype the docs/demo page &ndash; used under [the MIT license](https://github.com/saadeghi/daisyui/blob/master/LICENSE).
 
 ## Contributors
 
-| ![Divyansh Singh](https://avatars1.githubusercontent.com/u/40380293?v=4&s=100) |
-| :----------------------------------------------------------------------------: |
-|            [Divyansh Singh](https://github.com/brc-dd) <br> Author             |
+| ![Divyansh Singh](https://avatars1.githubusercontent.com/u/40380293?v=4&s=100) | ![Akash Tureha](https://avatars1.githubusercontent.com/u/72198360?v=4&s=100) |
+| :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
+|           [Divyansh Singh](https://github.com/brc-dd) <br /> Author            |     [Akash Tureha](https://github.com/MrMischievousX) <br /> Contributor     |
