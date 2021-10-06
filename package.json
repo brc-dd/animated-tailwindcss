@@ -16,9 +16,6 @@
     "prerelease": "yarn lint && yarn build",
     "release": "release-it"
   },
-  "peerDependencies": {
-    "tailwindcss": ">=1.2.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",

@@ -1,7 +1,0 @@
-Add examples
-Add tests
-  basic -- just check the generated files
-  advanced -- unit tests to ensure that the package actually works
-Improve npm package ratings
-Write medium article
-Better type definitions and declaration emitting with package
