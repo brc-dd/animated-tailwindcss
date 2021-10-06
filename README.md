@@ -72,7 +72,7 @@ After proper config, you can use the classes of Animate.css just like you use th
 
 **Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`**
 
-**Also for compatibility reasons, the builtin animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts)**.
+**Also, for compatibility reasons, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts)**.
 
 ### Example (Basic Usage)
 
@@ -147,7 +147,7 @@ Please refer: [Optimizing for Production - Tailwind CSS](https://tailwindcss.com
 
 ### Disclaimer
 
-The animation classes this package provides are similar but not exactly same as the Animate.css utilities. We have done some cleaning up and provided you with better accessibility and more consistent animations.
+The animation classes this package provides are similar but not the same as the Animate.css utilities. We have done some cleaning up and provided you with better accessibility and more consistent animations.
 
 ---
 
@@ -157,7 +157,7 @@ This configuration is licensed under [the MIT license](LICENSE).
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [contact@ikcb.org](mailto:contact@ikcb.org).
+This project and everyone participating in it are governed by the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [contact@ikcb.org](mailto:contact@ikcb.org).
 
 ## Contributing
 
