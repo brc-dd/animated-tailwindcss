@@ -86,7 +86,7 @@ Please refer [this page](https://ikcb.org/animated-tailwindcss) to learn about t
 
 #### Configuration
 
-Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode (enabled in Tailwind CSS v3 by default), and then modify your `tailwind.config.js`:
+Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode (enabled in Tailwind CSS v3 by default), and then modify your config file:
 
 ```js
 const withAnimations = require('animated-tailwindcss');
