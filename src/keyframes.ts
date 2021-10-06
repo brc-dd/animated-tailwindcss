@@ -324,7 +324,6 @@ const keyframes: Keyframes = {
   zoomInUp: {
     from: {
       animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-      opacity: 0,
       transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, 100vw, 0)',
     },
     '60%': {
