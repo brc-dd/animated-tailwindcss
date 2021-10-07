@@ -34,12 +34,9 @@ void esBuild({
     copyFiles('package-dist.json', 'package.json');
 
     // merge type declarations
+    const data = readFileSync(join(__dirname, 'dist', 'index.d.ts'));
     const fd = openSync(join(__dirname, 'dist', 'index.d.ts'), 'w+');
-    writeSync(
-      fd,
-      `${readFileSync(join(__dirname, 'types', 'base.d.ts'))}
-      ${readFileSync(join(__dirname, 'dist', 'index.d.ts'))}`.replace(/\s+$/g, '\n'),
-    );
+    writeSync(fd, `${readFileSync(join(__dirname, 'types', 'base.d.ts'))}\n${data}`);
     closeSync(fd);
 
     //
