@@ -1,5 +1,13 @@
 import { build as esBuild } from 'esbuild';
-import { copyFileSync, readdirSync, unlinkSync } from 'fs';
+import {
+  closeSync,
+  copyFileSync,
+  openSync,
+  readdirSync,
+  readFileSync,
+  unlinkSync,
+  writeSync,
+} from 'fs';
 import { join } from 'path';
 
 const copyFiles = (src: string, dest = src): void => {
@@ -18,13 +26,23 @@ void esBuild({
   target: 'es5',
 })
   .then(() => {
-    const files = readdirSync(join(__dirname, 'dist'));
-    files.forEach((file) => {
-      if (file !== 'index.min.js') unlinkSync(join(__dirname, 'dist', file));
+    readdirSync(join(__dirname, 'dist')).forEach((file) => {
+      if (!/^index(\.min\.js|\.d\.ts)$/.test(file)) unlinkSync(join(__dirname, 'dist', file));
     });
 
     copyFiles('.npmignore LICENSE README.md');
     copyFiles('package-dist.json', 'package.json');
+
+    // merge type declarations
+    const fd = openSync(join(__dirname, 'dist', 'index.d.ts'), 'w+');
+    writeSync(
+      fd,
+      `${readFileSync(join(__dirname, 'types', 'base.d.ts'))}
+      ${readFileSync(join(__dirname, 'dist', 'index.d.ts'))}`.replace(/\s+$/g, '\n'),
+    );
+    closeSync(fd);
+
+    //
   })
   .catch((err) => {
     console.error(err);

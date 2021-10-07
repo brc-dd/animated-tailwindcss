@@ -1,20 +1,31 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "animated-tailwindcss",
   "version": "2.3.2",
   "description": "A configuration to use Animate.css with Tailwind CSS",
   "license": "MIT",
   "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
-  "repository": "https://github.com/ikcb/animated-tailwindcss",
+  "contributors": [
+    "Akash Tureha <2020kucp1138@iiitkota.ac.in> (https://github.com/MrMischievousX)"
+  ],
+  "homepage": "https://ikcb.org/animated-tailwindcss",
+  "repository": "github:ikcb/animated-tailwindcss",
+  "bugs": {
+    "url": "https://github.com/ikcb/animated-tailwindcss/issues",
+    "email": "codebase@iiitkota.ac.in"
+  },
   "main": "index.min.js",
   "files": [
     "*.js"
   ],
-  "scripts": {},
+  "types": "index.d.ts",
   "dependencies": {
-    "lodash.get": "4.4.2",
-    "lodash.set": "4.3.2"
+    "csstype": "^3.0.9",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
   },
   "peerDependencies": {
+    "postcss": ">=7.0.0",
     "tailwindcss": ">=1.6.0"
   },
   "keywords": [
@@ -26,6 +37,9 @@
     "tailwind",
     "tailwindcss"
   ],
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   }

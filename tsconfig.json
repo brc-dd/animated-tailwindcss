@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": "src",
+    "declaration": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
     "module": "commonjs",
@@ -13,5 +14,5 @@
     "strict": true,
     "target": "es5"
   },
-  "exclude": ["build.ts"]
+  "exclude": ["build.ts", "dist/**/*"]
 }

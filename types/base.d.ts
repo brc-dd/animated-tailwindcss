@@ -1,5 +1,8 @@
 // https://github.com/tailwindlabs/play.tailwindcss.com/tree/master/src/monaco/ *.d.ts
 
+import type * as CSS from 'csstype';
+import type * as postcss from 'postcss';
+
 type KeyValuePair<TKey extends keyof never = string, TValue = string> = Record<TKey, TValue>;
 
 type ConfigUtils = {
@@ -278,7 +281,7 @@ type PluginAPI = {
   addVariant: (
     name: string,
     generator: (api: {
-      container: import('postcss').Container;
+      container: postcss.Container;
       separator: string;
       modifySelectors: (
         modifierFunction: (api: { className: string; selector: string }) => void,
@@ -299,7 +302,7 @@ type PluginAPI = {
 
   corePlugins: (path: string) => boolean;
 
-  postcss: typeof import('postcss');
+  postcss: typeof postcss;
 };
 
 type PluginCreator = (api: PluginAPI) => void;
@@ -324,18 +327,8 @@ type TailwindConfig = Partial<
     }
 >;
 
-// ====================================== additional types ====================================== //
+type CSSProperties = CSS.Properties & Record<`--${string}`, string>;
 
-type CSSProperties = Record<`--${string}`, string> & import('csstype').Properties;
 type CSSBlock = Record<string, CSSProperties | Record<string, CSSProperties>>;
-type Keyframes = Record<string, Record<string, CSSProperties>>;
+
 type EntryPoint = (config: TailwindConfig, _: { experimental?: boolean }) => TailwindConfig;
-
-declare module 'tailwindcss/lib/util/createUtilityPlugin' {
-  const createUtilityPlugin: (
-    themeKey: string,
-    utilityVariations?: Array<unknown>,
-  ) => PluginCreator;
-
-  export = createUtilityPlugin;
-}
