@@ -16,7 +16,7 @@
   },
   "main": "index.min.js",
   "files": [
-    "*.js"
+    "index.d.ts"
   ],
   "types": "index.d.ts",
   "dependencies": {
