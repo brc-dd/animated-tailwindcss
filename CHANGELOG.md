@@ -1,3 +1,9 @@
+### [2.4.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.4.0...v2.4.1) (2021-10-07)
+
+### Bug Fixes
+
+- add definitions to files array ([1abee81](https://github.com/ikcb/animated-tailwindcss/commit/1abee810764fb88ec02f6d095883bd6c4b36b9d7))
+
 ## [2.4.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.3.2...v2.4.0) (2021-10-07)
 
 ### Features
