@@ -1,3 +1,16 @@
+## [2.4.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.3.2...v2.4.0) (2021-10-07)
+
+### Features
+
+- add accessibility support ([#40](https://github.com/ikcb/animated-tailwindcss/issues/40)) ([3cfef1e](https://github.com/ikcb/animated-tailwindcss/commit/3cfef1ea161c4de2c41f8713cd93d777eae0c506))
+- better type definitions ([#47](https://github.com/ikcb/animated-tailwindcss/issues/47)) ([8901c3c](https://github.com/ikcb/animated-tailwindcss/commit/8901c3cf90041afcecbfeee5d0b97f0366b3083d))
+- bundle along type definitions ([#48](https://github.com/ikcb/animated-tailwindcss/issues/48)) ([3e32e56](https://github.com/ikcb/animated-tailwindcss/commit/3e32e56f62ab91f416157cd9ad494333fd5d4bdc))
+
+### Bug Fixes
+
+- partial animate.css refactor ([#39](https://github.com/ikcb/animated-tailwindcss/issues/39)) ([75d3217](https://github.com/ikcb/animated-tailwindcss/commit/75d3217e819ffb3ec078450f71a74233a27b510b))
+- restore accessibility support and improve docs ([#46](https://github.com/ikcb/animated-tailwindcss/issues/46)) ([30154a2](https://github.com/ikcb/animated-tailwindcss/commit/30154a223a26a8567f0f71668beea32ec1704b6f))
+
 ### [2.3.2](https://github.com/ikcb/animated-tailwindcss/compare/v2.3.1...v2.3.2) (2021-10-02)
 
 ### Bug Fixes
