@@ -1,3 +1,9 @@
+### [2.4.2](https://github.com/ikcb/animated-tailwindcss/compare/v2.4.1...v2.4.2) (2021-10-07)
+
+### Bug Fixes
+
+- missing exports in index.d.ts ([1051c2e](https://github.com/ikcb/animated-tailwindcss/commit/1051c2ec74ed75e00fcdf03ff2ef70063f8e235c))
+
 ### [2.4.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.4.0...v2.4.1) (2021-10-07)
 
 ### Bug Fixes
