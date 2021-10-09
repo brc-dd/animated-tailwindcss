@@ -1,0 +1,15 @@
+{
+  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "editor.formatOnSave": false,
+  "editor.wordWrap": "on",
+  "eslint.packageManager": "yarn",
+  "eslint.probe": ["typescript", "typescriptreact"],
+  "files.associations": { ".browserslistrc": "ini" },
+  "headwind.classRegex": { "scss": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);" },
+  "scss.validate": false,
+  "stylelint.enable": true
+}

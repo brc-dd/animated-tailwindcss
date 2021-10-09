@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-sass-guidelines"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": [
+      true,
+      { "ignoreAtRules": ["tailwind", "apply", "layer", "variants", "responsive", "screen"] }
+    ],
+    "max-nesting-depth": [2, { "ignore": ["blockless-at-rules", "pseudo-classes"] }]
+  }
+}

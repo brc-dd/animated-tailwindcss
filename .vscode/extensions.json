@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "cssho.vscode-svgviewer",
+    "dbaeumer.vscode-eslint",
+    "dotjoshjohnson.xml",
+    "dsznajder.es7-react-js-snippets",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "heybourn.headwind",
+    "mikestead.dotenv",
+    "ms-vscode.vscode-typescript-next",
+    "streetsidesoftware.code-spell-checker",
+    "visualstudioexptteam.vscodeintellicode",
+    "wayou.vscode-todo-highlight",
+    "zengxingxin.sort-js-object-keys",
+    "stylelint.vscode-stylelint"
+  ]
+}

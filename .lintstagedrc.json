@@ -1,0 +1,6 @@
+{
+  "*": "prettier --write --ignore-unknown",
+  "package*.json": "prettier-package-json --write",
+  "*.{ts,tsx}": "eslint --fix --max-warnings 0",
+  "*.scss": "stylelint --syntax=scss --fix"
+}
