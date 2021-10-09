@@ -7,6 +7,7 @@ const AnimationItem: React.FC<AnimationItemProps> = ({ name, stateHandler }) => 
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard: React.MouseEventHandler = async (e) => {
+    e.preventDefault();
     e.stopPropagation();
     await navigator.clipboard.writeText(`animate-${name}`);
     setCopied(true);

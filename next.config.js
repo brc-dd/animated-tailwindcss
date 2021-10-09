@@ -26,6 +26,7 @@ module.exports = {
   optimizeFonts: false,
   poweredByHeader: false,
   reactStrictMode: true,
+  trailingSlash: true,
 
   webpack(config, { isServer }) {
     const rules = config.module.rules
