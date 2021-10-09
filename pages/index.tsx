@@ -3,7 +3,6 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import Home from '@components/Home';
-import Preload from '@components/Preload';
 
 const IndexPage: NextPage = () => (
   <>
@@ -16,8 +15,6 @@ const IndexPage: NextPage = () => (
         content="animated-tailwindcss is a package that brings Animate.css classes to Tailwind CSS"
         name="description"
       />
-
-      <Preload font="quicksand-latin-variable-wghtOnly-normal" />
     </Head>
     <Home />
   </>

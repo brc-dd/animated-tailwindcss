@@ -4,6 +4,7 @@
     "audit:fix": "npx npm-check-updates -u; npm i --package-lock-only; npm audit fix; rm yarn.lock; yarn import; rm package-lock.json",
     "build": "next build",
     "dev": "next dev",
+    "export": "next export",
     "postinstall": "patch-package",
     "prelint": "yarn prettify",
     "lint": "yarn lint:code && yarn lint:styles",

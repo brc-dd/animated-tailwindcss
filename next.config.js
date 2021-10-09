@@ -1,6 +1,8 @@
 const path = require('path');
 const loaderUtils = require('loader-utils');
 
+const basePath = process.env.NODE_ENV === 'production' ? '/animated-tailwindcss' : '';
+
 const hashOnlyIdent = (context, _, exportName) =>
   loaderUtils
     .getHashDigest(
@@ -17,8 +19,10 @@ const hashOnlyIdent = (context, _, exportName) =>
 
 /** @type {import('next').NextConfig} */
 module.exports = {
+  assetPrefix: `${basePath}/`,
+  basePath,
+  env: { BASE_PATH: basePath },
   experimental: { esmExternals: 'loose' },
-  i18n: { locales: ['en-US'], defaultLocale: 'en-US' },
   optimizeFonts: false,
   poweredByHeader: false,
   reactStrictMode: true,
