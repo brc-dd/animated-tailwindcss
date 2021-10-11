@@ -136,7 +136,7 @@ The configuration handles the accessibility in a similar way to Animate.css. Alt
 
 #### Details
 
-If a user prefers reduced motion (or if in print preview mode) -
+If a user prefers reduced motion (or is in print preview mode) -
 
 - All elements having _exit_ animations will be transparent. They will also be hidden from the accessibility tree.
 - All animations will complete instantly and will not repeat, unless you mark duration/iteration as important.
