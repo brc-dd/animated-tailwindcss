@@ -68,7 +68,7 @@ module.exports = require('animated-tailwindcss')();
 
 ## Getting Started
 
-After proper config, you can use the classes of Animate.css just like you use that of Tailwind CSS.
+After proper config, you can use the classes of Animate.css the same way as you use those of Tailwind CSS.
 
 Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`
 
@@ -118,7 +118,7 @@ After configuration, you'll be able to customize `animation-delay`, `animation-d
 
 - Switching to experimental mode does not remove the classic Animate.css utility classes like `animate-infinite`, `animate-repeat-1`, `animate-delay-1s`, `animate-faster`. You are free to use them if you wish.
 
-- Also, note that just enabling the JIT mode does not enable the experimental arbitrary value support provided by this package. You need to explicitly opt-in by passing `{experimental: true}` as second param.
+- Also, note that only enabling the JIT mode does not enable the experimental arbitrary value support provided by this package. You need to explicitly opt-in by passing `{experimental: true}` as second param.
 
 ## Notes
 
