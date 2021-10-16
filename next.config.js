@@ -21,7 +21,6 @@ const hashOnlyIdent = (context, _, exportName) =>
 module.exports = {
   assetPrefix: `${basePath}/`,
   basePath,
-  env: { BASE_PATH: basePath },
   experimental: { esmExternals: 'loose' },
   optimizeFonts: false,
   poweredByHeader: false,

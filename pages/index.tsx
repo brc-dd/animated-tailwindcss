@@ -16,6 +16,7 @@ const IndexPage: NextPage = () => (
         content="animated-tailwindcss is a package that brings Animate.css classes to Tailwind CSS"
         name="description"
       />
+      <link href="favicon.ico" rel="icon" />
       <Preload font="quicksand-latin-variable-wghtOnly-normal" />
     </Head>
     <Home />
