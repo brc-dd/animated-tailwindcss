@@ -15,6 +15,7 @@ const Home: React.FC = () => {
       <input className="drawer-toggle" id="sidebar" type="checkbox" />
       <div className="flex flex-col justify-center items-center drawer-content">
         <a
+          aria-label="Animated-TailwindCSS on GitHub"
           className="absolute top-4 left-4 w-8 h-8 transition duration-500 text-base-content hover:scale-125"
           href="https://github.com/ikcb/animated-tailwindcss"
           rel="noopener noreferrer"
