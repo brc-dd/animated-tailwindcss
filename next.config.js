@@ -29,22 +29,29 @@ module.exports = {
   trailingSlash: true,
 
   webpack(config, { isServer }) {
-    const rules = config.module.rules
-      .find((rule) => typeof rule.oneOf === 'object')
-      .oneOf.filter((rule) => Array.isArray(rule.use));
+    const rules = config.module.rules.find((rule) => typeof rule.oneOf === 'object').oneOf;
 
-    rules.forEach((rule) => {
-      rule.use.forEach((moduleLoader) => {
-        if (
-          moduleLoader.loader?.includes('css-loader') &&
-          !moduleLoader.loader?.includes('postcss-loader')
-        )
-          moduleLoader.options.modules.getLocalIdent = hashOnlyIdent;
-
-        if (moduleLoader.loader?.includes('resolve-url-loader'))
-          moduleLoader.options.sourceMap = false;
+    rules
+      .filter((rule) => typeof rule.use === 'object')
+      .forEach(({ use: moduleLoader }) => {
+        if (moduleLoader.loader?.includes('file-loader'))
+          moduleLoader.options.name = 'static/media/[name].[ext]';
       });
-    });
+
+    rules
+      .filter((rule) => Array.isArray(rule.use))
+      .forEach((rule) => {
+        rule.use.forEach((moduleLoader) => {
+          if (
+            moduleLoader.loader?.includes('css-loader') &&
+            !moduleLoader.loader?.includes('postcss-loader')
+          )
+            moduleLoader.options.modules.getLocalIdent = hashOnlyIdent;
+
+          if (moduleLoader.loader?.includes('resolve-url-loader'))
+            moduleLoader.options.sourceMap = false;
+        });
+      });
 
     if (!isServer) {
       const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
