@@ -25,13 +25,15 @@ const AnimationItem: React.FC<AnimationItemProps> = ({ name, stateHandler }) => 
   return (
     <li>
       <Link href="/">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           className="justify-between menu-item group active:!bg-neutral active:focus-within:!bg-opacity-10 active:focus-within:!text-current"
+          href="#"
           onClick={clickHandler}
         >
           {name}
           <button
+            aria-label={copied ? 'copied!' : 'click to copy'}
             className="tooltip tooltip-left"
             data-tip={copied ? 'copied!' : 'click to copy'}
             type="button"
