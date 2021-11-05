@@ -77,36 +77,44 @@ const keyframes: Keyframes = {
     '70%': { transform: 'scale3d(1, 1, 1)' },
   },
   backInDown: {
-    from: { transform: 'translate3d(0, -1000px, 0) scale3d(0, 0, 1)' },
+    from: {
+      transform: 'translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0) scale3d(0, 0, 1)',
+    },
     '80%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
   },
   backInLeft: {
-    from: { transform: 'translate3d(-2000px, 0, 0) scale3d(0, 0, 1)' },
+    from: {
+      transform: 'translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0) scale3d(0, 0, 1)',
+    },
     '80%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
   },
   backInRight: {
-    from: { transform: 'translate3d(2000px, 0, 0) scale3d(0, 0, 1)' },
+    from: { transform: 'translate3d(var(--animate-distance, 2000px), 0, 0) scale3d(0, 0, 1)' },
     '80%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
   },
   backInUp: {
-    from: { transform: 'translate3d(0, 1000px, 0) scale3d(0, 0, 1)' },
+    from: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0) scale3d(0, 0, 1)' },
     '80%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
   },
   backOutDown: {
     '20%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
-    to: { transform: 'translate3d(0, 1000px, 0) scale3d(0, 0, 1)' },
+    to: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0) scale3d(0, 0, 1)' },
   },
   backOutLeft: {
     '20%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
-    to: { transform: 'translate3d(-2000px, 0, 0) scale3d(0, 0, 1)' },
+    to: {
+      transform: 'translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0) scale3d(0, 0, 1)',
+    },
   },
   backOutRight: {
     '20%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
-    to: { transform: 'translate3d(2000px, 0, 0) scale3d(0, 0, 1)' },
+    to: { transform: 'translate3d(var(--animate-distance, 2000px), 0, 0) scale3d(0, 0, 1)' },
   },
   backOutUp: {
     '20%': { opacity: '0.7', transform: 'translate3d(0, 0, 0) scale3d(0.7, 0.7, 1)' },
-    to: { transform: 'translate3d(0, -1000px, 0) scale3d(0, 0, 1)' },
+    to: {
+      transform: 'translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0) scale3d(0, 0, 1)',
+    },
   },
   bounceIn: {
     from: { transform: 'scale3d(0.3, 0.3, 0.3)' },
@@ -116,25 +124,29 @@ const keyframes: Keyframes = {
     '80%': { transform: 'scale3d(0.97, 0.97, 0.97)' },
   },
   bounceInDown: {
-    from: { transform: 'translate3d(0, -1000px, 0) scale3d(1, 3, 1)' },
+    from: {
+      transform: 'translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0) scale3d(1, 3, 1)',
+    },
     '60%': { opacity: '1', transform: 'translate3d(0, 20px, 0) scale3d(1, 0.9, 1)' },
     '75%': { transform: 'translate3d(0, -10px, 0) scale3d(1, 0.95, 1)' },
     '90%': { transform: 'translate3d(0, 5px, 0) scale3d(1, 0.985, 1)' },
   },
   bounceInLeft: {
-    from: { transform: 'translate3d(-2000px, 0, 0) scale3d(3, 1, 1)' },
+    from: {
+      transform: 'translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0) scale3d(3, 1, 1)',
+    },
     '60%': { opacity: '1', transform: 'translate3d(25px, 0, 0) scale3d(1, 1, 1)' },
     '75%': { transform: 'translate3d(-10px, 0, 0) scale3d(1, 0.98, 1)' },
     '90%': { transform: 'translate3d(5px, 0, 0) scale3d(1, 0.995, 1)' },
   },
   bounceInRight: {
-    from: { transform: 'translate3d(2000px, 0, 0) scale3d(3, 1, 1)' },
+    from: { transform: 'translate3d(var(--animate-distance, 2000px), 0, 0) scale3d(3, 1, 1)' },
     '60%': { opacity: '1', transform: 'translate3d(-25px, 0, 0) scale3d(1, 1, 1)' },
     '75%': { transform: 'translate3d(10px, 0, 0) scale3d(1, 0.98, 1)' },
     '90%': { transform: 'translate3d(-5px, 0, 0) scale3d(1, 0.995, 1)' },
   },
   bounceInUp: {
-    from: { transform: 'translate3d(0, 1000px, 0) scale3d(1, 3, 1)' },
+    from: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0) scale3d(1, 3, 1)' },
     '60%': { opacity: '1', transform: 'translate3d(0, -20px, 0) scale3d(1, 0.9, 1)' },
     '75%': { transform: 'translate3d(0, 10px, 0) scale3d(1, 0.95, 1)' },
     '90%': { transform: 'translate3d(0, -5px, 0) scale3d(1, 0.985, 1)' },
@@ -147,43 +159,55 @@ const keyframes: Keyframes = {
   bounceOutDown: {
     '20%': { transform: 'translate3d(0, 10px, 0) scale3d(1, 0.985, 1)' },
     '40%, 45%': { opacity: '1', transform: 'translate3d(0, -20px, 0) scale3d(1, 0.9, 1)' },
-    to: { transform: 'translate3d(0, 1000px, 0) scale3d(1, 3, 1)' },
+    to: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0) scale3d(1, 3, 1)' },
   },
   bounceOutLeft: {
     '20%': { opacity: '1', transform: 'translate3d(20px, 0, 0) scale3d(0.9, 1, 1)' },
-    to: { transform: 'translate3d(-2000px, 0, 0) scale3d(2, 1, 1)' },
+    to: {
+      transform: 'translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0) scale3d(2, 1, 1)',
+    },
   },
   bounceOutRight: {
     '20%': { opacity: '1', transform: 'translate3d(-20px, 0, 0) scale3d(0.9, 1, 1)' },
-    to: { transform: 'translate3d(2000px, 0, 0) scale3d(2, 1, 1)' },
+    to: { transform: 'translate3d(var(--animate-distance, 2000px), 0, 0) scale3d(2, 1, 1)' },
   },
   bounceOutUp: {
     '20%': { transform: 'translate3d(0, -10px, 0) scale3d(1, 0.985, 1)' },
     '40%, 45%': { opacity: '1', transform: 'translate3d(0, 20px, 0) scale3d(1, 0.9, 1)' },
-    to: { transform: 'translate3d(0, -1000px, 0) scale3d(1, 3, 1)' },
+    to: {
+      transform: 'translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0) scale3d(1, 3, 1)',
+    },
   },
   fadeIn: {},
   fadeInDown: { from: { transform: 'translate3d(0, -100%, 0)' } },
-  fadeInDownBig: { from: { transform: 'translate3d(0, -1000px, 0)' } },
+  fadeInDownBig: {
+    from: { transform: 'translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0)' },
+  },
   fadeInLeft: { from: { transform: 'translate3d(-100%, 0, 0)' } },
-  fadeInLeftBig: { from: { transform: 'translate3d(-2000px, 0, 0)' } },
+  fadeInLeftBig: {
+    from: { transform: 'translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0)' },
+  },
   fadeInRight: { from: { transform: 'translate3d(100%, 0, 0)' } },
-  fadeInRightBig: { from: { transform: 'translate3d(2000px, 0, 0)' } },
+  fadeInRightBig: { from: { transform: 'translate3d(var(--animate-distance, 2000px), 0, 0)' } },
   fadeInUp: { from: { transform: 'translate3d(0, 100%, 0)' } },
-  fadeInUpBig: { from: { transform: 'translate3d(0, 1000px, 0)' } },
+  fadeInUpBig: { from: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0)' } },
   fadeInTopLeft: { from: { transform: 'translate3d(-100%, -100%, 0)' } },
   fadeInTopRight: { from: { transform: 'translate3d(100%, -100%, 0)' } },
   fadeInBottomLeft: { from: { transform: 'translate3d(-100%, 100%, 0)' } },
   fadeInBottomRight: { from: { transform: 'translate3d(100%, 100%, 0)' } },
   fadeOut: {},
   fadeOutDown: { to: { transform: 'translate3d(0, 100%, 0)' } },
-  fadeOutDownBig: { to: { transform: 'translate3d(0, 1000px, 0)' } },
+  fadeOutDownBig: { to: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0)' } },
   fadeOutLeft: { to: { transform: 'translate3d(-100%, 0, 0)' } },
-  fadeOutLeftBig: { to: { transform: 'translate3d(-2000px, 0, 0)' } },
+  fadeOutLeftBig: {
+    to: { transform: 'translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0)' },
+  },
   fadeOutRight: { to: { transform: 'translate3d(100%, 0, 0)' } },
-  fadeOutRightBig: { to: { transform: 'translate3d(2000px, 0, 0)' } },
+  fadeOutRightBig: { to: { transform: 'translate3d(var(--animate-distance, 2000px), 0, 0)' } },
   fadeOutUp: { to: { transform: 'translate3d(0, -100%, 0)' } },
-  fadeOutUpBig: { to: { transform: 'translate3d(0, -1000px, 0)' } },
+  fadeOutUpBig: {
+    to: { transform: 'translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0)' },
+  },
   fadeOutTopLeft: { to: { transform: 'translate3d(-100%, -100%, 0)' } },
   fadeOutTopRight: { to: { transform: 'translate3d(100%, -100%, 0)' } },
   fadeOutBottomRight: { to: { transform: 'translate3d(100%, 100%, 0)' } },
@@ -275,7 +299,7 @@ const keyframes: Keyframes = {
   hinge: {
     '20%, 60%': { transform: 'rotate3d(0, 0, 1, 80deg)' },
     '40%, 80%': { opacity: '1', transform: 'rotate3d(0, 0, 1, 60deg)' },
-    to: { transform: 'translate3d(0, 1000px, 0)' },
+    to: { transform: 'translate3d(0, var(--animate-distance, 1000px), 0)' },
   },
   jackInTheBox: {
     from: {
@@ -291,7 +315,8 @@ const keyframes: Keyframes = {
   zoomInDown: {
     from: {
       animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, -2000px, 0)',
+      transform:
+        'scale3d(0.1, 0.1, 0.1) translate3d(0, calc(-1 * var(--animate-distance, 2000px)), 0)',
     },
     '60%': {
       animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
@@ -302,7 +327,8 @@ const keyframes: Keyframes = {
   zoomInLeft: {
     from: {
       animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(-1000px, 0, 0)',
+      transform:
+        'scale3d(0.1, 0.1, 0.1) translate3d(calc(-1 * var(--animate-distance, 1000px)), 0, 0)',
     },
     '60%': {
       animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
@@ -313,7 +339,7 @@ const keyframes: Keyframes = {
   zoomInRight: {
     from: {
       animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(1000px, 0, 0)',
+      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(var(--animate-distance, 1000px), 0, 0)',
     },
     '60%': {
       animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
@@ -324,7 +350,7 @@ const keyframes: Keyframes = {
   zoomInUp: {
     from: {
       animationTimingFunction: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0)',
+      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, var(--animate-distance, 2000px), 0)',
     },
     '60%': {
       animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
@@ -341,16 +367,19 @@ const keyframes: Keyframes = {
     },
     to: {
       animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
-      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0)',
+      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, var(--animate-distance, 1000px), 0)',
     },
   },
   zoomOutLeft: {
     '40%': { opacity: '1', transform: 'scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0)' },
-    to: { transform: 'scale3d(0.1, 0.1, 1) translate3d(-2000px, 0, 0)' },
+    to: {
+      transform:
+        'scale3d(0.1, 0.1, 1) translate3d(calc(-1 * var(--animate-distance, 2000px)), 0, 0)',
+    },
   },
   zoomOutRight: {
     '40%': { opacity: '1', transform: 'scale3d(0.475, 0.475, 0.475) translate3d(-42px, 0, 0)' },
-    to: { transform: 'scale3d(0.1, 0.1, 1) translate3d(2000px, 0, 0)' },
+    to: { transform: 'scale3d(0.1, 0.1, 1) translate3d(var(--animate-distance, 2000px), 0, 0)' },
   },
   zoomOutUp: {
     '40%': {
@@ -360,7 +389,8 @@ const keyframes: Keyframes = {
     },
     to: {
       animationTimingFunction: 'cubic-bezier(0.175, 0.885, 0.32, 1)',
-      transform: 'scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0)',
+      transform:
+        'scale3d(0.1, 0.1, 0.1) translate3d(0, calc(-1 * var(--animate-distance, 1000px)), 0)',
     },
   },
   slideInDown: { from: { transform: 'translate3d(0, -100%, 0)' } },

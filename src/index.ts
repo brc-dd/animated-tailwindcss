@@ -49,7 +49,12 @@ const withAnimations: EntryPoint = (config = {}, { experimental = false } = {}) 
   // jit mode
   if (experimental)
     plugins.push(
-      createUtilityPlugin('animationDelay', [['animate-delay', ['--animate-delay']]]),
+      createUtilityPlugin('animationDelay', [['animate-delay', ['--animate-delay']]], {
+        supportsNegativeValues: true,
+      }),
+      createUtilityPlugin('animationDistance', [['animate-distance', ['--animate-distance']]], {
+        supportsNegativeValues: true,
+      }),
       createUtilityPlugin('animationDuration', [['animate-duration', ['--animate-duration']]]),
       createUtilityPlugin('animationIterationCount', [['animate-repeat', ['--animate-repeat']]]),
     );

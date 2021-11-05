@@ -120,6 +120,8 @@ After configuration, you'll be able to customize `animation-delay`, `animation-d
 
 - Also, note that only enabling the JIT mode does not enable the experimental arbitrary value support provided by this package. You need to explicitly opt-in by passing `{experimental: true}` as second param.
 
+- Since v2.6.0, you can also customize the translating distance of some of the animations using classes like this: `animate-distance-[100px]`.
+
 ## Notes
 
 ### Using with [Tailwind IntelliSense](vscode:extension/bradlc.vscode-tailwindcss)
