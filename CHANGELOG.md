@@ -1,3 +1,9 @@
+## [2.5.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.4.2...v2.5.0) (2021-11-05)
+
+### Bug Fixes
+
+- revert back to magic numbers from viewport units ([796e7c8](https://github.com/ikcb/animated-tailwindcss/commit/796e7c817ba79dbed7135eae3b78a7161230e8ab))
+
 ### [2.4.2](https://github.com/ikcb/animated-tailwindcss/compare/v2.4.1...v2.4.2) (2021-10-07)
 
 ### Bug Fixes

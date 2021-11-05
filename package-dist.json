@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "animated-tailwindcss",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "A configuration to use Animate.css with Tailwind CSS",
   "license": "MIT",
   "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
