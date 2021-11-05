@@ -1,3 +1,9 @@
+## [2.6.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.5.0...v2.6.0) (2021-11-05)
+
+### Features
+
+- allow translating-distance customization ([bf84dd4](https://github.com/ikcb/animated-tailwindcss/commit/bf84dd49e605c81a6d4899e5c3eac50a1cc768cc))
+
 ## [2.5.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.4.2...v2.5.0) (2021-11-05)
 
 ### Bug Fixes
