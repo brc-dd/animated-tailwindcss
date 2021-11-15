@@ -44,7 +44,7 @@
     "postcss": "^8.3.11",
     "prettier": "^2.4.1",
     "prettier-package-json": "^2.6.0",
-    "release-it": "^14.11.6",
+    "release-it": "^14.11.7",
     "release-it-yarn-workspaces": "^2.0.1",
     "ts-node": "^10.4.0",
     "ttypescript": "^1.5.12",
