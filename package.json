@@ -41,7 +41,7 @@
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "patch-package": "^6.4.7",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.1",
     "prettier": "^2.4.1",
     "prettier-package-json": "^2.6.0",
     "release-it": "^14.11.8",
