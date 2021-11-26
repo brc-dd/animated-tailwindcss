@@ -48,6 +48,6 @@
     "release-it-yarn-workspaces": "^2.0.1",
     "ts-node": "^10.4.0",
     "ttypescript": "^1.5.13",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   }
 }
