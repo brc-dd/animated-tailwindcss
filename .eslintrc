@@ -88,10 +88,7 @@
     "eslint-comments/no-unlimited-disable": "off",
     "eslint-comments/no-unused-disable": "error",
 
-    "import/no-extraneous-dependencies": [
-      "error",
-      { "devDependencies": true, "peerDependencies": true }
-    ],
+    "import/no-extraneous-dependencies": "off",
     "import/order": "off",
     "import/prefer-default-export": "off",
 
