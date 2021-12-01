@@ -26,7 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "csstype": "^3.0.10",
-    "esbuild": "^0.14.0",
+    "esbuild": "^0.14.1",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^16.0.0",
