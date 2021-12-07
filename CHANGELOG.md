@@ -1,3 +1,9 @@
+### [2.6.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.6.0...v2.6.1) (2021-12-07)
+
+### Bug Fixes
+
+- add tailwind alpha range in peer deps ([79c9329](https://github.com/ikcb/animated-tailwindcss/commit/79c932915e52d0c2107173a5a65b5cb22eb25dea))
+
 ## [2.6.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.5.0...v2.6.0) (2021-11-05)
 
 ### Features
