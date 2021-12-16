@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches: [main]
-    paths: ['**/*.js', '**/*.json', '**/*.ts', 'scripts/**']
+    paths: ['**/*.js', '**/*.json', '**/*.ts', 'scripts/**', '**/*.yml']
   pull_request:
     branches: [main]
   schedule:
