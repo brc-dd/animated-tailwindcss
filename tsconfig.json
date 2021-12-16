@@ -3,19 +3,20 @@
     "allowJs": false,
     "baseUrl": "src",
     "declaration": true,
-    "downlevelIteration": true,
     "esModuleInterop": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2019", "es2020.promise", "es2020.bigint", "es2020.string"],
     "module": "commonjs",
-    "noImplicitAny": true,
     "outDir": "dist",
     "paths": { "@/*": ["*"] },
     "plugins": [
       { "transform": "typescript-transform-paths" },
       { "transform": "typescript-transform-paths", "afterDeclarations": true }
     ],
-    "rootDir": "src",
+    "skipLibCheck": true,
     "strict": true,
-    "target": "es5"
+    "target": "es2019"
   },
-  "exclude": ["build.ts", "dist/**/*"]
+  "exclude": ["build.ts", "dist"]
 }

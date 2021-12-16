@@ -1,20 +1,34 @@
 import get from 'lodash.get';
 import set from 'lodash.set';
 
-import createUtilityPlugin from 'tailwindcss/lib/util/createUtilityPlugin';
-
 import keyframes from '@/keyframes';
 import utilities from '@/utilities';
 
-const withAnimations: EntryPoint = (config = {}, { experimental = false } = {}) => {
-  // animation
-  const animation: KeyValuePair = Object.fromEntries(Object.keys(keyframes).map((k) => [k, k]));
-  const configAnimations: KeyValuePair = get(config, ['theme', 'extend', 'animation'], {});
+const withAnimations: EntryPoint = (config = {}) => {
+  // animations
+  const animations: KeyValuePair = Object.fromEntries(
+    Object.keys(keyframes).map((k) => [
+      k,
+      `${(utilities[k].animationDuration as string | undefined) || '1s'}
+      ${(utilities[k].animationTimingFunction as string | undefined) || ''}
+      both ${k}`.replace(/\s+/g, ' '),
+    ]),
+  );
 
-  set(config, ['theme', 'animation'], { ...animation, ...configAnimations });
+  const configAnimations = get(config, ['theme', 'extend', 'animation'], {}) as KeyValuePair;
+
+  set(config, ['theme', 'animation'], { ...animations, ...configAnimations });
 
   // patches
-  Object.keys(animation).forEach((key) => {
+  const motionQuery = '@media print, (prefers-reduced-motion: reduce)';
+
+  Object.keys(animations).forEach((key) => {
+    set(utilities, [key, motionQuery], {
+      animationDelay: '0s!important',
+      animationDuration: '1ms!important',
+      animationIterationCount: '1!important',
+    });
+
     if (key.includes('In')) {
       if (!key.includes('slide')) set(keyframes, [key, 'from', 'opacity'], '0');
       set(keyframes, [key, 'from', 'visibility'], 'visible');
@@ -23,43 +37,50 @@ const withAnimations: EntryPoint = (config = {}, { experimental = false } = {}) 
     if (key.includes('Out')) {
       if (!key.includes('slide')) set(keyframes, [key, 'to', 'opacity'], '0');
       set(keyframes, [key, 'to', 'visibility'], 'hidden');
-      set(utilities, [key, '--animate-opacity'], '0');
+      set(utilities, [key, motionQuery, 'opacity'], '0');
     }
   });
 
   // keyframes
-  const configKeyframes: Keyframes = get(config, ['theme', 'extend', 'keyframes'], {});
+  const configKeyframes = get(config, ['theme', 'extend', 'keyframes'], {}) as Keyframes;
+
   set(config, 'theme.keyframes', { ...keyframes, ...configKeyframes });
 
   // utilities
   const prefixed: CSSBlock = Object.fromEntries(
-    Object.entries(utilities).flatMap(([k, v]) =>
-      configAnimations[k] ? [] : [[`.animate-${k}`, v]],
-    ),
+    Object.entries(utilities).flatMap(([animation, block]) => {
+      if (animation in configAnimations) return [];
+
+      const filtered: CSSBlock[string] = Object.fromEntries(
+        Object.entries(block).filter(([key]) => !key.startsWith('animation')),
+      );
+
+      return Object.keys(filtered).length > 0 ? [[`.animate-${animation}`, filtered]] : [];
+    }),
   );
 
   // plugins
-  const plugins: PluginsConfig = [];
+  const plugins: PluginsConfig = [
+    // static utilities
+    ({ addUtilities }): void => {
+      addUtilities(prefixed);
+    },
+
+    // dynamic utilities
+    ({ matchUtilities }): void => {
+      matchUtilities<string>({
+        'animate-delay': (value) => ({ animationDelay: value }),
+        'animate-distance': (value) => ({ '--animate-distance': value }),
+        'animate-duration': (value) => ({ animationDuration: value }),
+        'animate-repeat': (value) => ({ animationIterationCount: value }),
+      });
+    },
+  ];
+
   const configPlugins: PluginsConfig = get(config, ['plugins'], []);
 
-  plugins.push(({ addUtilities }) => {
-    addUtilities(prefixed);
-  });
-
-  // jit mode
-  if (experimental)
-    plugins.push(
-      createUtilityPlugin('animationDelay', [['animate-delay', ['--animate-delay']]], {
-        supportsNegativeValues: true,
-      }),
-      createUtilityPlugin('animationDistance', [['animate-distance', ['--animate-distance']]], {
-        supportsNegativeValues: true,
-      }),
-      createUtilityPlugin('animationDuration', [['animate-duration', ['--animate-duration']]]),
-      createUtilityPlugin('animationIterationCount', [['animate-repeat', ['--animate-repeat']]]),
-    );
-
   set(config, 'plugins', [...plugins, ...configPlugins]);
+
   return config;
 };
 

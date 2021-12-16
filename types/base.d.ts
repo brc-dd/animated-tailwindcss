@@ -5,6 +5,10 @@ import type * as postcss from 'postcss';
 
 type KeyValuePair<TKey extends keyof never = string, TValue = string> = Record<TKey, TValue>;
 
+type CSSProperties = CSS.Properties & Record<`--${string}`, string>;
+
+type CSSBlock = Record<string, CSSProperties | Record<string, CSSProperties>>;
+
 type ConfigUtils = {
   negative: <TInput, TOutput>(input: TInput) => TOutput;
   breakpoints: <TInput, TOutput>(input: TInput) => TOutput;
@@ -290,7 +294,7 @@ type PluginAPI = {
   ) => void;
 
   matchUtilities: <T>(
-    utilities: Record<string, (value: T) => unknown>,
+    utilities: Record<string, (value: T) => CSSBlock[string]>,
     options?: Partial<{
       values: Record<string, T>;
       type: Array<ValueType> | ValueType;
@@ -327,8 +331,4 @@ type TailwindConfig = Partial<
     }
 >;
 
-type CSSProperties = CSS.Properties & Record<`--${string}`, string>;
-
-type CSSBlock = Record<string, CSSProperties | Record<string, CSSProperties>>;
-
-type EntryPoint = (config: TailwindConfig, _: { experimental?: boolean }) => TailwindConfig;
+type EntryPoint = (config: TailwindConfig) => TailwindConfig;

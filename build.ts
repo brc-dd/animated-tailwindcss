@@ -23,7 +23,7 @@ void esBuild({
   minify: true,
   outfile: 'dist/index.min.js',
   platform: 'node',
-  target: 'es5',
+  target: 'es2019',
 })
   .then(() => {
     readdirSync(join(__dirname, 'dist')).forEach((file) => {

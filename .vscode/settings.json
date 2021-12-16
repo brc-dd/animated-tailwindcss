@@ -1,10 +1,13 @@
 {
-  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[ignore,shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
+  "eslint.nodePath": ".yarn/sdks",
   "eslint.packageManager": "yarn",
   "eslint.probe": ["typescript"],
-  "typescript.tsdk": "node_modules/ttypescript/lib"
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "search.exclude": { "**/.yarn": true, "**/.pnp.*": true },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": ".yarn/sdks/typescript/lib"
 }
