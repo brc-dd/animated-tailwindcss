@@ -50,3 +50,7 @@ jobs:
           node-version: '16'
           cache: 'yarn'
       - run: scripts/build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: animated-tailwindcss
+          path: dist
