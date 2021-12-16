@@ -9,14 +9,13 @@ const withAnimations: EntryPoint = (config = {}) => {
   const animations: KeyValuePair = Object.fromEntries(
     Object.keys(keyframes).map((k) => [
       k,
-      `${(utilities[k].animationDuration as string | undefined) || '1s'}
-      ${(utilities[k].animationTimingFunction as string | undefined) || ''}
+      `${(utilities[k] as CSSProperties | undefined)?.animationDuration || '1s'}
+      ${(utilities[k] as CSSProperties | undefined)?.animationTimingFunction || ''}
       both ${k}`.replace(/\s+/g, ' '),
     ]),
   );
 
   const configAnimations = get(config, ['theme', 'extend', 'animation'], {}) as KeyValuePair;
-
   set(config, ['theme', 'animation'], { ...animations, ...configAnimations });
 
   // patches
@@ -43,7 +42,6 @@ const withAnimations: EntryPoint = (config = {}) => {
 
   // keyframes
   const configKeyframes = get(config, ['theme', 'extend', 'keyframes'], {}) as Keyframes;
-
   set(config, 'theme.keyframes', { ...keyframes, ...configKeyframes });
 
   // utilities
@@ -78,7 +76,6 @@ const withAnimations: EntryPoint = (config = {}) => {
   ];
 
   const configPlugins: PluginsConfig = get(config, ['plugins'], []);
-
   set(config, 'plugins', [...plugins, ...configPlugins]);
 
   return config;
