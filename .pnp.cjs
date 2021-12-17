@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.7.0"],
             ["@typescript-eslint/parser", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.7.0"],
+            ["conventional-changelog-conventionalcommits", "npm:4.6.1"],
             ["csstype", "npm:3.0.10"],
             ["esbuild", "npm:0.14.5"],
             ["eslint", "npm:8.4.1"],
@@ -61,6 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier-package-json", "npm:2.6.0"],
             ["release-it", "npm:14.11.8"],
             ["release-it-yarn-workspaces", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.1"],
+            ["semver", "npm:7.3.5"],
             ["ts-node", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:10.4.0"],
             ["ttypescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:1.5.13"],
             ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"],
@@ -619,15 +621,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@release-it/conventional-changelog", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.3.0"],
             ["@types/release-it", null],
+            ["@types/semver", null],
             ["concat-stream", "npm:2.0.0"],
             ["conventional-changelog", "npm:3.1.24"],
             ["conventional-recommended-bump", "npm:6.1.0"],
             ["prepend-file", "npm:2.0.0"],
-            ["release-it", "npm:14.11.8"]
+            ["release-it", "npm:14.11.8"],
+            ["semver", "npm:7.3.5"]
           ],
           "packagePeers": [
             "@types/release-it",
-            "release-it"
+            "@types/semver",
+            "release-it",
+            "semver"
           ],
           "linkType": "HARD",
         }]
@@ -1780,7 +1786,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["conventional-changelog-conventionalcommits", [
         ["npm:4.6.1", {
-          "packageLocation": "./.yarn/cache/conventional-changelog-conventionalcommits-npm-4.6.1-030ed159a8-f866616c8f.zip/node_modules/conventional-changelog-conventionalcommits/",
+          "packageLocation": "./.yarn/unplugged/conventional-changelog-conventionalcommits-npm-4.6.1-030ed159a8/node_modules/conventional-changelog-conventionalcommits/",
           "packageDependencies": [
             ["conventional-changelog-conventionalcommits", "npm:4.6.1"],
             ["compare-func", "npm:2.0.0"],
@@ -5886,6 +5892,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:17.0.0"],
             ["@typescript-eslint/eslint-plugin", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.7.0"],
             ["@typescript-eslint/parser", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.7.0"],
+            ["conventional-changelog-conventionalcommits", "npm:4.6.1"],
             ["csstype", "npm:3.0.10"],
             ["esbuild", "npm:0.14.5"],
             ["eslint", "npm:8.4.1"],
@@ -5904,6 +5911,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier-package-json", "npm:2.6.0"],
             ["release-it", "npm:14.11.8"],
             ["release-it-yarn-workspaces", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.1"],
+            ["semver", "npm:7.3.5"],
             ["ts-node", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:10.4.0"],
             ["ttypescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:1.5.13"],
             ["typescript", "patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"],

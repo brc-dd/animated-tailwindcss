@@ -15,6 +15,7 @@
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "conventional-changelog-conventionalcommits": "latest",
     "csstype": "latest",
     "esbuild": "latest",
     "eslint": "latest",
@@ -33,10 +34,16 @@
     "prettier-package-json": "latest",
     "release-it": "latest",
     "release-it-yarn-workspaces": "latest",
+    "semver": "latest",
     "ts-node": "latest",
     "ttypescript": "latest",
     "typescript": "latest",
     "typescript-transform-paths": "latest"
+  },
+  "dependenciesMeta": {
+    "conventional-changelog-conventionalcommits@4.6.1": {
+      "unplugged": true
+    }
   },
   "packageManager": "yarn@3.1.1"
 }
