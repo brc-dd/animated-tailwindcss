@@ -1,3 +1,13 @@
+## [3.0.0-rc.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.6.1...v3.0.0-rc.0) (2021-12-17)
+
+### Features
+
+- **major refactor:** switch to stable matchUtilities API ([38cc2a4](https://github.com/ikcb/animated-tailwindcss/commit/38cc2a4f8c66e39d929b19db855a38f711ca8795))
+
+### Bug Fixes
+
+- **regression:** change direct access to optional chaining ([5f18fb4](https://github.com/ikcb/animated-tailwindcss/commit/5f18fb455776bc184daa6579284323e7fa9f63f4))
+
 ### [2.6.1](https://github.com/ikcb/animated-tailwindcss/compare/v2.6.0...v2.6.1) (2021-12-07)
 
 ### Bug Fixes
