@@ -11,6 +11,7 @@
   </a>
   <a href="https://www.npmjs.com/package/animated-tailwindcss">
     <img src="https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square" />
+    <img src="https://img.shields.io/npm/dm/animated-tailwindcss?logo=npm&style=flat-square" />
   </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square" />
