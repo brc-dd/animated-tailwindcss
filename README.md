@@ -30,10 +30,10 @@
 In a project where you're using Tailwind CSS v3, run the following command:
 
 ```sh
-npm i -D animated-tailwindcss@latest
+npm i -D animated-tailwindcss@rc
 
 # or if using yarn
-yarn add -D animated-tailwindcss@latest
+yarn add -D animated-tailwindcss@rc
 ```
 
 Now configure your `tailwind.config.js` to use the animations:
