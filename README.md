@@ -22,17 +22,20 @@
 
 ---
 
+> This documentation is for the upcoming `animated-tailwindcss` v3. Refer [this](https://www.npmjs.com/package/animated-tailwindcss/v/2.6.1) for v2. [**Breaking Changes** in v3.](#upgrade-guide)
+
 ## Installation
 
-In a project using Tailwind CSS, run the following command:
+In a project where you're using Tailwind CSS v3, run the following command:
 
 ```sh
-npm install -D animated-tailwindcss
+npm i -D animated-tailwindcss@latest
+
 # or if using yarn
-yarn add -D animated-tailwindcss
+yarn add -D animated-tailwindcss@latest
 ```
 
-Now configure your `tailwind.config.js` (create one by following the instructions [given here](https://tailwindcss.com/docs/configuration#creating-your-configuration-file)) to use the animations:
+Now configure your `tailwind.config.js` to use the animations:
 
 ```js
 const withAnimations = require('animated-tailwindcss');
@@ -51,105 +54,115 @@ module.exports = withAnimations({
 const withAnimations = require('animated-tailwindcss');
 
 module.exports = withAnimations({
-  purge: [],
-  darkMode: false,
+  content: [],
   theme: { extend: {} },
   variants: { extend: {} },
   plugins: [],
 });
-
-/* ------------------------------------------------- */
-
-// BTW the smallest possible one is:
-module.exports = require('animated-tailwindcss')();
 ```
 
 </details>
 
 ## Getting Started
 
-After proper config, you can use the classes of Animate.css the same way as you use those of Tailwind CSS.
+After proper config, you can use the animations of Animate.css [the same way as you use those of Tailwind CSS](https://tailwindcss.com/docs/animation).
 
-Note that you will need to reference the classes as `.animate-...` instead of `.animate__...`
+If you are coming from classical Animate.css, please note that you need to reference the classes as `.animate-...` instead of `.animate__...`.
 
 Also, for compatibility reasons, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
 
 ### Example (Basic Usage)
 
 ```html
-<h1 class="animate-bounce animate-animated animate-infinite">Bouncing Heading</h1>
+<h1 class="animate-bounce animate-repeat-[infinite]">Bouncing Heading</h1>
 ```
 
-Please refer [this page](https://ikcb.org/animated-tailwindcss) to learn about the available classes.
+Please refer to [our demo page](https://ikcb.org/animated-tailwindcss) to see the available classes in action.
 
-### Experimental Arbitrary Value Support
+### Arbitrary Value Support
 
-#### Configuration
-
-Follow the [official guide](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) to enable JIT mode (enabled in Tailwind CSS v3 by default), and then modify your config file:
-
-```js
-const withAnimations = require('animated-tailwindcss');
-
-module.exports = withAnimations(
-  {
-    mode: 'jit',
-    purge: [
-      // ...
-    ],
-    theme: {
-      // ...
-    },
-    // ...
-  },
-  { experimental: true },
-);
-```
-
-After configuration, you'll be able to customize `animation-delay`, `animation-duration`, `animation-iteration-count`:
+You can customize `animation-delay`, `animation-duration`, `animation-iteration-count`:
 
 ```html
 <div class="... animate-delay-[300ms] animate-duration-[5s] animate-repeat-[5] ...">...</div>
 ```
 
-- This feature is currently in preview. Preview features are not covered by semantic versioning, and some details may change as we continue to refine them.
-
-- Please [create an issue](https://github.com/ikcb/animated-tailwindcss/issues/new/choose) in case you encounter any bug or face version incompatibility. We would also like to hear your feedback on what more can be done.
-
-- Switching to experimental mode does not remove the classic Animate.css utility classes like `animate-infinite`, `animate-repeat-1`, `animate-delay-1s`, `animate-faster`. You are free to use them if you wish.
-
-- Also, note that only enabling the JIT mode does not enable the experimental arbitrary value support provided by this package. You need to explicitly opt-in by passing `{experimental: true}` as second param.
-
-- Since v2.6.0, you can also customize the translating distance of some of the animations using classes like this: `animate-distance-[100px]`.
+Also, refer [the official Tailwind CSS documentation on using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values).
 
 ## Notes
 
-### Using with [Tailwind IntelliSense](vscode:extension/bradlc.vscode-tailwindcss)
+### Using with [Tailwind CSS IntelliSense](vscode:extension/bradlc.vscode-tailwindcss)
 
-You don't need to do any additional configuration. IntelliSense will automatically detect the animation classes.
+You don't need any additional configuration. IntelliSense will automatically detect the animation classes. However, it cannot _autocomplete_ the arbitrary valued classes. But it should show the rules set by a class if you hover on it.
 
-### Custom Animations/Keyframes
+If you see an `--animate-distance` variable while hovering over a class, you can also modify its translating distance using a class like this `animate-distance-[100px]`. Just to inform, following are the classes:
 
-Refer to the [Tailwind docs](https://tailwindcss.com/docs/animation#customizing). If configured, any animation/keyframe extension/override will be applied properly.
+```txt
+animate-backXY
+animate-bounceXY
+animate-fadeXYBig
+animate-hinge
+animate-zoomXY
+```
+
+where `X` is one of `{In, Out}` and `Y` is one of `{Down, Left, Right, Up}`.
+
+### Custom Animations
+
+Refer to the [Tailwind CSS docs](https://tailwindcss.com/docs/animation#customizing). If configured, any animation/keyframe customization will be applied properly.
 
 ### Accessibility
 
-The configuration handles the accessibility in a similar way to Animate.css. Although, if you want more control over motion safety, you can use [`motion-safe`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-safe) and [`motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#motion-reduce) variants provided by Tailwind CSS.
+Use [`motion-safe` and `motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) variants [provided by Tailwind CSS](https://tailwindcss.com/docs/animation#prefers-reduced-motion). You can also use [`print:hidden`](https://tailwindcss.com/docs/hover-focus-and-other-states#print-styles) on exit animations so that elements with such classes are not shown if someone is printing your website.
 
-#### Details
+To get similar accessibility as the classical Animate.css do this:
 
-If a user prefers reduced motion (or is in print preview mode) -
+```html
+<div
+  class="
+    motion-reduce:animate-duration-[1ms] motion-reduce:animate-repeat-[1]
+    print:animate-duration-[1ms] print:animate-repeat-[1]
+    ...
+  "
+>
+  ...
+</div>
 
-- All elements having _exit_ animations will be transparent. They will also be hidden from the accessibility tree.
-- All animations will complete instantly and will not repeat, unless you mark duration/iteration as important.
+<!-- on exit animations also add these -->
+<div class="motion-reduce:hidden print:hidden ...">...</div>
+```
 
 ### Removing Unused Keyframes
 
-Please refer: [Optimizing for Production - Tailwind CSS](https://tailwindcss.com/docs/optimizing-for-production#removing-unused-keyframes). (Won't be necessary in JIT mode.)
+Tailwind CSS v3 has JIT mode enabled by default. So, it will only generate the CSS you are _actually using_ in your project. Please refer [the docs](https://tailwindcss.com/docs/optimizing-for-production) to learn more.
 
 ### Disclaimer
 
-The animation classes this package provides are similar but not the same as the Animate.css utilities. We have done some cleaning up and provided you with better accessibility and more consistent animations.
+The animation classes this package provides are similar but not the same as the Animate.css utilities. We have done some cleaning up and provided you with more consistent animations.
+
+### Upgrade Guide
+
+#### From v2 to v3
+
+- We now requires at least Node.js v12 and Tailwind CSS v3. So first migrate to their newer versions. Refer: [Tailwind CSS Upgrade Guide](https://tailwindcss.com/docs/upgrade-guide). Then run the command given in [the installation section](#installation).
+
+- `animate-animated` class is no longer required. You can remove it.
+
+- Accessibility measures are no longer enforced by us. Refer [accessibility section](#accessibility).
+
+- Change
+
+  |               this | to                          |
+  | -----------------: | :-------------------------- |
+  | `animate-infinite` | `animate-repeat-[infinite]` |
+  | `animate-repeat-x` | `animate-repeat-[x]`        |
+  | `animate-delay-xs` | `animate-delay-[xs]`        |
+  |   `animate-faster` | `animate-duration-[0.5s]`   |
+  |     `animate-fast` | `animate-duration-[0.8s]`   |
+  |     `animate-slow` | `animate-duration-[2s]`     |
+  |   `animate-slower` | `animate-duration-[3s]`     |
+
+- Also remove experimental options that you might be earlier passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and can be considered stable.
 
 ---
 

@@ -19,15 +19,7 @@ const withAnimations: EntryPoint = (config = {}) => {
   set(config, ['theme', 'animation'], { ...animations, ...configAnimations });
 
   // patches
-  const motionQuery = '@media print, (prefers-reduced-motion: reduce)';
-
   Object.keys(animations).forEach((key) => {
-    set(utilities, [key, motionQuery], {
-      animationDelay: '0s!important',
-      animationDuration: '1ms!important',
-      animationIterationCount: '1!important',
-    });
-
     if (key.includes('In')) {
       if (!key.includes('slide')) set(keyframes, [key, 'from', 'opacity'], '0');
       set(keyframes, [key, 'from', 'visibility'], 'visible');
@@ -36,7 +28,6 @@ const withAnimations: EntryPoint = (config = {}) => {
     if (key.includes('Out')) {
       if (!key.includes('slide')) set(keyframes, [key, 'to', 'opacity'], '0');
       set(keyframes, [key, 'to', 'visibility'], 'hidden');
-      set(utilities, [key, motionQuery, 'opacity'], '0');
     }
   });
 
