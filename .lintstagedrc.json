@@ -1,5 +1,5 @@
 {
   "*": "prettier --write --ignore-unknown",
-  "package*.json": "prettier-package-json --write",
+  "!(.yarn/**/*)package*.json": "prettier-package-json --write",
   "!(*build).ts": "eslint --fix --max-warnings 0"
 }

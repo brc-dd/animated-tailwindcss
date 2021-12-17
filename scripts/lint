@@ -6,5 +6,5 @@ git add .
 git ls-files '*.ts' '*.json' ':!:.yarn' | xargs sed -i ':a;N;$!ba;s/{\s*\n/{ /g'
 yarn prettier --write . --loglevel warn
 yarn prettier-package-json --write package*.json
-yarn eslint . --ext .ts --fix --ignore-path .gitignore --max-warnings 0
+yarn eslint . --ext .ts --fix --max-warnings 0
 [ -z "$(git status --porcelain -- ':!.yarn')" ]
