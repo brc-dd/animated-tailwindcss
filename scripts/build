@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -e
+rm -rf dist
 yarn
 yarn ttsc
 NODE_OPTIONS='--unhandled-rejections=strict' yarn ts-node --skip-project build.ts

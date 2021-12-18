@@ -1,4 +1,4 @@
-const utilities: CSSBlock = {
+export const utilities: CSSBlock = {
   bounce: { transformOrigin: 'center bottom' },
   pulse: { animationTimingFunction: 'ease-in-out' },
   headShake: { animationTimingFunction: 'ease-in-out' },
@@ -44,4 +44,18 @@ const utilities: CSSBlock = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
-export = utilities;
+export const legacyUtils: CSSBlock = {
+  '.animate-infinite': { animationIterationCount: 'infinite' },
+  '.animate-repeat-1': { animationIterationCount: '1' },
+  '.animate-repeat-2': { animationIterationCount: '2' },
+  '.animate-repeat-3': { animationIterationCount: '3' },
+  '.animate-delay-1s': { animationDelay: '1s' },
+  '.animate-delay-2s': { animationDelay: '2s' },
+  '.animate-delay-3s': { animationDelay: '3s' },
+  '.animate-delay-4s': { animationDelay: '4s' },
+  '.animate-delay-5s': { animationDelay: '5s' },
+  '.animate-faster': { animationDuration: '0.5s' },
+  '.animate-fast': { animationDuration: '0.8s' },
+  '.animate-slow': { animationDuration: '2s' },
+  '.animate-slower': { animationDuration: '3s' },
+};

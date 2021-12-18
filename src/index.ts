@@ -1,8 +1,8 @@
 import get from 'lodash.get';
 import set from 'lodash.set';
 
-import keyframes from '@/keyframes';
-import utilities from '@/utilities';
+import { keyframes } from '@/keyframes';
+import { utilities, legacyUtils } from '@/utilities';
 
 const withAnimations: EntryPoint = (config = {}) => {
   // animations
@@ -52,7 +52,7 @@ const withAnimations: EntryPoint = (config = {}) => {
   const plugins: PluginsConfig = [
     // static utilities
     ({ addUtilities }): void => {
-      addUtilities(prefixed);
+      addUtilities({ ...prefixed, ...legacyUtils });
     },
 
     // dynamic utilities

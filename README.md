@@ -96,7 +96,7 @@ Also, refer [the official Tailwind CSS documentation on using animations with ar
 
 You don't need any additional configuration. IntelliSense will automatically detect the animation classes. However, it cannot _autocomplete_ the arbitrary valued classes. But it should show the rules set by a class if you hover on it.
 
-If you see an `--animate-distance` variable while hovering over a class, you can also modify its translating distance using a class like this `animate-distance-[100px]`. Just to inform, following are the classes:
+If you see an `--animate-distance` variable while hovering over a class, you can also modify its translating distance using a class like `animate-distance-[100px]`. Just to inform, following animation classes can be customized this way:
 
 ```txt
 animate-backXY
@@ -145,13 +145,13 @@ The animation classes this package provides are similar but not the same as the 
 
 #### From v2 to v3
 
-- We now requires at least Node.js v12 and Tailwind CSS v3. So first migrate to their newer versions. Refer: [Tailwind CSS Upgrade Guide](https://tailwindcss.com/docs/upgrade-guide). Then run the command given in [the installation section](#installation).
+- We now require at least Tailwind CSS v3. So first upgrade it. Refer: [Tailwind CSS Upgrade Guide](https://tailwindcss.com/docs/upgrade-guide). Then run the command given in [our installation section](#installation).
 
 - `animate-animated` class is no longer required. You can remove it.
 
-- Accessibility measures are no longer enforced by us. Refer [accessibility section](#accessibility).
+- Accessibility measures are no longer enforced by us. Refer [the accessibility section](#accessibility).
 
-- Change
+- _(Optional)_ Consider changing
 
   |               this | to                          |
   | -----------------: | :-------------------------- |
@@ -162,6 +162,8 @@ The animation classes this package provides are similar but not the same as the 
   |     `animate-fast` | `animate-duration-[0.8s]`   |
   |     `animate-slow` | `animate-duration-[2s]`     |
   |   `animate-slower` | `animate-duration-[3s]`     |
+
+  Although the former are still present for backward compatibility, they may be removed from future versions.
 
 - Also remove experimental options that you might be earlier passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and can be considered stable.
 

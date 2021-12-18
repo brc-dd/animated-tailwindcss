@@ -1,4 +1,4 @@
-const keyframes: Keyframes = {
+export const keyframes: Keyframes = {
   bounce: {
     'from, 20%, 53%, to': {
       animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
@@ -402,5 +402,3 @@ const keyframes: Keyframes = {
   slideOutRight: { to: { transform: 'translate3d(100%, 0, 0)' } },
   slideOutUp: { to: { transform: 'translate3d(0, -100%, 0)' } },
 };
-
-export = keyframes;
