@@ -1,3 +1,9 @@
+## [3.0.0-rc.1](https://github.com/ikcb/animated-tailwindcss/compare/v3.0.0-rc.0...v3.0.0-rc.1) (2021-12-18)
+
+### Bug Fixes
+
+- **compat:** restore legacy utils ([57f811c](https://github.com/ikcb/animated-tailwindcss/commit/57f811c99c8612d0b74a9bcbce83a0b4e41bf695))
+
 ## [3.0.0-rc.0](https://github.com/ikcb/animated-tailwindcss/compare/v2.6.1...v3.0.0-rc.0) (2021-12-17)
 
 ### Features
