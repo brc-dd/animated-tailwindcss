@@ -165,7 +165,7 @@ The animation classes this package provides are similar but not the same as the 
 
   Although the former are still present for backward compatibility, they may be removed from future versions.
 
-- Also remove experimental options that you might be earlier passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and can be considered stable.
+- Also, remove any experimental options that you might earlier be passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and can be considered stable.
 
 ---
 
