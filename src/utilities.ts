@@ -44,18 +44,19 @@ export const utilities: CSSBlock = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
-export const legacyUtils: CSSBlock = {
-  '.animate-infinite': { animationIterationCount: 'infinite' },
-  '.animate-repeat-1': { animationIterationCount: '1' },
-  '.animate-repeat-2': { animationIterationCount: '2' },
-  '.animate-repeat-3': { animationIterationCount: '3' },
-  '.animate-delay-1s': { animationDelay: '1s' },
-  '.animate-delay-2s': { animationDelay: '2s' },
-  '.animate-delay-3s': { animationDelay: '3s' },
-  '.animate-delay-4s': { animationDelay: '4s' },
-  '.animate-delay-5s': { animationDelay: '5s' },
+export const fineTuneUtils: CSSBlock = {
   '.animate-faster': { animationDuration: '0.5s' },
   '.animate-fast': { animationDuration: '0.8s' },
   '.animate-slow': { animationDuration: '2s' },
   '.animate-slower': { animationDuration: '3s' },
+
+  '.animate-normal': { animationDirection: 'normal' },
+  '.animate-reverse': { animationDirection: 'reverse' },
+  '.animate-alternate': { animationDirection: 'alternate' },
+  '.animate-alternate-reverse': { animationDirection: 'alternate-reverse' },
+
+  '.animate-ease': { animationTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1.0)' },
+
+  '.paused': { animationPlayState: 'paused' },
+  '.running': { animationPlayState: 'running' },
 };

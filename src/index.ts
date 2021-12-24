@@ -2,7 +2,20 @@ import get from 'lodash.get';
 import set from 'lodash.set';
 
 import { keyframes } from '@/keyframes';
-import { utilities, legacyUtils } from '@/utilities';
+import { utilities, fineTuneUtils } from '@/utilities';
+import { easings } from '@/easings';
+
+const array = (from: number, to: number): Array<number> =>
+  Array.from({ length: to - from + 1 }, (_, i) => i + from);
+
+const expandArray = (
+  arr: Array<number | string>,
+  append = '',
+  inKey = false,
+): Record<string, string> =>
+  arr.reduce((a, v) => ({ ...a, [`${v}${inKey ? append : ''}`]: `${v}${append}` }), {});
+
+const twTimeRecord = expandArray([75, 100, 150, 200, 300, 500, 700, 1000], 'ms');
 
 const withAnimations: EntryPoint = (config = {}) => {
   // animations
@@ -52,17 +65,37 @@ const withAnimations: EntryPoint = (config = {}) => {
   const plugins: PluginsConfig = [
     // static utilities
     ({ addUtilities }): void => {
-      addUtilities({ ...prefixed, ...legacyUtils });
+      addUtilities({ ...prefixed, ...fineTuneUtils });
     },
 
     // dynamic utilities
     ({ matchUtilities }): void => {
-      matchUtilities<string>({
-        'animate-delay': (value) => ({ animationDelay: value }),
-        'animate-distance': (value) => ({ '--animate-distance': value }),
-        'animate-duration': (value) => ({ animationDuration: value }),
-        'animate-repeat': (value) => ({ animationIterationCount: value }),
-      });
+      matchUtilities<string>(
+        { 'animate-delay': (value) => ({ animationDelay: value }) },
+        { values: { ...expandArray(array(0, 5), 's', true), ...twTimeRecord } },
+      );
+
+      matchUtilities<string>({ 'animate-distance': (value) => ({ '--animate-distance': value }) });
+
+      matchUtilities<string>(
+        { 'animate-duration': (value) => ({ animationDuration: value }) },
+        { values: twTimeRecord },
+      );
+
+      matchUtilities<string>(
+        { 'animate-fill': (value) => ({ animationFillMode: value }) },
+        { values: expandArray(['none', 'forwards', 'backwards', 'both']) },
+      );
+
+      matchUtilities<string>(
+        { repeat: (value) => ({ animationIterationCount: value }) },
+        { values: expandArray([...array(0, 5), 'infinite', 'once', 'twice', 'thrice']) },
+      );
+
+      matchUtilities<string>(
+        { 'animate-ease': (value) => ({ animationTimingFunction: value }) },
+        { values: easings },
+      );
     },
   ];
 

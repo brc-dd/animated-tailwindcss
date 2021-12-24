@@ -263,7 +263,10 @@ type PluginAPI = {
   e: (className: string) => string;
 
   /** Shortcut for the theme section of the config */
-  theme: <TDefaultValue>(path: ConfigDotNotationPath, defaultValue: TDefaultValue) => TDefaultValue;
+  theme: <TDefaultValue>(
+    path: ConfigDotNotationPath,
+    defaultValue?: TDefaultValue,
+  ) => TDefaultValue;
 
   variants: <TDefaultValue>(
     path: ConfigDotNotationPath,
