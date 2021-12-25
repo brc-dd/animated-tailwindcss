@@ -43,7 +43,7 @@ export const ease = {
 
 export const delay = { ...duration, ...expandArray(range(6), 's', true) };
 
-export const repeat = expandArray(range(12));
+export const repeat = expandArray(range(13));
 
 export const fill = expandArray(['none', 'forwards', 'backwards', 'both']);
 
