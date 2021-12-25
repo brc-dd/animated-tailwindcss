@@ -72,6 +72,40 @@ const withAnimations: EntryPoint = (config = {}) => {
       );
 
       matchUtilities<string>(
+        {
+          'animate-steps-start': (value) => ({
+            animationTimingFunction: `steps(${value},jump-start)`,
+          }),
+        },
+        { values: repeat },
+      );
+
+      matchUtilities<string>(
+        {
+          'animate-steps-end': (value) => ({ animationTimingFunction: `steps(${value},jump-end)` }),
+        },
+        { values: repeat },
+      );
+
+      matchUtilities<string>(
+        {
+          'animate-steps-both': (value) => ({
+            animationTimingFunction: `steps(${value},jump-both)`,
+          }),
+        },
+        { values: repeat },
+      );
+
+      matchUtilities<string>(
+        {
+          'animate-steps-none': (value) => ({
+            animationTimingFunction: `steps(${value},jump-none)`,
+          }),
+        },
+        { values: repeat },
+      );
+
+      matchUtilities<string>(
         { 'animate-delay': (value) => ({ animationDelay: value }) },
         { values: delay },
       );
