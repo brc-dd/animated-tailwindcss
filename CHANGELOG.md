@@ -1,3 +1,13 @@
+## [3.0.0-rc.2](https://github.com/ikcb/animated-tailwindcss/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2021-12-25)
+
+### Features
+
+- add more utilities ([9d3a3e9](https://github.com/ikcb/animated-tailwindcss/commit/9d3a3e9c8d17ef3d42a3d62dc0e2a35e9d25fb71))
+
+### Bug Fixes
+
+- clean up utilities ([a70bfd8](https://github.com/ikcb/animated-tailwindcss/commit/a70bfd8c6b73d7ada43de239c740dc6ded8c02d0))
+
 ## [3.0.0-rc.1](https://github.com/ikcb/animated-tailwindcss/compare/v3.0.0-rc.0...v3.0.0-rc.1) (2021-12-18)
 
 ### Bug Fixes
