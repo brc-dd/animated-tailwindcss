@@ -568,6 +568,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.range@npm:latest":
+  version: 3.2.6
+  resolution: "@types/lodash.range@npm:3.2.6"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: a24e8bf0920e9eb37369c66ca7dd257e5e6e62d495f031c4edae7e78f928d6cec3b42483e0c0d2dbb0826c22b15df0ce509b5440686cc71c91a17c4db5658eb4
+  languageName: node
+  linkType: hard
+
 "@types/lodash.set@npm:latest":
   version: 4.3.6
   resolution: "@types/lodash.set@npm:4.3.6"
@@ -1482,8 +1491,8 @@ __metadata:
   linkType: hard
 
 "conventional-changelog@npm:^3.1.24":
-  version: 3.1.24
-  resolution: "conventional-changelog@npm:3.1.24"
+  version: 3.1.25
+  resolution: "conventional-changelog@npm:3.1.25"
   dependencies:
     conventional-changelog-angular: ^5.0.12
     conventional-changelog-atom: ^2.0.8
@@ -1496,7 +1505,7 @@ __metadata:
     conventional-changelog-jquery: ^3.0.11
     conventional-changelog-jshint: ^2.0.9
     conventional-changelog-preset-loader: ^2.3.4
-  checksum: 54253a3e3761369a8c68ec1ea57f3847b323a0104503dfccfd305553f77e83636132406d463dfa60ad3851dba42d84a528e8cb685943e8d6d7ae3eb37aaa19bb
+  checksum: 1ea18378120cca9fd459f58ed2cf59170773cbfb2fcecad2504c7c44af076c368950013fa16f5e9428f1d723bea4c16e0c48170e152568b73b254a9c1bb93287
   languageName: node
   linkType: hard
 
@@ -4963,6 +4972,7 @@ __metadata:
     "@commitlint/config-conventional": latest
     "@release-it/conventional-changelog": latest
     "@types/lodash.get": latest
+    "@types/lodash.range": latest
     "@types/lodash.set": latest
     "@types/node": latest
     "@typescript-eslint/eslint-plugin": latest

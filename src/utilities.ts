@@ -1,4 +1,4 @@
-export const utilities: CSSBlock = {
+export const keyframeUtils: CSSBlock = {
   bounce: { transformOrigin: 'center bottom' },
   pulse: { animationTimingFunction: 'ease-in-out' },
   headShake: { animationTimingFunction: 'ease-in-out' },
@@ -44,19 +44,23 @@ export const utilities: CSSBlock = {
   zoomOutUp: { transformOrigin: 'center bottom' },
 };
 
-export const fineTuneUtils: CSSBlock = {
-  '.animate-faster': { animationDuration: '0.5s' },
-  '.animate-fast': { animationDuration: '0.8s' },
-  '.animate-slow': { animationDuration: '2s' },
-  '.animate-slower': { animationDuration: '3s' },
+export const animationUtils: CSSBlock = {
+  none: { animation: 'none' },
 
-  '.animate-normal': { animationDirection: 'normal' },
-  '.animate-reverse': { animationDirection: 'reverse' },
-  '.animate-alternate': { animationDirection: 'alternate' },
-  '.animate-alternate-reverse': { animationDirection: 'alternate-reverse' },
+  faster: { animationDuration: '0.5s' },
+  fast: { animationDuration: '0.8s' },
+  slow: { animationDuration: '2s' },
+  slower: { animationDuration: '3s' },
 
-  '.animate-ease': { animationTimingFunction: 'cubic-bezier(0.25, 0.1, 0.25, 1.0)' },
+  ease: { animationTimingFunction: 'cubic-bezier(.25,.1,.25,1)' },
 
-  '.paused': { animationPlayState: 'paused' },
-  '.running': { animationPlayState: 'running' },
+  infinite: { animationIterationCount: 'infinite' },
+
+  normal: { animationDirection: 'normal' },
+  reverse: { animationDirection: 'reverse' },
+  alternate: { animationDirection: 'alternate' },
+  'alternate-reverse': { animationDirection: 'alternate-reverse' },
+
+  paused: { animationPlayState: 'paused' },
+  running: { animationPlayState: 'running' },
 };

@@ -151,20 +151,6 @@ The animation classes this package provides are similar but not the same as the 
 
 - Accessibility measures are no longer enforced by us. Refer [the accessibility section](#accessibility).
 
-- _(Optional)_ Consider changing
-
-  |               this | to                          |
-  | -----------------: | :-------------------------- |
-  | `animate-infinite` | `animate-repeat-[infinite]` |
-  | `animate-repeat-x` | `animate-repeat-[x]`        |
-  | `animate-delay-xs` | `animate-delay-[xs]`        |
-  |   `animate-faster` | `animate-duration-[0.5s]`   |
-  |     `animate-fast` | `animate-duration-[0.8s]`   |
-  |     `animate-slow` | `animate-duration-[2s]`     |
-  |   `animate-slower` | `animate-duration-[3s]`     |
-
-  Although the former are still present for backward compatibility, they may be removed from future versions.
-
 - Also, remove any experimental options that you might earlier be passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and can be considered stable.
 
 ---

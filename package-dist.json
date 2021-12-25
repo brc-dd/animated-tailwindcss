@@ -22,6 +22,7 @@
   "dependencies": {
     "csstype": "^3",
     "lodash.get": "^4",
+    "lodash.range": "^3",
     "lodash.set": "^4"
   },
   "peerDependencies": {

@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/config-conventional", "npm:15.0.0"],
             ["@release-it/conventional-changelog", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.3.0"],
             ["@types/lodash.get", "npm:4.4.6"],
+            ["@types/lodash.range", "npm:3.2.6"],
             ["@types/lodash.set", "npm:4.3.6"],
             ["@types/node", "npm:17.0.4"],
             ["@typescript-eslint/eslint-plugin", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.8.0"],
@@ -623,7 +624,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/release-it", null],
             ["@types/semver", null],
             ["concat-stream", "npm:2.0.0"],
-            ["conventional-changelog", "npm:3.1.24"],
+            ["conventional-changelog", "npm:3.1.25"],
             ["conventional-recommended-bump", "npm:6.1.0"],
             ["prepend-file", "npm:2.0.0"],
             ["release-it", "npm:14.11.8"],
@@ -772,6 +773,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-lodash.get-npm-4.4.6-16fd48a468-1f0f11a3fd.zip/node_modules/@types/lodash.get/",
           "packageDependencies": [
             ["@types/lodash.get", "npm:4.4.6"],
+            ["@types/lodash", "npm:4.14.178"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash.range", [
+        ["npm:3.2.6", {
+          "packageLocation": "./.yarn/cache/@types-lodash.range-npm-3.2.6-607ec01262-a24e8bf092.zip/node_modules/@types/lodash.range/",
+          "packageDependencies": [
+            ["@types/lodash.range", "npm:3.2.6"],
             ["@types/lodash", "npm:4.14.178"]
           ],
           "linkType": "HARD",
@@ -1734,10 +1745,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["conventional-changelog", [
-        ["npm:3.1.24", {
-          "packageLocation": "./.yarn/cache/conventional-changelog-npm-3.1.24-11de891016-54253a3e37.zip/node_modules/conventional-changelog/",
+        ["npm:3.1.25", {
+          "packageLocation": "./.yarn/cache/conventional-changelog-npm-3.1.25-dfc69e696b-1ea1837812.zip/node_modules/conventional-changelog/",
           "packageDependencies": [
-            ["conventional-changelog", "npm:3.1.24"],
+            ["conventional-changelog", "npm:3.1.25"],
             ["conventional-changelog-angular", "npm:5.0.13"],
             ["conventional-changelog-atom", "npm:2.0.8"],
             ["conventional-changelog-codemirror", "npm:2.0.8"],
@@ -5897,6 +5908,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/config-conventional", "npm:15.0.0"],
             ["@release-it/conventional-changelog", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:3.3.0"],
             ["@types/lodash.get", "npm:4.4.6"],
+            ["@types/lodash.range", "npm:3.2.6"],
             ["@types/lodash.set", "npm:4.3.6"],
             ["@types/node", "npm:17.0.4"],
             ["@typescript-eslint/eslint-plugin", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.8.0"],
