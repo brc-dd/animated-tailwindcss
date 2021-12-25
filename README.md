@@ -72,29 +72,212 @@ If you are coming from classical Animate.css, please note that you need to refer
 
 Also, for compatibility reasons, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
 
-### Example (Basic Usage)
+### Basic Usage
 
 ```html
-<h1 class="animate-bounce animate-repeat-[infinite]">Bouncing Heading</h1>
+<h1 class="animate-bounce animate-infinite">Always Bouncing Heading</h1>
 ```
 
-Please refer to [our demo page](https://ikcb.org/animated-tailwindcss) to see the available classes in action.
+### Available Classes
 
-### Arbitrary Value Support
+- To customize `animation-name`:
 
-You can customize `animation-delay`, `animation-duration`, `animation-iteration-count`:
+  ```scss
+  .animate-none {
+    animation: none;
+  }
 
-```html
-<div class="... animate-delay-[300ms] animate-duration-[5s] animate-repeat-[5] ...">...</div>
-```
+  .animate-[name] {
+    animation: default-duration default-timing-function both animation-name;
+  }
 
-Also, refer [the official Tailwind CSS documentation on using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values).
+  /* examples: */
+  // class="animate-bounce"
+  // class="animate-[bounce_1s_ease-in-out_infinite]"
+  ```
+
+  Refer [our demo page](https://ikcb.org/animated-tailwindcss) to see the available animations in action. Also, refer [the official Tailwind CSS documentation on using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values).
+
+- To customize `animation-duration`:
+
+  ```scss
+  .animate-faster {
+    animation-duration: 0.5s;
+  }
+
+  .animate-fast {
+    animation-duration: 0.8s;
+  }
+
+  .animate-slow {
+    animation-duration: 2s;
+  }
+
+  .animate-slower {
+    animation-duration: 3s;
+  }
+
+  .animate-duration-[time] {
+    animate-duration: time;
+  }
+
+  // here `time` is one of {75, 100, 150, 200, 300, 500, 700, 1000}
+  // and is interpreted like 75ms, 100ms, ...; or use arbitrary values
+
+  /* examples: */
+  // class="animate-duration-300"
+  // class="animate-duration-[2s]"
+  ```
+
+- To customize `animation-timing-function`:
+
+  ```scss
+  .animate-ease {
+    animation-timing-function: ease;
+  }
+
+  .animate-ease-linear {
+    animation-timing-function: linear;
+  }
+
+  .animate-ease-in {
+    animation-timing-function: ease-in;
+  }
+
+  .animate-ease-out {
+    animation-timing-function: ease-out;
+  }
+
+  .animate-ease-in-out {
+    animation-timing-function: ease-in-out;
+  }
+
+  .animate-[easing] {
+    animation-timing-function: easing;
+  }
+
+  // here `easing` is one of those listed at https://easings.net/ in kebab-case
+  // NOTE some of the easing functions present there CAN'T be written in CSS
+
+  .animate-ease-[p0,p1,p2,p3] {
+    animation-timing-function: cubic-bezier(p0, p1, p2, p4);
+  }
+
+  // use https://cubic-bezier.com/ to find out what looks best
+
+  .animate-steps-start-[n] {
+    animation-timing-function: steps(n, start);
+  }
+
+  .animate-steps-end-[n] {
+    animation-timing-function: steps(n, end);
+  }
+
+  .animate-steps-both-[n] {
+    animation-timing-function: steps(n, jump-both);
+  }
+
+  .animate-steps-none-[n] {
+    animation-timing-function: steps(n, jump-none);
+  }
+
+  // here `n` is one of 0-12 (both inclusive); or use arbitrary values
+
+  /* examples: */
+  // class="animate-ease-in-out-sine"
+  // class="animate-ease-[.25,.1,.25,1]"
+  // class="animate-steps-start-5"
+  // class="animate-steps-end-[14]"
+  ```
+
+- To customize `animation-delay`:
+
+  ```scss
+  .animate-delay-[time] {
+    animate-delay: time;
+  }
+
+  // here `time` is one of {75, 100, 150, 200, 300, 500, 700, 1000}
+  // and is interpreted like 75ms, 100ms, ...; or use arbitrary values
+  // classic animate-delay-[1|2|3|4|5]s are also supported
+
+  /* examples: */
+  // class="animate-delay-300"
+  // class="animate-delay-2s"
+  // class="animate-delay-[1200ms]"
+  ```
+
+- To customize `animation-iteration-count`:
+
+  ```scss
+  .animate-infinite {
+    animation-iteration-count: infinite;
+  }
+
+  .animate-repeat-[n] {
+    animation-iteration-count: n;
+  }
+
+  // here `n` is one of 0-12 (both inclusive); or use arbitrary values
+
+  /* examples: */
+  // class="animate-repeat-5"
+  // class="animate-repeat-[14]"
+  ```
+
+- To customize `animation-direction`:
+
+  ```scss
+  .animate-normal {
+    animation-direction: normal;
+  }
+
+  .animate-reverse {
+    animation-direction: reverse;
+  }
+
+  .animate-alternate {
+    animation-direction: alternate;
+  }
+
+  .animate-alternate-reverse {
+    animation-direction: alternate-reverse;
+  }
+  ```
+
+- To customize `animation-fill-mode`:
+
+  ```scss
+  .animate-fill-[mode] {
+    animation-fill-mode: mode;
+  }
+
+  // here `mode` is a valid single-animation-fill-mode
+  // use arbitrary values to set for multiple animations or use globals
+
+  /* examples: */
+  // class="animate-fill-forwards"
+  // class="animate-fill-[both,forwards,none]"
+  // class="animate-fill-[unset]"
+  ```
+
+- To customize `animation-play-state`:
+
+  ```scss
+  .animate-paused {
+    animation-play-state: paused;
+  }
+
+  .animate-running {
+    animation-play-state: running;
+  }
+  ```
 
 ## Notes
 
 ### Using with [Tailwind CSS IntelliSense](vscode:extension/bradlc.vscode-tailwindcss)
 
-You don't need any additional configuration. IntelliSense will automatically detect the animation classes. However, it cannot _autocomplete_ the arbitrary valued classes. But it should show the rules set by a class if you hover on it.
+You don't need any additional configuration. IntelliSense will automatically detect the animation classes.
 
 If you see an `--animate-distance` variable while hovering over a class, you can also modify its translating distance using a class like `animate-distance-[100px]`. Just to inform, following animation classes can be customized this way:
 
@@ -106,7 +289,7 @@ animate-hinge
 animate-zoomXY
 ```
 
-where `X` is one of `{In, Out}` and `Y` is one of `{Down, Left, Right, Up}`.
+where `X` is one of `{In, Out}` and `Y` is one of `{Down, Left, Right, Up}`. Tailwind CSS style widths are also available for `animate-distance` (e.g. `animate-distance-full`, `animate-distance-48`).
 
 ### Custom Animations
 
