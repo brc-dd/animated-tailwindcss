@@ -1,0 +1,13 @@
+diff --git a/dist/node/serve-b109daa0.js b/dist/node/serve-b109daa0.js
+index dcbbba26929da1d1f043358b2de5c38296196188..6794379d39047ff8c7ab939ee706987a8dfbf625 100644
+--- a/dist/node/serve-b109daa0.js
++++ b/dist/node/serve-b109daa0.js
+@@ -13367,7 +13367,7 @@ async function resolveConfig(root = process.cwd(), command = "serve", mode = "de
+     pages,
+     configPath,
+     outDir: resolve(root, "dist"),
+-    tempDir: path__default["default"].resolve(APP_PATH, "temp"),
++    tempDir: resolve(root, "temp"),
+     markdown: userConfig.markdown,
+     alias: resolveAliases(themeDir),
+     vue: userConfig.vue,

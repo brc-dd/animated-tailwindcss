@@ -1,10 +1,14 @@
 {
   "private": true,
   "scripts": {
+    "docs:build": "vitepress build docs",
+    "docs:dev": "vitepress dev docs",
+    "docs:serve": "vitepress serve docs",
     "postinstall": "husky install"
   },
   "resolutions": {
-    "prettier-package-json@2.6.0": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf"
+    "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
+    "vitepress@latest": "patch:vitepress@npm:0.20.10#.yarn/patches/vitepress-npm-0.20.10-46eda5bb35"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -39,7 +43,9 @@
     "ts-node": "latest",
     "ttypescript": "latest",
     "typescript": "latest",
-    "typescript-transform-paths": "latest"
+    "typescript-transform-paths": "latest",
+    "vitepress": "latest",
+    "vue": "next"
   },
   "dependenciesMeta": {
     "conventional-changelog-conventionalcommits@4.6.1": {
