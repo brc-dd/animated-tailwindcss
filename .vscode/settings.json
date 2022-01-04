@@ -9,5 +9,7 @@
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "search.exclude": { "**/.yarn": true, "**/.pnp.*": true },
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": ".yarn/sdks/typescript/lib"
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
+  "scss.lint.unknownAtRules": "ignore"
 }

@@ -18,5 +18,5 @@
     "strict": true,
     "target": "es2019"
   },
-  "exclude": ["build.ts", "dist"]
+  "exclude": ["build.ts", "dist", "docs"]
 }

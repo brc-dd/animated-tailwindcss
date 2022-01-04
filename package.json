@@ -8,7 +8,8 @@
   },
   "resolutions": {
     "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
-    "vitepress@latest": "patch:vitepress@npm:0.20.10#.yarn/patches/vitepress-npm-0.20.10-46eda5bb35"
+    "vitepress@latest": "patch:vitepress@npm:0.20.10#.yarn/patches/vitepress-npm-0.20.10-46eda5bb35",
+    "vitepress@0.20.10": "patch:vitepress@npm:0.20.10#.yarn/patches/vitepress-npm-0.20.10-46eda5bb35"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -20,6 +21,7 @@
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "autoprefixer": "latest",
     "conventional-changelog-conventionalcommits": "latest",
     "csstype": "latest",
     "esbuild": "latest",
@@ -35,11 +37,15 @@
     "husky": "latest",
     "lint-staged": "latest",
     "postcss": "latest",
+    "postcss-flexbugs-fixes": "latest",
+    "postcss-preset-env": "latest",
     "prettier": "latest",
     "prettier-package-json": "latest",
     "release-it": "latest",
     "release-it-yarn-workspaces": "latest",
+    "sass": "latest",
     "semver": "latest",
+    "tailwindcss": "latest",
     "ts-node": "latest",
     "ttypescript": "latest",
     "typescript": "latest",

@@ -1,13 +1,175 @@
-diff --git a/dist/node/serve-b109daa0.js b/dist/node/serve-b109daa0.js
-index dcbbba26929da1d1f043358b2de5c38296196188..6794379d39047ff8c7ab939ee706987a8dfbf625 100644
---- a/dist/node/serve-b109daa0.js
-+++ b/dist/node/serve-b109daa0.js
-@@ -13367,7 +13367,7 @@ async function resolveConfig(root = process.cwd(), command = "serve", mode = "de
-     pages,
-     configPath,
-     outDir: resolve(root, "dist"),
--    tempDir: path__default["default"].resolve(APP_PATH, "temp"),
-+    tempDir: resolve(root, "temp"),
-     markdown: userConfig.markdown,
-     alias: resolveAliases(themeDir),
-     vue: userConfig.vue,
+diff --git a/dist/client/index.d.ts b/dist/client/index.d.ts
+index 5f303fc6ce22ebd4f00bfbcc916a9f0b35981890..340b537dbf64b6b898275b30adf4b2cbd8b1a40e 100644
+--- a/dist/client/index.d.ts
++++ b/dist/client/index.d.ts
+@@ -18,6 +18,119 @@ export declare const Content: DefineComponent<    {}, () => VNode<RendererNode,
+ 
+ export declare const Debug: ComponentOptions<{}, any, any, any, any, any, any, any>;
+ 
++export declare namespace DefaultTheme {
++    export interface Config {
++        logo?: string;
++        nav?: NavItem[] | false;
++        sidebar?: SideBarConfig | MultiSideBarConfig;
++        /**
++         * GitHub repository following the format <user>/<project>.
++         *
++         * @example `"vuejs/vue-next"`
++         */
++        repo?: string;
++        /**
++         * Customize the header label. Defaults to GitHub/Gitlab/Bitbucket
++         * depending on the provided repo.
++         *
++         * @example `"Contribute!"`
++         */
++        repoLabel?: string;
++        /**
++         * If your docs are in a different repository from your main project.
++         *
++         * @example `"vuejs/docs-next"`
++         */
++        docsRepo?: string;
++        /**
++         * If your docs are not at the root of the repo.
++         *
++         * @example `"docs"`
++         */
++        docsDir?: string;
++        /**
++         * If your docs are in a different branch. Defaults to `master`.
++         *
++         * @example `"next"`
++         */
++        docsBranch?: string;
++        /**
++         * Enable links to edit pages at the bottom of the page.
++         */
++        editLinks?: boolean;
++        /**
++         * Custom text for edit link. Defaults to "Edit this page".
++         */
++        editLinkText?: string;
++        /**
++         * Show last updated time at the bottom of the page. Defaults to `false`.
++         * If given a string, it will be displayed as a prefix (default value:
++         * "Last Updated").
++         */
++        lastUpdated?: string | boolean;
++        prevLinks?: boolean;
++        nextLinks?: boolean;
++        locales?: Record<string, LocaleConfig & Omit<Config, 'locales'>>;
++        algolia?: AlgoliaSearchOptions;
++        carbonAds?: {
++            carbon: string;
++            custom?: string;
++            placement: string;
++        };
++    }
++    export type NavItem = NavItemWithLink | NavItemWithChildren;
++    export interface NavItemBase {
++        text: string;
++        target?: string;
++        rel?: string;
++        ariaLabel?: string;
++        activeMatch?: string;
++    }
++    export interface NavItemWithLink extends NavItemBase {
++        link: string;
++    }
++    export interface NavItemWithChildren extends NavItemBase {
++        items: NavItemWithLink[];
++    }
++    export type SideBarConfig = SideBarItem[] | 'auto' | false;
++    export interface MultiSideBarConfig {
++        [path: string]: SideBarConfig;
++    }
++    export type SideBarItem = SideBarLink | SideBarGroup;
++    export interface SideBarLink {
++        text: string;
++        link: string;
++    }
++    export interface SideBarGroup {
++        text: string;
++        link?: string;
++        /**
++         * @default false
++         */
++        collapsable?: boolean;
++        children: SideBarItem[];
++    }
++    export interface AlgoliaSearchOptions {
++        appId?: string;
++        apiKey: string;
++        indexName: string;
++        placeholder?: string;
++        searchParameters?: any;
++        disableUserPersonalization?: boolean;
++        initialQuery?: string;
++    }
++    export interface LocaleConfig {
++        /**
++         * Text for the language dropdown.
++         */
++        selectText?: string;
++        /**
++         * Label for this locale in the language dropdown.
++         */
++        label?: string;
++    }
++}
++
+ export declare interface EnhanceAppContext {
+     app: App;
+     router: Router;
+diff --git a/dist/client/index.js b/dist/client/index.js
+index 387d01b13b8774df5b734d404ff10df790323b78..79cef81f596f16f09668e87fdab2be4d98a9fe09 100644
+--- a/dist/client/index.js
++++ b/dist/client/index.js
+@@ -10,3 +10,5 @@ export { Content } from './app/components/Content';
+ import _Debug from './app/components/Debug.vue';
+ const Debug = _Debug;
+ export { Debug };
++// re-export DefaultTheme namespace
++export * from './theme-default/config';
+diff --git a/package.json b/package.json
+index a2a77108aeb92d0f6d95328fc326f4c9b0edb739..a6348ac61a4401ee8259f4eece3a1e50f5ca2282 100644
+--- a/package.json
++++ b/package.json
+@@ -11,7 +11,8 @@
+     "bin",
+     "dist",
+     "types",
+-    "client.d.ts"
++    "client.d.ts",
++    "theme.d.ts"
+   ],
+   "engines": {
+     "node": ">=12.0.0"
+@@ -131,6 +132,5 @@
+     "docs-build": "npm run build && node ./bin/vitepress build docs",
+     "docs-serve": "node ./bin/vitepress serve docs",
+     "ci-docs": "run-s build docs-build"
+-  },
+-  "readme": "# (WIP) VitePress 📝💨\n\n[![Test](https://github.com/vuejs/vitepress/workflows/Test/badge.svg)](https://github.com/vuejs/vitepress/actions)\n[![npm](https://img.shields.io/npm/v/vitepress)](https://www.npmjs.com/package/vitepress)\n\n---\n\nVitePress is [VuePress](http://vuepress.vuejs.org/)' spiritual successor, built on top of [vite](https://github.com/vuejs/vite).\n\n## Documentation\n\nTo check out docs, visit [vitepress.vuejs.org](https://vitepress.vuejs.org).\n\n## Changelog\n\nDetailed changes for each release are documented in the [CHANGELOG](https://github.com/vuejs/vitepress/blob/master/CHANGELOG.md).\n\n## Contribution\n\nPlease make sure to read the [Contributing Guide](./.github/contributing.md) before making a pull request.\n\n## License\n\n[MIT](https://opensource.org/licenses/MIT)\n\nCopyright (c) 2019-present, Yuxi (Evan) You\n"
++  }
+ }
+\ No newline at end of file
+diff --git a/theme.d.ts b/theme.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..dd034b53b298fdc458e66ef8867576382c2e5e0c
+--- /dev/null
++++ b/theme.d.ts
+@@ -0,0 +1,3 @@
++// so that users can do `import DefaultTheme from 'vitepress/theme'`
++import DefaultTheme from './dist/client/theme-default/index'
++export default DefaultTheme
+diff --git a/types/index.d.ts b/types/index.d.ts
+index 10a5d0c247434eca85e548d762af148069b29b14..d27e3e4fdb73518d10ed4dd70c2ec1655d04baae 100644
+--- a/types/index.d.ts
++++ b/types/index.d.ts
+@@ -1,4 +1,3 @@
+ export * from './shared'
+ export * from '../dist/node/index'
+ export * from '../dist/client/index'
+-export * from '../dist/client/theme-default/config'

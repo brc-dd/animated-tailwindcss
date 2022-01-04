@@ -1,3 +1,5 @@
 .yarn
 dist
 .pnp*
+!docs/.vitepress
+docs/.vitepress/dist

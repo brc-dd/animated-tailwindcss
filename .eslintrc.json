@@ -15,7 +15,11 @@
   ],
   "ignorePatterns": ["build.ts"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": { "ecmaVersion": 2019, "project": "tsconfig.json", "sourceType": "module" },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "project": ["tsconfig.json", "docs/tsconfig.json"],
+    "sourceType": "module"
+  },
   "plugins": ["@typescript-eslint", "security"],
   "rules": {
     "eslint-comments/no-unused-disable": "error",
