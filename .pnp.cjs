@@ -2038,7 +2038,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["browserslist", "npm:4.19.1"],
             ["caniuse-lite", "npm:1.0.30001296"],
-            ["electron-to-chromium", "npm:1.4.33"],
+            ["electron-to-chromium", "npm:1.4.34"],
             ["escalade", "npm:3.1.1"],
             ["node-releases", "npm:2.0.1"],
             ["picocolors", "npm:1.0.0"]
@@ -2869,10 +2869,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["cssdb", [
-        ["npm:5.0.0", {
-          "packageLocation": "./.yarn/cache/cssdb-npm-5.0.0-0bbe7b1e66-d73b1c34c3.zip/node_modules/cssdb/",
+        ["npm:5.1.0", {
+          "packageLocation": "./.yarn/cache/cssdb-npm-5.1.0-ca51026c0a-34b4e57b37.zip/node_modules/cssdb/",
           "packageDependencies": [
-            ["cssdb", "npm:5.0.0"]
+            ["cssdb", "npm:5.1.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3282,10 +3282,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["electron-to-chromium", [
-        ["npm:1.4.33", {
-          "packageLocation": "./.yarn/cache/electron-to-chromium-npm-1.4.33-317ee291ae-4ec0c3a924.zip/node_modules/electron-to-chromium/",
+        ["npm:1.4.34", {
+          "packageLocation": "./.yarn/cache/electron-to-chromium-npm-1.4.34-9007751552-95598b0268.zip/node_modules/electron-to-chromium/",
           "packageDependencies": [
-            ["electron-to-chromium", "npm:1.4.33"]
+            ["electron-to-chromium", "npm:1.4.34"]
           ],
           "linkType": "HARD",
         }]
@@ -7454,7 +7454,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["css-blank-pseudo", "virtual:777c7c96508f75440297574c605f68d75d07ebba8a276cac812685cacc7782dfff53d88a1b6059e0bbb5e195164d3bddf844b7199be8659e1dc85d2c794a3886#npm:3.0.2"],
             ["css-has-pseudo", "virtual:777c7c96508f75440297574c605f68d75d07ebba8a276cac812685cacc7782dfff53d88a1b6059e0bbb5e195164d3bddf844b7199be8659e1dc85d2c794a3886#npm:3.0.2"],
             ["css-prefers-color-scheme", "virtual:777c7c96508f75440297574c605f68d75d07ebba8a276cac812685cacc7782dfff53d88a1b6059e0bbb5e195164d3bddf844b7199be8659e1dc85d2c794a3886#npm:6.0.2"],
-            ["cssdb", "npm:5.0.0"],
+            ["cssdb", "npm:5.1.0"],
             ["postcss", "npm:8.4.5"],
             ["postcss-attribute-case-insensitive", "virtual:777c7c96508f75440297574c605f68d75d07ebba8a276cac812685cacc7782dfff53d88a1b6059e0bbb5e195164d3bddf844b7199be8659e1dc85d2c794a3886#npm:5.0.0"],
             ["postcss-color-functional-notation", "virtual:777c7c96508f75440297574c605f68d75d07ebba8a276cac812685cacc7782dfff53d88a1b6059e0bbb5e195164d3bddf844b7199be8659e1dc85d2c794a3886#npm:4.2.1"],
