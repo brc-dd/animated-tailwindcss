@@ -1,0 +1,30 @@
+diff --git a/dist/node/serve-9731a371.js b/dist/node/serve-9731a371.js
+index 319feeef54e2cfd8ba9e2e21250e151daa76db29..c78585f3ed0fe2bcab489f825583ea60d1f9f42c 100644
+--- a/dist/node/serve-9731a371.js
++++ b/dist/node/serve-9731a371.js
+@@ -36431,12 +36431,12 @@ export default {}<\/script>`);
+   return tags;
+ }
+ const inferTitle = (frontmatter, content) => {
+-  if (frontmatter.home) {
+-    return "Home";
+-  }
+   if (frontmatter.title) {
+     return deeplyParseHeader(frontmatter.title);
+   }
++  if (frontmatter.home) {
++    return "Home";
++  }
+   const match = content.match(/^\s*#+\s+(.*)/m);
+   if (match) {
+     return deeplyParseHeader(match[1].trim());
+diff --git a/theme.d.ts b/theme.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..576a81eff9f2119b5f9f890793f18fde26110dbc
+--- /dev/null
++++ b/theme.d.ts
+@@ -0,0 +1,4 @@
++// so that users can do `import DefaultTheme from 'vitepress/theme'`
++import { Theme } from 'vitepress'
++declare const theme: Theme
++export default theme

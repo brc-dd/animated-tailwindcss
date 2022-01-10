@@ -1,5 +1,24 @@
+import type { Theme } from 'vitepress';
+
 import 'tailwindcss/tailwind.css';
 import DefaultTheme from 'vitepress/theme';
 import './index.scss';
 
-export default DefaultTheme;
+import { h, defineComponent } from 'vue';
+import Snippet from './components/Snippet.vue';
+
+const WrapNode = defineComponent({
+  props: { value: { type: Object, required: true } },
+  render() {
+    return h(this.value);
+  },
+});
+
+const theme: Theme = {
+  ...DefaultTheme,
+  enhanceApp: ({ app }): void => {
+    app.component('Snippet', Snippet);
+    app.component('WrapNode', WrapNode);
+  },
+};
+export default theme;

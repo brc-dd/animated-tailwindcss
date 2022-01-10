@@ -8,8 +8,7 @@
   },
   "resolutions": {
     "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
-    "vitepress@latest": "patch:vitepress@npm:0.20.10#.yarn/patches/vitepress-npm-0.20.10-46eda5bb35",
-    "vitepress@0.20.10": "patch:vitepress@npm:0.20.10#.yarn/patches/vitepress-npm-0.20.10-46eda5bb35"
+    "vitepress@0.21.4": "patch:vitepress@npm:0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -29,6 +28,7 @@
     "eslint-config-airbnb-base": "latest",
     "eslint-config-airbnb-typescript": "latest",
     "eslint-config-prettier": "latest",
+    "eslint-import-resolver-node": "latest",
     "eslint-import-resolver-typescript": "latest",
     "eslint-plugin-eslint-comments": "latest",
     "eslint-plugin-import": "latest",
@@ -50,7 +50,8 @@
     "ttypescript": "latest",
     "typescript": "latest",
     "typescript-transform-paths": "latest",
-    "vitepress": "latest",
+    "vitepress": "0.21.4",
+    "vls": "latest",
     "vue": "next"
   },
   "dependenciesMeta": {

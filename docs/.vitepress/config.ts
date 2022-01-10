@@ -1,35 +1,22 @@
-import type { DefaultTheme, SiteData } from 'vitepress';
+import type { DefaultTheme, UserConfig } from 'vitepress';
 
-const getSidebar = (): DefaultTheme.SideBarConfig => {
-  return [
-    {
-      text: 'Introduction',
-      children: [
-        { text: 'What is VitePress?', link: '/' },
-        { text: 'Getting Started', link: '/guide/getting-started' },
-        { text: 'Configuration', link: '/guide/configuration' },
-        { text: 'Asset Handling', link: '/guide/assets' },
-        { text: 'Markdown Extensions', link: '/guide/markdown' },
-        { text: 'Using Vue in Markdown', link: '/guide/using-vue' },
-        { text: 'Deploying', link: '/guide/deploy' },
-      ],
-    },
-    {
-      text: 'Advanced',
-      children: [
-        { text: 'Frontmatter', link: '/guide/frontmatter' },
-        { text: 'Theming', link: '/guide/theming' },
-        { text: 'API Reference', link: '/guide/api' },
-        { text: 'Differences from Vuepress', link: '/guide/differences-from-vuepress' },
-      ],
-    },
-  ];
-};
+const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
+  { text: 'Getting Started', link: '/docs/installation' },
+  { text: 'Customizing', children: [{ text: 'Animation Name', link: '/docs/animation-name' }] },
+];
 
-const config: Partial<SiteData<DefaultTheme.Config>> = {
+const config: UserConfig<DefaultTheme.Config> = {
   title: 'tw-Animated',
   description: 'animated-tailwindcss is a package that brings Animate.css classes to Tailwind CSS',
-  themeConfig: { repo: 'ikcb/animated-tailwindcss', sidebar: { '/': getSidebar() } },
+  themeConfig: {
+    repo: 'ikcb/animated-tailwindcss',
+    docsDir: 'docs',
+    docsBranch: 'main',
+    editLinks: true,
+    editLinkText: 'Edit this page on GitHub',
+    lastUpdated: 'Last Updated',
+    sidebar: { '/': getSidebar() },
+  },
 };
 
 export default config;

@@ -50,6 +50,7 @@
     // code blocks vars
     --code-hl-bg-color: #363b46;
 
+    color-scheme: dark;
     font-variation-settings: 'DRKM' 1;
   }
 
@@ -78,5 +79,62 @@
     img.image {
       @apply w-[28rem];
     }
+  }
+}
+
+.action a.item:hover {
+  border-color: var(--c-brand-light);
+}
+
+.content h1 {
+  @apply -ml-0.5 pb-2;
+}
+
+@media (min-width: 720px) {
+  .page .container {
+    @apply px-10;
+  }
+}
+
+.snippet-tab {
+  @apply -mb-2 text-xs font-semibold border-b border-transparent;
+
+  &.active {
+    border-color: var(--c-brand);
+  }
+}
+
+.custom-block {
+  &.details {
+    @apply rounded-md;
+
+    background-color: var(--c-details-bg, #eee);
+  }
+
+  &.warning {
+    @apply rounded-md;
+
+    border-color: var(--c-warning, #e7c000);
+    color: inherit;
+    background-color: var(--c-bg-light, rgba(255, 229, 100, 0.3));
+
+    .custom-block-title {
+      color: var(--c-warning-title, #b29400);
+    }
+  }
+}
+
+code {
+  background-color: var(--c-bg-lighter, #eee);
+}
+
+.page-footer {
+  .link,
+  .last-updated {
+    @apply text-sm;
+  }
+
+  .datetime {
+    @apply text-[13px];
   }
 }
