@@ -24,7 +24,7 @@ Class
 : Properties
 
     ```css
-    animation: some-defaults animation-name;
+    animation: some-defaults name;
     ```
 
 ## Examples

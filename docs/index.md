@@ -1,6 +1,7 @@
 ---
 home: true
-heroImage: /logo.svg
+heroImage: /logo_light.svg
+heroAlt: animated-tailwindcss
 heroText: ' '
 tagline: A configuration to use Animate.css with Tailwind CSS
 actionText: Get Started
