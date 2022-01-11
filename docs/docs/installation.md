@@ -2,28 +2,28 @@
 title: Installation
 ---
 
-<!-- markdownlint-disable MD033 MD025 -->
+<!-- markdownlint-disable MD025 -->
 
 # Getting Started
 
 In a project where you're using Tailwind CSS **v3**, run the following command:
 
-<snippet>
-  <div title="NPM">
+:::: snippet
+::: snippet-item NPM
 
 ```bash
 npm install -D animated-tailwindcss
 ```
 
-  </div>
-  <div title="YARN">
+:::
+::: snippet-item YARN
 
 ```bash
 yarn add -D animated-tailwindcss
 ```
 
-  </div>
-</snippet>
+:::
+::::
 
 Then configure your `tailwind.config.js` to use the animations:
 
