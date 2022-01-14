@@ -12,14 +12,14 @@ In a project where you're using Tailwind CSS **v3**, run the following command:
 ::: snippet-item NPM
 
 ```bash
-npm install -D animated-tailwindcss
+npm install -D animated-tailwindcss@rc
 ```
 
 :::
 ::: snippet-item YARN
 
 ```bash
-yarn add -D animated-tailwindcss
+yarn add -D animated-tailwindcss@rc
 ```
 
 :::
