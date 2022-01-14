@@ -1,12 +1,8 @@
----
-sidebarDepth: 2
----
-
 <!-- markdownlint-disable MD046 -->
 
 # Animation Name
 
-Utilities for controlling which animation is applied.
+Utilities for controlling which CSS animation is applied.
 
 Class
 ~ Properties

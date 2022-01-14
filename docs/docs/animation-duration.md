@@ -1,7 +1,3 @@
----
-sidebarDepth: 2
----
-
 <!-- markdownlint-disable MD046 -->
 
 # Animation Duration
@@ -48,7 +44,7 @@ Class
 : Properties
 
     ```css
-    animate-duration: time;
+    animation-duration: time;
     ```
 
 Here `[time]` is one of `{75, 100, 150, 200, 300, 500, 700, 1000}` and is interpreted like 75ms, 100ms, ... You can also use arbitrary values instead.

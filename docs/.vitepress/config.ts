@@ -12,6 +12,10 @@ const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
     children: [
       { text: 'Animation Name', link: '/docs/animation-name' },
       { text: 'Animation Duration', link: '/docs/animation-duration' },
+      { text: 'Animation Delay', link: '/docs/animation-delay' },
+      { text: 'Animation Iteration Count', link: '/docs/animation-iteration-count' },
+      { text: 'Animation Direction', link: '/docs/animation-direction' },
+      { text: 'Animation Fill Mode', link: '/docs/animation-fill-mode' },
     ],
   },
 ];
@@ -27,6 +31,7 @@ const config: UserConfig<DefaultTheme.Config> = {
     editLinkText: 'Edit this page on GitHub',
     lastUpdated: 'Last Updated',
     sidebar: { '/': getSidebar() },
+    sidebarDepth: 2,
   },
 
   markdown: {
