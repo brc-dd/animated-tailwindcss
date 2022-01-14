@@ -18,6 +18,7 @@ const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
       { text: 'Animation Direction', link: '/docs/animation-direction' },
       { text: 'Animation Fill Mode', link: '/docs/animation-fill-mode' },
       { text: 'Animation Play State', link: '/docs/animation-play-state' },
+      { text: 'Translation Distance', link: '/docs/translation-distance' },
     ],
   },
 ];
