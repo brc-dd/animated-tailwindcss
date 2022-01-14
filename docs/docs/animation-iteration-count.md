@@ -1,11 +1,9 @@
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD033 -->
 
 # Animation Iteration Count
 
-Utilities for controlling the repetition of CSS animations.
-
 Class
-~ Properties
+~ Properties ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count) <external-link-icon /> )
 
 `animate-infinite`
 

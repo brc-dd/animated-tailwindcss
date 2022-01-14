@@ -1,18 +1,16 @@
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD033 -->
 
 # Animation Name
 
-Utilities for controlling which CSS animation is applied.
-
 Class
-~ Properties
+~ Properties ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name) <external-link-icon />)
 
 `animate-none`
 
 : Properties
 
     ```css
-    animation: none;
+    animation-name: none;
     ```
 
 `animate-[name]`
@@ -20,7 +18,7 @@ Class
 : Properties
 
     ```css
-    animation: some-defaults name;
+    animation-name: name;
     ```
 
 ## Examples
@@ -30,4 +28,4 @@ Class
 <div class="animate-[bounce_1s_ease-in-out_infinite]">Bar</div>
 ```
 
-Refer [our playground](https://ikcb.org/animated-tailwindcss) to see the available animations in action. Also, refer [the official Tailwind CSS documentation on using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values).
+Refer [our playground](https://ikcb.org/animated-tailwindcss) to see the available animations in action. Also, refer the official Tailwind CSS documentation on [using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values). Note that these classes also add some default properties and keyframe definitions too.

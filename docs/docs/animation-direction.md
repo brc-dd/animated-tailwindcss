@@ -1,11 +1,9 @@
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD033 -->
 
 # Animation Direction
 
-Utilities for controlling how a CSS animation plays each cycle.
-
 Class
-~ Properties
+~ Properties ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction) <external-link-icon />)
 
 `animate-normal`
 

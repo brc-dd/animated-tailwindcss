@@ -1,11 +1,9 @@
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD033 -->
 
 # Animation Delay
 
-Utilities for controlling the delay of CSS animations.
-
 Class
-~ Properties
+~ Properties ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay) <external-link-icon />)
 
 `animate-delay-[time]`
 

@@ -1,11 +1,9 @@
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD033 -->
 
 # Animation Duration
 
-Utilities for controlling the duration of CSS animations.
-
 Class
-~ Properties
+~ Properties ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) <external-link-icon />)
 
 `animate-faster`
 

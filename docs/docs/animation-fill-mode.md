@@ -1,11 +1,9 @@
-<!-- markdownlint-disable MD046 -->
+<!-- markdownlint-disable MD046 MD033 -->
 
 # Animation Fill Mode
 
-Utilities for controlling how a CSS animation applies styles to its target.
-
 Class
-~ Properties
+~ Properties ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode) <external-link-icon />)
 
 `animate-fill-none`
 

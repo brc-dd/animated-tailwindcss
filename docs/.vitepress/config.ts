@@ -8,14 +8,16 @@ import markdownItDefList from 'markdown-it-deflist';
 const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
   { text: 'Getting Started', link: '/docs/installation' },
   {
-    text: 'Customizing',
+    text: 'Available Utilities',
     children: [
       { text: 'Animation Name', link: '/docs/animation-name' },
       { text: 'Animation Duration', link: '/docs/animation-duration' },
+      { text: 'Animation Timing Function', link: '/docs/animation-timing-function' },
       { text: 'Animation Delay', link: '/docs/animation-delay' },
       { text: 'Animation Iteration Count', link: '/docs/animation-iteration-count' },
       { text: 'Animation Direction', link: '/docs/animation-direction' },
       { text: 'Animation Fill Mode', link: '/docs/animation-fill-mode' },
+      { text: 'Animation Play State', link: '/docs/animation-play-state' },
     ],
   },
 ];

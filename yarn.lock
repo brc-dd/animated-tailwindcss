@@ -8183,7 +8183,7 @@ __metadata:
 
 "vitepress@patch:vitepress@npm:0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29::locator=root-workspace-0b6124%40workspace%3A.":
   version: 0.21.4
-  resolution: "vitepress@patch:vitepress@npm%3A0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29::version=0.21.4&hash=a0d0cd&locator=root-workspace-0b6124%40workspace%3A."
+  resolution: "vitepress@patch:vitepress@npm%3A0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29::version=0.21.4&hash=75c8f7&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@docsearch/css": ^3.0.0-alpha.41
     "@docsearch/js": ^3.0.0-alpha.41
@@ -8193,7 +8193,7 @@ __metadata:
     vue: ^3.2.26
   bin:
     vitepress: bin/vitepress.js
-  checksum: 057fe5726c601640095435bf83af2a721f8579e3c21e8ba07e3f93672d4e6cd8b91a28c2f81093c7a43befe677f93b0d27493614393c52e0bb00ed4d0e0cbeba
+  checksum: 074e913f709e650ce12c7e9456e01a2f946cfad5c3586390541644411b0584891fa876ba66443bcc27669f3b10c1a1aaabb0ec8ee5d8004b3a4518d5c64f4ceb
   languageName: node
   linkType: hard
 

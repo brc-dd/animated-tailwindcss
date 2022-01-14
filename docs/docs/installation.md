@@ -51,7 +51,7 @@ module.exports = withAnimations({
 
 :::
 
-After proper config, you can use the animations of Animate.css [the same way as you use those of Tailwind CSS](https://tailwindcss.com/docs/animation):
+After proper config, you can use the animations of Animate.css the same way as you use those of [Tailwind CSS](https://tailwindcss.com/docs/animation):
 
 ```html
 <h1 class="animate-bounce animate-infinite">Forever Bouncing Heading</h1>

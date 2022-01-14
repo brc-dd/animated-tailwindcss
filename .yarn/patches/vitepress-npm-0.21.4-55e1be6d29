@@ -1,3 +1,35 @@
+diff --git a/dist/client/app/router.js b/dist/client/app/router.js
+index 94f37280ae6805a200feb48823639152b6b25685..98795eb29952b5f3e5d5672ceae0a178173edee6 100644
+--- a/dist/client/app/router.js
++++ b/dist/client/app/router.js
+@@ -78,6 +78,14 @@ export function createRouter(loadPageModule, fallbackComponent) {
+                 latestPendingPath = null;
+                 route.path = pendingPath;
+                 route.component = fallbackComponent ? markRaw(fallbackComponent) : null;
++                route.data = {
++                    relativePath: '',
++                    title: '404',
++                    description: 'Not Found',
++                    headers: [],
++                    frontmatter: {},
++                    lastUpdated: 0
++                };
+             }
+         }
+     }
+diff --git a/dist/client/theme-default/components/LastUpdated.vue b/dist/client/theme-default/components/LastUpdated.vue
+index ab888fbc222e5dba6b60fcab08972fe29c61b5fc..3191ab05e0c0a9d5882f07c4ad20d46b87333eae 100644
+--- a/dist/client/theme-default/components/LastUpdated.vue
++++ b/dist/client/theme-default/components/LastUpdated.vue
+@@ -7,7 +7,7 @@ const { theme, page } = useData()
+ const hasLastUpdated = computed(() => {
+   const lu = theme.value.lastUpdated
+
+-  return lu !== undefined && lu !== false
++  return lu !== undefined && lu !== false && page.value.lastUpdated !== 0
+ })
+
+ const prefix = computed(() => {
 diff --git a/dist/client/theme-default/components/SideBarLink.js b/dist/client/theme-default/components/SideBarLink.js
 index 68b31d7122382a7b8dbf6c1fb1ce340b80342613..4348bc10aee212c11cd4aec7c37ac99276ae6846 100644
 --- a/dist/client/theme-default/components/SideBarLink.js

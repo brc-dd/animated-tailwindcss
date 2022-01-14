@@ -112,7 +112,7 @@
 }
 
 dl {
-  @apply grid grid-cols-[auto_1fr];
+  @apply grid grid-cols-[auto_1fr] mt-4;
 
   dt {
     @apply p-2 pl-0;
@@ -142,4 +142,8 @@ dl {
       @apply py-2 text-sm;
     }
   }
+}
+
+h2 {
+  @apply mt-6;
 }
