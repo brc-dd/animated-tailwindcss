@@ -147,3 +147,8 @@ dl {
 h2 {
   @apply mt-6;
 }
+
+ul,
+ol {
+  @apply list-disc;
+}

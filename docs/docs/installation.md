@@ -57,6 +57,12 @@ After proper config, you can use the animations of Animate.css the same way as y
 <h1 class="animate-bounce animate-infinite">Forever Bouncing Heading</h1>
 ```
 
-::: warning
-If you are coming from classical Animate.css, please note that you need to reference the classes as `.animate-…` instead of `.animate__…`. Also, for compatibility reasons, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
+::: warning WARNINGS
+
+- If you are coming from classical Animate.css, please note that you need to reference the classes as `.animate-...` instead of `.animate__...`.
+
+- Also, for compatibility reasons, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
+
+- The animations this package provides are not _exactly_ same as that of Animate.css. We have done some cleaning up to provide you with more consistent animations.
+
 :::

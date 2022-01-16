@@ -21,6 +21,7 @@ const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
       { text: 'Translation Distance', link: '/docs/translation-distance' },
     ],
   },
+  { text: 'Notes', link: '/docs/advanced' },
 ];
 
 const config: UserConfig<DefaultTheme.Config> = {

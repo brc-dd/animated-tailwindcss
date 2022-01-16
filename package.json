@@ -26,7 +26,7 @@
     "conventional-changelog-conventionalcommits": "latest",
     "csstype": "latest",
     "esbuild": "latest",
-    "eslint": "latest",
+    "eslint": "8.6.0",
     "eslint-config-airbnb-base": "latest",
     "eslint-config-airbnb-typescript": "latest",
     "eslint-config-prettier": "latest",

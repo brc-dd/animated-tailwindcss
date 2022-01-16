@@ -11,6 +11,7 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
+  "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "scss.lint.unknownAtRules": "ignore",
   "vetur.validation.template": false,
   "vetur.validation.script": false,

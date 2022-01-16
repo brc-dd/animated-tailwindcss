@@ -29,63 +29,10 @@
 ## References
 
 - [Docs for v3](https://twanimated.netlify.app/)
-- [Playground](https://play.tailwindcss.com/y9hju8vBKt)
-- [Demo Page](https://ikcb.github.io/animated-tailwindcss/)
-- [Breaking Changes in v3](#upgrade-guide)
+- [tw-Playground](https://play.tailwindcss.com/y9hju8vBKt)
+- [Animations Demo](https://ikcb.github.io/animated-tailwindcss/)
+- [Upgrade Guide](https://twanimated.netlify.app/docs/advanced.html#upgrade-guide)
 - [Docs for v2](https://www.npmjs.com/package/animated-tailwindcss/v/2.6.1)
-
-## Notes (for v3)
-
-### Using with [Tailwind CSS IntelliSense](vscode:extension/bradlc.vscode-tailwindcss)
-
-You don't need any additional configuration. IntelliSense will automatically detect the animation classes.
-
-### Custom Animations
-
-Refer to the [Tailwind CSS docs](https://tailwindcss.com/docs/animation#customizing). If configured, any animation/keyframe customization will be applied properly.
-
-### Accessibility
-
-Use [`motion-safe` and `motion-reduce`](https://tailwindcss.com/docs/hover-focus-and-other-states#prefers-reduced-motion) variants [provided by Tailwind CSS](https://tailwindcss.com/docs/animation#prefers-reduced-motion). You can also use [`print:hidden`](https://tailwindcss.com/docs/hover-focus-and-other-states#print-styles) on exit animations so that elements with such classes are not shown if someone is printing your website.
-
-To get similar accessibility as the classical Animate.css do this:
-
-```html
-<div
-  class="
-    motion-reduce:animate-duration-[1ms] motion-reduce:animate-repeat-[1]
-    print:animate-duration-[1ms] print:animate-repeat-[1]
-    ...
-  "
->
-  ...
-</div>
-
-<!-- on exit animations also add these -->
-<div class="motion-reduce:hidden print:hidden ...">...</div>
-```
-
-### Removing Unused Keyframes
-
-Tailwind CSS v3 has JIT mode enabled by default. So, it will only generate the CSS you are _actually using_ in your project. Please refer [the docs](https://tailwindcss.com/docs/optimizing-for-production) to learn more.
-
-### Disclaimer
-
-The animation classes this package provides are similar but not the same as the Animate.css utilities. We have done some cleaning up and provided you with more consistent animations.
-
-### Upgrade Guide
-
-#### From v2 to v3
-
-- We now require at least Tailwind CSS v3. So first upgrade it. Refer: [Tailwind CSS Upgrade Guide](https://tailwindcss.com/docs/upgrade-guide). Then run the command given in [our installation section](#installation).
-
-- `animate-animated` class is no longer required. You can remove it.
-
-- Accessibility measures are no longer enforced by us. Refer [the accessibility section](#accessibility).
-
-- Also, remove any experimental options that you might earlier be passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and can be considered stable.
-
----
 
 ## License
 
