@@ -29,7 +29,7 @@
 ## References
 
 - [Docs for v3](https://twanimated.netlify.app/)
-- [tw-Playground](https://play.tailwindcss.com/y9hju8vBKt)
+- [tw-Playground](https://play.tailwindcss.com/TsNC9Yw9Nc)
 - [Animations Demo](https://ikcb.github.io/animated-tailwindcss/)
 - [Upgrade Guide](https://twanimated.netlify.app/docs/advanced.html#upgrade-guide)
 - [Docs for v2](https://www.npmjs.com/package/animated-tailwindcss/v/2.6.1)
