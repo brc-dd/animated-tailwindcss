@@ -8,7 +8,7 @@
   "contributors": [
     "Akash Tureha <2020kucp1138@iiitkota.ac.in> (https://github.com/MrMischievousX)"
   ],
-  "homepage": "https://ikcb.org/animated-tailwindcss",
+  "homepage": "https://twanimated.netlify.app",
   "repository": "github:ikcb/animated-tailwindcss",
   "bugs": {
     "url": "https://github.com/ikcb/animated-tailwindcss/issues",
@@ -35,6 +35,8 @@
     "animations",
     "configuration",
     "css",
+    "jit",
+    "keyframes",
     "tailwind",
     "tailwindcss"
   ],
