@@ -124,3 +124,16 @@ index 0000000000000000000000000000000000000000..576a81eff9f2119b5f9f890793f18fde
 +import { Theme } from 'vitepress'
 +declare const theme: Theme
 +export default theme
+diff --git a/dist/client/app/utils.js b/dist/client/app/utils.js
+index 0411dde2de1581dd50e779dc82093268a103a3d9..53157555a4c4e2d358f74ac39ae15d94a9c1eee4 100644
+--- a/dist/client/app/utils.js
++++ b/dist/client/app/utils.js
+@@ -31,7 +31,7 @@ export function pathToFile(path) {
+         // /foo/bar.html -> ./foo_bar.md
+         if (inBrowser) {
+             const base = import.meta.env.BASE_URL;
+-            pagePath = pagePath.slice(base.length).replace(/\//g, '_') + '.md';
++            pagePath = (pagePath.slice(base.length).replace(/\//g, '_') || 'index') + '.md';
+             // client production build needs to account for page hash, which is
+             // injected directly in the page's html
+             const pageHash = __VP_HASH_MAP__[pagePath.toLowerCase()];

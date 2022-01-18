@@ -19,7 +19,7 @@
   <a href="https://conventionalcommits.org">
     <img src="https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg?style=flat-square" />
   </a>
-  <a href="https://twanimated.netlify.app/">
+  <a href="https://ikcb.org/animated-tailwindcss">
     <img src="https://img.shields.io/netlify/f63b8a42-3984-4b43-96ff-7419625005e8?label=docs&logo=netlify&style=flat-square" />
   </a>
 </p>
@@ -28,10 +28,8 @@
 
 ## References
 
-- [Docs for v3](https://twanimated.netlify.app/)
+- [Docs for v3](https://ikcb.org/animated-tailwindcss)
 - [tw-Playground](https://play.tailwindcss.com/TsNC9Yw9Nc)
-- [Animations Demo](https://ikcb.github.io/animated-tailwindcss/)
-- [Upgrade Guide](https://twanimated.netlify.app/docs/advanced.html#upgrade-guide)
 - [Docs for v2](https://www.npmjs.com/package/animated-tailwindcss/v/2.6.1)
 
 ## License
