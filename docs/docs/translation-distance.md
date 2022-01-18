@@ -19,7 +19,7 @@ Here `[length]` is one of TailwindCSS-style [widths](https://tailwindcss.com/doc
 
 ::: details
 
-The following classes can be customized using this utility:
+The following classes can be customized by these utilities:
 
 ```txt
 animate-backXY
