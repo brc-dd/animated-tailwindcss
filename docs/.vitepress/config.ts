@@ -22,6 +22,7 @@ const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
     ],
   },
   { text: 'Notes', link: '/docs/advanced' },
+  { text: 'Demo', link: '/docs/animations' },
 ];
 
 const config: UserConfig<DefaultTheme.Config> = {

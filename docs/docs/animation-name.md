@@ -28,4 +28,4 @@ Class
 <div class="animate-[bounce_1s_ease-in-out_infinite]">Bar</div>
 ```
 
-Refer [our playground](https://ikcb.org/animated-tailwindcss) to see the available animations in action. Also, refer the official Tailwind CSS documentation on [using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values). Note that these classes also add some default properties and keyframe definitions too.
+Refer [the demo section](/docs/animations) to see the available animations in action. Also, refer the official Tailwind CSS documentation on [using animations with arbitrary values](https://tailwindcss.com/docs/animation#arbitrary-values). Note that these classes also add some default properties and keyframe definitions too.

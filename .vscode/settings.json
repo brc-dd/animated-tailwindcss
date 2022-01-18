@@ -1,19 +1,20 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[ignore,shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
+  "editor.formatOnSave": false,
   "eslint.nodePath": ".yarn/sdks",
   "eslint.packageManager": "yarn",
   "eslint.probe": ["typescript"],
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "scss.lint.unknownAtRules": "ignore",
   "search.exclude": { "**/.yarn": true, "**/.pnp.*": true },
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
-  "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "scss.lint.unknownAtRules": "ignore",
-  "vetur.validation.template": false,
   "vetur.validation.script": false,
-  "vetur.validation.style": false
+  "vetur.validation.style": false,
+  "vetur.validation.template": false
 }
