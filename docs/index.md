@@ -9,4 +9,8 @@ actionLink: /docs/installation
 footer: MIT Licensed ｜ © 2021-present IIIT Kota CodeBase
 sidebar: false
 title: ' '
+head:
+  - - meta
+    - name: google-site-verification
+      content: Yi-ApyAXSnGz0605Xl_UGIhCpvfFERTrEDt6FzScJAU
 ---
