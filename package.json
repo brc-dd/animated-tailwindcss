@@ -8,7 +8,7 @@
   },
   "resolutions": {
     "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
-    "vitepress@0.21.4": "patch:vitepress@npm:0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29"
+    "vitepress@0.21.6": "patch:vitepress@npm:0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -57,7 +57,7 @@
     "ttypescript": "latest",
     "typescript": "latest",
     "typescript-transform-paths": "latest",
-    "vitepress": "0.21.4",
+    "vitepress": "0.21.6",
     "vls": "latest",
     "vue": "next"
   },

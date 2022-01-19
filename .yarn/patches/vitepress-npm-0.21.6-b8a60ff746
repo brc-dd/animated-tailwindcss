@@ -1,0 +1,411 @@
+diff --git a/dist/client/app/router.js b/dist/client/app/router.js
+index 58d82bdd05eed35f7a44988f17c4736c4da0bcc7..adb687f94acd0456490882953c9da8da932af2dc 100644
+--- a/dist/client/app/router.js
++++ b/dist/client/app/router.js
+@@ -18,9 +18,14 @@ export function createRouter(loadPageModule, fallbackComponent) {
+     function go(href = inBrowser ? location.href : '/') {
+         // ensure correct deep link so page refresh lands on correct files.
+         const url = new URL(href, fakeHost);
+-        if (!url.pathname.endsWith('/') && !url.pathname.endsWith('.html')) {
+-            url.pathname += '.html';
+-            href = url.pathname + url.search + url.hash;
++        if (siteDataRef.value.cleanUrls) {
++            // Should we replace `/foo.html` -> `/foo` ? :thinking:
++        }
++        else {
++            if (!url.pathname.endsWith('/') && !url.pathname.endsWith('.html')) {
++                url.pathname += '.html';
++                href = url.pathname + url.search + url.hash;
++            }
+         }
+         if (inBrowser) {
+             // save scroll position before changing url
+@@ -79,6 +84,15 @@ export function createRouter(loadPageModule, fallbackComponent) {
+                 latestPendingPath = null;
+                 route.path = pendingPath;
+                 route.component = fallbackComponent ? markRaw(fallbackComponent) : null;
++                // reset page data
++                route.data = {
++                    relativePath: '',
++                    title: '404',
++                    description: 'Not Found',
++                    headers: [],
++                    frontmatter: {},
++                    lastUpdated: 0
++                };
+             }
+         }
+     }
+diff --git a/dist/client/app/utils.js b/dist/client/app/utils.js
+index 0411dde2de1581dd50e779dc82093268a103a3d9..047102a11fbd7f5b05b2fdf189221888f9bd16d1 100644
+--- a/dist/client/app/utils.js
++++ b/dist/client/app/utils.js
+@@ -31,7 +31,8 @@ export function pathToFile(path) {
+         // /foo/bar.html -> ./foo_bar.md
+         if (inBrowser) {
+             const base = import.meta.env.BASE_URL;
+-            pagePath = pagePath.slice(base.length).replace(/\//g, '_') + '.md';
++            pagePath =
++                (pagePath.slice(base.length).replace(/\//g, '_') || 'index') + '.md';
+             // client production build needs to account for page hash, which is
+             // injected directly in the page's html
+             const pageHash = __VP_HASH_MAP__[pagePath.toLowerCase()];
+diff --git a/dist/client/index.d.ts b/dist/client/index.d.ts
+index f8ef01c1f0996f77b24b795da8def196d844ae00..74abbf542e08b1def7c596bc297426d0d5155d1a 100644
+--- a/dist/client/index.d.ts
++++ b/dist/client/index.d.ts
+@@ -99,6 +99,7 @@ export declare interface SiteData<ThemeConfig = any> {
+         label: string
+     }
+     >
++    cleanUrls: boolean
+ }
+
+ export declare interface Theme {
+diff --git a/dist/client/theme-default/components/LastUpdated.vue b/dist/client/theme-default/components/LastUpdated.vue
+index ab888fbc222e5dba6b60fcab08972fe29c61b5fc..3191ab05e0c0a9d5882f07c4ad20d46b87333eae 100644
+--- a/dist/client/theme-default/components/LastUpdated.vue
++++ b/dist/client/theme-default/components/LastUpdated.vue
+@@ -7,7 +7,7 @@ const { theme, page } = useData()
+ const hasLastUpdated = computed(() => {
+   const lu = theme.value.lastUpdated
+
+-  return lu !== undefined && lu !== false
++  return lu !== undefined && lu !== false && page.value.lastUpdated !== 0
+ })
+
+ const prefix = computed(() => {
+diff --git a/dist/client/theme-default/components/NavBarTitle.vue b/dist/client/theme-default/components/NavBarTitle.vue
+index 8b9d3709763ad0e16a8a4d88bfc874767509bbb7..686a685ad041cb01e04aacbe88c9e3dfe46aa18f 100644
+--- a/dist/client/theme-default/components/NavBarTitle.vue
++++ b/dist/client/theme-default/components/NavBarTitle.vue
+@@ -6,7 +6,7 @@ const { site, theme, localePath } = useData()
+ <template>
+   <a
+     class="nav-bar-title"
+-    :href="localePath"
++    :href="localePath.replace(/\/$/, '')"
+     :aria-label="`${site.title}, back to home`"
+   >
+     <img
+diff --git a/dist/client/theme-default/components/SideBarLink.js b/dist/client/theme-default/components/SideBarLink.js
+index 68b31d7122382a7b8dbf6c1fb1ce340b80342613..4348bc10aee212c11cd4aec7c37ac99276ae6846 100644
+--- a/dist/client/theme-default/components/SideBarLink.js
++++ b/dist/client/theme-default/components/SideBarLink.js
+@@ -5,7 +5,9 @@ export const SideBarLink = (props) => {
+     const route = useRoute();
+     const { site, frontmatter } = useData();
+     const depth = props.depth || 1;
+-    const maxDepth = frontmatter.value.sidebarDepth || Infinity;
++    const maxDepth = frontmatter.value.sidebarDepth ||
++        site.value.themeConfig.sidebarDepth ||
++        Infinity;
+     const headers = route.data.headers;
+     const text = props.item.text;
+     const link = resolveLink(site.value.base, props.item.link);
+diff --git a/dist/client/theme-default/composables/sideBar.js b/dist/client/theme-default/composables/sideBar.js
+index df72937df2407e8405f940735f5bc21611956da0..c52fbd84870ab094343a01e864f1f090af50bbc2 100644
+--- a/dist/client/theme-default/composables/sideBar.js
++++ b/dist/client/theme-default/composables/sideBar.js
+@@ -10,7 +10,7 @@ export function useSideBar() {
+         // at first, we'll check if we can find the sidebar setting in frontmatter.
+         const headers = route.data.headers;
+         const frontSidebar = route.data.frontmatter.sidebar;
+-        const sidebarDepth = route.data.frontmatter.sidebarDepth;
++        const sidebarDepth = route.data.frontmatter.sidebarDepth || site.value.themeConfig.sidebarDepth;
+         // if it's `false`, we'll just return an empty array here.
+         if (frontSidebar === false) {
+             return [];
+diff --git a/dist/node/cli.js b/dist/node/cli.js
+index ab9a06cb864b9a8d0ee6292ca179b7243998ac77..9721f3e9cf21a439cc6d371a0753619bde978b93 100644
+--- a/dist/node/cli.js
++++ b/dist/node/cli.js
+@@ -1,6 +1,6 @@
+ 'use strict';
+
+-var serve = require('./serve-9874c5ac.js');
++var serve = require('./serve-9874c5ac.js');
+ require('fs');
+ require('path');
+ require('url');
+diff --git a/dist/node/index.d.ts b/dist/node/index.d.ts
+index 9605e5ba9dc2dc4bb822c31fcb07d9cdb2ff9882..9a4e9fde992a08bd64484a4fd74f35afb32d57fe 100644
+--- a/dist/node/index.d.ts
++++ b/dist/node/index.d.ts
+@@ -4,6 +4,7 @@ import { BuildOptions } from 'vite';
+ import MarkdownIt from 'markdown-it';
+ import { Options } from '@vitejs/plugin-vue';
+ import { ServerOptions } from 'vite';
++import { SiteConfig as SiteConfig_2 } from 'config';
+ import { UserConfig as UserConfig_2 } from 'vite';
+ import { ViteDevServer } from 'vite';
+
+@@ -11,7 +12,7 @@ export declare function build(root: string, buildOptions?: BuildOptions & {
+     mpa?: string;
+ }): Promise<void>;
+
+-export declare const createMarkdownRenderer: (srcDir: string, options?: MarkdownOptions) => MarkdownRenderer;
++export declare const createMarkdownRenderer: (siteConfig: SiteConfig_2, options?: MarkdownOptions) => MarkdownRenderer;
+
+ export declare function createServer(root?: string, serverOptions?: ServerOptions): Promise<ViteDevServer>;
+
+@@ -20,6 +21,7 @@ export declare namespace DefaultTheme {
+         logo?: string
+         nav?: NavItem[] | false
+         sidebar?: SideBarConfig | MultiSideBarConfig
++        sidebarDepth?: number
+
+         /**
+          * GitHub repository following the format <user>/<project>.
+@@ -241,6 +243,7 @@ export declare interface SiteConfig<ThemeConfig = any> extends Pick<UserConfig,
+     themeDir: string;
+     outDir: string;
+     tempDir: string;
++    cleanUrls: boolean;
+     alias: AliasOptions;
+     pages: string[];
+ }
+@@ -278,6 +281,7 @@ export declare interface SiteData<ThemeConfig = any> {
+         label: string
+     }
+     >
++    cleanUrls: boolean
+ }
+
+ export declare interface UserConfig<ThemeConfig = any> {
+@@ -312,6 +316,13 @@ export declare interface UserConfig<ThemeConfig = any> {
+      * @experimental
+      */
+     mpa?: boolean;
++    /**
++     * Always use "clean URLs" without the `.html`.
++     * Also generate static files as `foo/index.html` insted of `foo.html`.
++     * (default: false)
++     * @experimental (Works better with mpa mode)
++     */
++    cleanUrls?: boolean;
+ }
+
+ export { }
+diff --git a/dist/node/serve-9874c5ac.js b/dist/node/serve-9874c5ac.js
+index e024d9eb80502d794ad7e6c078b499770d701a55..5c341fdd786502314240f47cb1c62bb2ba8e1cec 100644
+--- a/dist/node/serve-9874c5ac.js
++++ b/dist/node/serve-9874c5ac.js
+@@ -13379,6 +13379,7 @@ async function resolveConfig(root = process.cwd(), command = "serve", mode = "de
+     configPath,
+     outDir,
+     tempDir: resolve(root, ".temp"),
++    cleanUrls: !!userConfig.cleanUrls,
+     markdown: userConfig.markdown,
+     alias: resolveAliases(root, themeDir),
+     vue: userConfig.vue,
+@@ -13456,7 +13457,8 @@ async function resolveSiteData(root, userConfig, command = "serve", mode = "deve
+     themeConfig: userConfig.themeConfig || {},
+     locales: userConfig.locales || {},
+     langs: createLangDictionary(userConfig),
+-    scrollOffset: userConfig.scrollOffset || 90
++    scrollOffset: userConfig.scrollOffset || 90,
++    cleanUrls: userConfig.cleanUrls || false
+   };
+ }
+
+@@ -35097,7 +35099,7 @@ const preWrapperPlugin = (md) => {
+ };
+
+ const indexRE = /(^|.*\/)index.md(#?.*)$/i;
+-const linkPlugin = (md, externalAttrs) => {
++const linkPlugin = (md, externalAttrs, shouldCleanUrls) => {
+   md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+     const token = tokens[idx];
+     const hrefIndex = token.attrIndex("href");
+@@ -35113,13 +35115,13 @@ const linkPlugin = (md, externalAttrs) => {
+           pushLink(url);
+         }
+       } else if (!url.startsWith("#") && !url.startsWith("mailto:")) {
+-        normalizeHref(hrefAttr);
++        normalizeHref(hrefAttr, shouldCleanUrls);
+       }
+       hrefAttr[1] = hrefAttr[1].replace(/\bimport\.meta/g, "import%2Emeta").replace(/\bprocess\.env/g, "process%2Eenv");
+     }
+     return self.renderToken(tokens, idx, options);
+   };
+-  function normalizeHref(hrefAttr) {
++  function normalizeHref(hrefAttr, shouldCleanUrls2) {
+     let url = hrefAttr[1];
+     const indexMatch = url.match(indexRE);
+     if (indexMatch) {
+@@ -35128,9 +35130,9 @@ const linkPlugin = (md, externalAttrs) => {
+     } else {
+       let cleanUrl = url.replace(/\#.*$/, "").replace(/\?.*$/, "");
+       if (cleanUrl.endsWith(".md")) {
+-        cleanUrl = cleanUrl.replace(/\.md$/, ".html");
++        cleanUrl = cleanUrl.replace(/\.md$/, shouldCleanUrls2 ? "" : ".html");
+       }
+-      if (!cleanUrl.endsWith(".html") && !cleanUrl.endsWith("/")) {
++      if (!shouldCleanUrls2 && !cleanUrl.endsWith(".html") && !cleanUrl.endsWith("/")) {
+         cleanUrl += ".html";
+       }
+       const parsed = new url$1.URL(url, "http://a.com");
+@@ -36443,16 +36445,16 @@ var __spreadValues$2 = (a, b) => {
+     }
+   return a;
+ };
+-const createMarkdownRenderer = (srcDir, options = {}) => {
++const createMarkdownRenderer = (siteConfig, options = {}) => {
+   const md = markdownIt(__spreadValues$2({
+     html: true,
+     linkify: true,
+     highlight
+   }, options));
+-  md.use(componentPlugin).use(highlightLinePlugin).use(preWrapperPlugin).use(snippetPlugin, srcDir).use(hoistPlugin).use(containerPlugin).use(headingPlugin).use(linkPlugin, __spreadValues$2({
++  md.use(componentPlugin).use(highlightLinePlugin).use(preWrapperPlugin).use(snippetPlugin, siteConfig.srcDir).use(hoistPlugin).use(containerPlugin).use(headingPlugin).use(linkPlugin, __spreadValues$2({
+     target: "_blank",
+     rel: "noopener noreferrer"
+-  }, options.externalLinks)).use(markdownItAttrs, options.attrs).use(b, __spreadValues$2({
++  }, options.externalLinks), siteConfig.cleanUrls).use(markdownItAttrs, options.attrs).use(b, __spreadValues$2({
+     slugify: slugify$1,
+     permalink: b.permalink.ariaHidden({})
+   }, options.anchor)).use(markdownItTableOfContents, __spreadValues$2({
+@@ -36481,8 +36483,9 @@ function slash(p) {
+ const debug$2 = _debug("vitepress:md");
+ const cache = new lruCache({ max: 1024 });
+ const includesRE = /<!--\s*@include:\s*(.*?)\s*-->/g;
+-function createMarkdownToVueRenderFn(srcDir, options = {}, pages, userDefines, isBuild = false) {
+-  const md = createMarkdownRenderer(srcDir, options);
++function createMarkdownToVueRenderFn(siteConfig, options = {}, pages, userDefines, isBuild = false) {
++  const { srcDir } = siteConfig;
++  const md = createMarkdownRenderer(siteConfig, options);
+   pages = pages.map((p) => slash(p.replace(/\.md$/, "")));
+   const userDefineRegex = userDefines ? new RegExp(`\\b(${Object.keys(userDefines).map((key) => key.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&")).join("|")})`, "g") : null;
+   return (src, file, publicDir) => {
+@@ -36738,7 +36741,7 @@ function createVitePressPlugin(root, siteConfig, ssr = false, pageToHashMap, cli
+     name: "vitepress",
+     configResolved(resolvedConfig) {
+       config = resolvedConfig;
+-      markdownToVue = createMarkdownToVueRenderFn(srcDir, markdown, pages, config.define, config.command === "build");
++      markdownToVue = createMarkdownToVueRenderFn(siteConfig, markdown, pages, config.define, config.command === "build");
+     },
+     config() {
+       var _a, _b;
+@@ -40284,10 +40287,16 @@ async function renderPage(config, page, result, appChunk, cssChunk, pageToHashMa
+     ${inlinedScript}
+   </body>
+ </html>`.trim();
+-  const htmlFileName = path__default["default"].join(config.outDir, page.replace(/\.md$/, ".html"));
++  const htmlFileName = path__default["default"].join(config.outDir, transformHTMLFileName(page, config.cleanUrls));
+   await lib$1.ensureDir(path__default["default"].dirname(htmlFileName));
+   await lib$1.writeFile(htmlFileName, html);
+ }
++function transformHTMLFileName(page, shouldCleanUrls) {
++  if (page === "index.md" || page.endsWith("/index.md")) {
++    return page.replace(/\.md$/, ".html");
++  }
++  return page.replace(/\.md$/, shouldCleanUrls ? "/index.html" : ".html");
++}
+ function resolvePageImports(config, page, result, appChunk) {
+   const srcPath = vite.normalizePath(lib$1.realpathSync(path__default["default"].resolve(config.srcDir, page)));
+   const pageChunk = result.output.find((chunk) => chunk.type === "chunk" && chunk.facadeModuleId === srcPath);
+diff --git a/package.json b/package.json
+index 7a8485795cb247d22314cf31dbde29851891758d..d321960530344244eec27ae68bbb3e3d3b03ea34 100644
+--- a/package.json
++++ b/package.json
+@@ -14,33 +14,6 @@
+     "client.d.ts",
+     "theme.d.ts"
+   ],
+-  "scripts": {
+-    "dev": "run-s dev-shared dev-start",
+-    "dev-start": "run-p dev-client dev-node dev-watch",
+-    "dev-client": "tsc -w -p src/client",
+-    "dev-node": "tsc -w -p src/node",
+-    "dev-shared": "node scripts/copyShared",
+-    "dev-watch": "node scripts/watchAndCopy",
+-    "build": "run-s build-prepare build-client build-node build-types",
+-    "build-prepare": "rimraf -rf dist && node scripts/copyShared",
+-    "build-client": "tsc -p src/client && node scripts/copyClient",
+-    "build-node": "rollup -c scripts/rollup.config.js",
+-    "build-types": "run-s build-types-client build-types-node",
+-    "build-types-client": "tsc -p src/client --declaration --emitDeclarationOnly --outDir dist/temp && api-extractor run -c api-extractor.client.json && rimraf dist/temp",
+-    "build-types-node": "tsc -p src/node --declaration --emitDeclarationOnly --outDir dist/temp && api-extractor run -c api-extractor.node.json && rimraf dist/temp",
+-    "lint": "run-s lint:js lint:ts",
+-    "lint:js": "prettier --check --write \"{bin,docs,scripts,src}/**/*.js\"",
+-    "lint:ts": "prettier --check --write --parser typescript \"{__tests__,src,docs,types}/**/*.ts\"",
+-    "test": "vitest run __tests__ -c __tests__/vitest.config.js --global",
+-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+-    "release": "node scripts/release.js",
+-    "docs": "run-p dev docs-dev",
+-    "docs-dev": "node ./bin/vitepress dev docs",
+-    "docs-debug": "node --inspect-brk ./bin/vitepress dev docs",
+-    "docs-build": "npm run build && node ./bin/vitepress build docs",
+-    "docs-serve": "node ./bin/vitepress serve docs",
+-    "ci-docs": "run-s build docs-build"
+-  },
+   "engines": {
+     "node": ">=12.0.0"
+   },
+@@ -131,14 +104,31 @@
+     "vitest": "^0.1.19",
+     "yorkie": "^2.0.0"
+   },
+-  "pnpm": {
+-    "peerDependencyRules": {
+-      "ignoreMissing": [
+-        "@algolia/client-search",
+-        "react",
+-        "react-dom",
+-        "@types/react"
+-      ]
+-    }
++  "scripts": {
++    "dev": "run-s dev-shared dev-start",
++    "dev-start": "run-p dev-client dev-node dev-watch",
++    "dev-client": "tsc -w -p src/client",
++    "dev-node": "tsc -w -p src/node",
++    "dev-shared": "node scripts/copyShared",
++    "dev-watch": "node scripts/watchAndCopy",
++    "build": "run-s build-prepare build-client build-node build-types",
++    "build-prepare": "rimraf -rf dist && node scripts/copyShared",
++    "build-client": "tsc -p src/client && node scripts/copyClient",
++    "build-node": "rollup -c scripts/rollup.config.js",
++    "build-types": "run-s build-types-client build-types-node",
++    "build-types-client": "tsc -p src/client --declaration --emitDeclarationOnly --outDir dist/temp && api-extractor run -c api-extractor.client.json && rimraf dist/temp",
++    "build-types-node": "tsc -p src/node --declaration --emitDeclarationOnly --outDir dist/temp && api-extractor run -c api-extractor.node.json && rimraf dist/temp",
++    "lint": "run-s lint:js lint:ts",
++    "lint:js": "prettier --check --write \"{bin,docs,scripts,src}/**/*.js\"",
++    "lint:ts": "prettier --check --write --parser typescript \"{__tests__,src,docs,types}/**/*.ts\"",
++    "test": "vitest run __tests__ -c __tests__/vitest.config.js --global",
++    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
++    "release": "node scripts/release.js",
++    "docs": "run-p dev docs-dev",
++    "docs-dev": "node ./bin/vitepress dev docs",
++    "docs-debug": "node --inspect-brk ./bin/vitepress dev docs",
++    "docs-build": "npm run build && node ./bin/vitepress build docs",
++    "docs-serve": "node ./bin/vitepress serve docs",
++    "ci-docs": "run-s build docs-build"
+   }
+ }
+\ No newline at end of file
+diff --git a/types/default-theme.d.ts b/types/default-theme.d.ts
+index d72848717e1980bc9ac78c94b4262868b19593b3..f4071a7bf9069272050117b4f2c647a1f83ecb28 100644
+--- a/types/default-theme.d.ts
++++ b/types/default-theme.d.ts
+@@ -3,6 +3,7 @@ export namespace DefaultTheme {
+     logo?: string
+     nav?: NavItem[] | false
+     sidebar?: SideBarConfig | MultiSideBarConfig
++    sidebarDepth?: number
+
+     /**
+      * GitHub repository following the format <user>/<project>.
+diff --git a/types/shared.d.ts b/types/shared.d.ts
+index 8f41bc5eb0761a34d87c7bef0205267f4e107cb7..7f56bdfd83ac8b2d2f1471e208378e558c7416d3 100644
+--- a/types/shared.d.ts
++++ b/types/shared.d.ts
+@@ -44,6 +44,7 @@ export interface SiteData<ThemeConfig = any> {
+       label: string
+     }
+   >
++  cleanUrls: boolean
+ }
+
+ export type HeadConfig =

@@ -7067,7 +7067,7 @@ __metadata:
     ttypescript: latest
     typescript: latest
     typescript-transform-paths: latest
-    vitepress: 0.21.4
+    vitepress: 0.21.6
     vls: latest
     vue: next
   dependenciesMeta:
@@ -8124,9 +8124,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.7.0":
-  version: 2.7.12
-  resolution: "vite@npm:2.7.12"
+"vite@npm:^2.7.12":
+  version: 2.7.13
+  resolution: "vite@npm:2.7.13"
   dependencies:
     esbuild: ^0.13.12
     fsevents: ~2.3.2
@@ -8149,39 +8149,39 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 56d62ae8131b02891f2dbd81f26a3ca28a02bfe390f9cb4e0c2d8dc831c2e2f8264dd3c45b14c7dd48e79d83d323a35148f92729e1f3385fae04fcd691f3f985
+  checksum: 3d8780754974c5012b768b5394dce15a171e2f9e061f86517a9c934bfff02855439d411c6769efc0a1791f6c511e703e1ade8ac14a8030b0e62408af39eea456
   languageName: node
   linkType: hard
 
-"vitepress@npm:0.21.4":
-  version: 0.21.4
-  resolution: "vitepress@npm:0.21.4"
+"vitepress@npm:0.21.6":
+  version: 0.21.6
+  resolution: "vitepress@npm:0.21.6"
   dependencies:
     "@docsearch/css": ^3.0.0-alpha.41
     "@docsearch/js": ^3.0.0-alpha.41
     "@vitejs/plugin-vue": ^2.0.0
     prismjs: ^1.25.0
-    vite: ^2.7.0
-    vue: ^3.2.26
+    vite: ^2.7.12
+    vue: ^3.2.27
   bin:
     vitepress: bin/vitepress.js
-  checksum: d07a6780786811888d181bdc9c0eb41ac74268fb38b3d3e7abf93d7298ce2d7e1b147f5c674e968574222452823f81bbc1034512cca33942f7fe5c3d07590524
+  checksum: 32087b2dce97f2ddc253f8b8b3e5f4ef5c124ea864813476792d86531c8010ab6c39acb6759b8672a616d4cbd0603c56830d75bb32b2f1f8f99c7a111c53986c
   languageName: node
   linkType: hard
 
-"vitepress@patch:vitepress@npm:0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29::locator=root-workspace-0b6124%40workspace%3A.":
-  version: 0.21.4
-  resolution: "vitepress@patch:vitepress@npm%3A0.21.4#.yarn/patches/vitepress-npm-0.21.4-55e1be6d29::version=0.21.4&hash=a0a151&locator=root-workspace-0b6124%40workspace%3A."
+"vitepress@patch:vitepress@npm:0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 0.21.6
+  resolution: "vitepress@patch:vitepress@npm%3A0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746::version=0.21.6&hash=e85455&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@docsearch/css": ^3.0.0-alpha.41
     "@docsearch/js": ^3.0.0-alpha.41
     "@vitejs/plugin-vue": ^2.0.0
     prismjs: ^1.25.0
-    vite: ^2.7.0
-    vue: ^3.2.26
+    vite: ^2.7.12
+    vue: ^3.2.27
   bin:
     vitepress: bin/vitepress.js
-  checksum: b33955c05bfa3844e2fab0ea534c939ac611537128ebad77636361ef9a6320e83adf428fc5a93e994823126b4d3461e23a549f8d8dc474c6e9aa842d971c05b5
+  checksum: 63ba8194cd8f551caad4c0457ff7567ac00a941cccbc076e0d028ef480856502ff74922349e05bb968aae03692c76f0ea03a47ba019b7074ae19340bb23ff34b
   languageName: node
   linkType: hard
 
@@ -8218,7 +8218,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.2.26, vue@npm:next":
+"vue@npm:^3.2.27, vue@npm:next":
   version: 3.2.27
   resolution: "vue@npm:3.2.27"
   dependencies:
