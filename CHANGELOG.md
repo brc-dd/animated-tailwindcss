@@ -1,3 +1,5 @@
+### [3.0.1](https://github.com/ikcb/animated-tailwindcss/compare/v3.0.0...v3.0.1) (2022-01-19)
+
 ## [3.0.0](https://github.com/ikcb/animated-tailwindcss/compare/v3.0.0-rc.2...v3.0.0) (2022-01-16)
 
 ### Features
