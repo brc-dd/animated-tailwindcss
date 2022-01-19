@@ -11,6 +11,10 @@ sidebar: false
 title: ' '
 head:
   - - meta
+    - name: image
+      property: 'og:image'
+      content: https://ikcb.org/animated-tailwindcss/opengraph.png
+  - - meta
     - name: google-site-verification
       content: Yi-ApyAXSnGz0605Xl_UGIhCpvfFERTrEDt6FzScJAU
 ---
