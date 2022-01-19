@@ -37,8 +37,10 @@
     "css",
     "jit",
     "keyframes",
+    "plugin",
     "tailwind",
-    "tailwindcss"
+    "tailwindcss",
+    "utilities"
   ],
   "engines": {
     "node": ">=12"
