@@ -32,7 +32,7 @@ Tailwind CSS v3 has JIT mode enabled by default. So, it will only generate the C
 
 ### From v2 to v3
 
-- We now require at least Tailwind CSS v3. So first upgrade it. You can refer the Tailwind CSS [upgrade guide](https://tailwindcss.com/docs/upgrade-guide). Then run the command given in our [installation section](/docs/installation.html).
+- We now require at least Tailwind CSS v3. So first upgrade it. You can refer the Tailwind CSS [upgrade guide](https://tailwindcss.com/docs/upgrade-guide). Then run the command given in our [installation section](./installation).
 - `animate-animated` class is no longer required. You can remove it.
-- Accessibility measures are no longer enforced by us. Refer the [accessibility section](/docs/advanced.html#accessibility).
+- Accessibility measures are no longer enforced by us. Refer the [accessibility section](./advanced#accessibility).
 - Remove any experimental options that you might earlier be passing to `withAnimations` wrapper. Those features are now covered by semantic versioning and are stable.

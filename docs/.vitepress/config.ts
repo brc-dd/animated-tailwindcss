@@ -26,7 +26,6 @@ const getSidebar = (): Array<DefaultTheme.SideBarItem> => [
 ];
 
 const config: UserConfig<DefaultTheme.Config> = {
-  cleanUrls: true,
   base: '/animated-tailwindcss/',
   title: 'tw-Animated',
   description: 'animated-tailwindcss is a package that brings Animate.css classes to Tailwind CSS',
