@@ -4,7 +4,7 @@
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
     "docs:serve": "serve docs/dist",
-    "postinstall": "husky install"
+    "postinstall": "husky install && yarn dlx @yarnpkg/sdks vscode"
   },
   "resolutions": {
     "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
