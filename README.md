@@ -50,9 +50,3 @@ When you submit code changes, your submissions are understood to be under the sa
 
 - [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [Hippocratic License 2.1](https://github.com/animate-css/animate.css/blob/main/LICENSE).
 - [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to CSS-in-JS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
-
-## Contributors
-
-| ![Divyansh Singh](https://avatars1.githubusercontent.com/u/40380293?v=4&s=100) | ![Akash Tureha](https://avatars1.githubusercontent.com/u/72198360?v=4&s=100) |
-| :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------: |
-|           [Divyansh Singh](https://github.com/brc-dd) <br /> Author            |     [Akash Tureha](https://github.com/MrMischievousX) <br /> Contributor     |
