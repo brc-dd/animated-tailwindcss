@@ -1,5 +1,10 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard"],
+  "automergeStrategy": "squash",
+  "dependencyDashboardAutoclose": true,
+  "extends": ["config:base"],
   "groupName": "all",
-  "ignorePaths": ["**/.yarn/**"]
+  "ignorePaths": ["**/.yarn/**"],
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [{ "matchUpdateTypes": ["minor", "patch", "pin", "digest"], "automerge": true }],
+  "updatePinnedDependencies": false
 }
