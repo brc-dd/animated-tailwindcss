@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-rm -f yarn.lock
-yarn
-yarn dlx @yarnpkg/sdks vscode
