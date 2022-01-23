@@ -3,7 +3,7 @@
   "scripts": {
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
-    "docs:serve": "vitepress serve docs",
+    "docs:serve": "serve docs/dist",
     "postinstall": "husky install"
   },
   "resolutions": {
@@ -52,6 +52,7 @@
     "release-it-yarn-workspaces": "latest",
     "sass": "latest",
     "semver": "latest",
+    "serve": "latest",
     "tailwindcss": "latest",
     "ts-node": "latest",
     "ttypescript": "latest",

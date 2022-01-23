@@ -141,3 +141,34 @@ index d72848717e1980bc9ac78c94b4262868b19593b3..f4071a7bf9069272050117b4f2c647a1
 
      /**
       * GitHub repository following the format <user>/<project>.
+diff --git a/dist/node/serve-9874c5ac.js b/dist/node/serve-9874c5ac.js
+index e024d9eb80502d794ad7e6c078b499770d701a55..d45c5cdd88871c21c3bf78873a80f3269f5f4360 100644
+--- a/dist/node/serve-9874c5ac.js
++++ b/dist/node/serve-9874c5ac.js
+@@ -40251,7 +40251,7 @@ async function renderPage(config, page, result, appChunk, cssChunk, pageToHashMa
+   }).join("\n    ");
+   const stylesheetLink = cssChunk ? `<link rel="stylesheet" href="${siteData.base}${cssChunk.fileName}">` : "";
+   const title = pageData.title && pageData.title !== "Home" ? `${pageData.title} | ${siteData.title}` : siteData.title;
+-  const head = addSocialTags(title, ...siteData.head, ...filterOutHeadDescription(pageData.frontmatter.head));
++  const head = [...siteData.head, ...filterOutHeadDescription(pageData.frontmatter.head)];
+   let inlinedScript = "";
+   if (config.mpa && result) {
+     const matchingChunk = result.output.find((chunk) => chunk.type === "chunk" && chunk.facadeModuleId === slash(path__default["default"].join(config.srcDir, page)));
+@@ -40330,17 +40330,6 @@ function hasTag(head, tag) {
+   const [attr, value] = Object.entries(tagAttrs)[0];
+   return head.some(([type, attrs]) => type === tagType && attrs[attr] === value);
+ }
+-function addSocialTags(title, ...head) {
+-  const tags = [
+-    ["meta", { name: "twitter:title", content: title }],
+-    ["meta", { property: "og:title", content: title }]
+-  ];
+-  tags.filter((tagAttrs) => {
+-    if (!hasTag(head, tagAttrs))
+-      head.push(tagAttrs);
+-  });
+-  return head;
+-}
+
+ async function build(root, buildOptions = {}) {
+   const start = Date.now();
