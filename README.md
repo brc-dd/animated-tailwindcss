@@ -48,5 +48,5 @@ When you submit code changes, your submissions are understood to be under the sa
 
 ## Credits
 
-- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [Hippocratic License 2.1](https://github.com/animate-css/animate.css/blob/main/LICENSE).
-- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to CSS-in-JS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
+- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [the MIT license](https://cdn.jsdelivr.net/npm/animate.css@4.1.1/LICENSE).
+- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to JS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
