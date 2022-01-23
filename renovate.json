@@ -1,10 +1,9 @@
 {
   "automergeStrategy": "squash",
   "dependencyDashboardAutoclose": true,
-  "extends": ["config:base"],
+  "extends": ["config:base", ":maintainLockFilesWeekly"],
   "groupName": "all",
   "ignorePaths": ["**/.yarn/**"],
-  "lockFileMaintenance": { "enabled": true },
   "packageRules": [{ "matchUpdateTypes": ["digest", "lockFileMaintenance"], "automerge": true }],
   "updatePinnedDependencies": false
 }
