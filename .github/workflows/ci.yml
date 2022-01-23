@@ -11,9 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  actions: read
   contents: read
-  security-events: write
 
 jobs:
   lint:
@@ -21,36 +19,40 @@ jobs:
     if: ${{ github.event_name == 'pull_request' || github.actor != 'dependabot[bot]' }}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
+      - uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # v2
         with:
           node-version: '16'
           cache: 'yarn'
       - run: scripts/lint
 
   analyze:
+    permissions:
+      actions: read # for github/codeql-action/init to get workflow details
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/analyze to upload SARIF results
     runs-on: ubuntu-latest
     needs: lint
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: github/codeql-action/init@v1
+      - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
+      - uses: github/codeql-action/init@384cfc42b2131df01c009d3d2eed7b78d8e8556e # v1
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@v1
+      - uses: github/codeql-action/analyze@384cfc42b2131df01c009d3d2eed7b78d8e8556e # v1
 
   build:
     runs-on: ubuntu-latest
     needs: analyze
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
+      - uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # v2
         with:
           node-version: '16'
           cache: 'yarn'
       - run: scripts/build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # v2
         with:
           name: animated-tailwindcss
           path: dist
