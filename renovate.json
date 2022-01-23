@@ -1,1 +1,5 @@
-{ "extends": ["config:base"], "groupName": "all", "ignorePaths": ["**/.yarn/**"] }
+{
+  "extends": ["config:base", ":disableDependencyDashboard"],
+  "groupName": "all",
+  "ignorePaths": ["**/.yarn/**"]
+}
