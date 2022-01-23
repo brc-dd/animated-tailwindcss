@@ -5,6 +5,6 @@
   "groupName": "all",
   "ignorePaths": ["**/.yarn/**"],
   "lockFileMaintenance": { "enabled": true },
-  "packageRules": [{ "matchUpdateTypes": ["minor", "patch", "pin", "digest"], "automerge": true }],
+  "packageRules": [{ "matchUpdateTypes": ["digest", "lockFileMaintenance"], "automerge": true }],
   "updatePinnedDependencies": false
 }
