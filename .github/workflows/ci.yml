@@ -3,56 +3,82 @@ name: CI
 on:
   push:
     branches: [main]
-    paths: ['**/*.js', '**/*.json', '**/*.ts', 'scripts/**', '**/*.yml']
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened]
   schedule:
     - cron: '0 0 */7 * *'
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
   lint:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' || github.actor != 'dependabot[bot]' }}
 
     steps:
       - uses: actions/checkout@230611dbd0eb52da1e1f4f7bc8bb0c3a339fc8b7
       - uses: actions/setup-node@f099707f6e7a91b89cdebdeca599fc76cc8bf088
         with:
-          node-version: '16'
-          cache: 'yarn'
-      - run: scripts/lint
+          node-version: 'lts/*'
+          cache: yarn
+      - run: |
+          set -e
+          yarn
+          git add .
+          yarn lint --all --no-stash
+          [ -z "$(git status --porcelain -- ':!.yarn')" ]
+      - uses: actions/cache@611465405cc89ab98caca2c42504d9289fb5f22e
+        with:
+          path: ./*
+          key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
 
   analyze:
-    permissions:
-      actions: read # for github/codeql-action/init to get workflow details
-      contents: read # for actions/checkout to fetch code
-      security-events: write # for github/codeql-action/analyze to upload SARIF results
     runs-on: ubuntu-latest
     needs: lint
 
     steps:
-      - uses: actions/checkout@230611dbd0eb52da1e1f4f7bc8bb0c3a339fc8b7
-      - uses: github/codeql-action/init@0dabead78922af35404d480c1b42e3252ecd29dd
+      - uses: actions/cache@611465405cc89ab98caca2c42504d9289fb5f22e
+        with:
+          path: ./*
+          key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
+      - uses: github/codeql-action/init@708446c6e489e70309e87d09da445fc869f1e59e
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@0dabead78922af35404d480c1b42e3252ecd29dd
+      - uses: github/codeql-action/analyze@708446c6e489e70309e87d09da445fc869f1e59e
 
   build:
     runs-on: ubuntu-latest
     needs: analyze
 
     steps:
-      - uses: actions/checkout@230611dbd0eb52da1e1f4f7bc8bb0c3a339fc8b7
+      - uses: actions/cache@611465405cc89ab98caca2c42504d9289fb5f22e
+        with:
+          path: ./*
+          key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
       - uses: actions/setup-node@f099707f6e7a91b89cdebdeca599fc76cc8bf088
         with:
-          node-version: '16'
-          cache: 'yarn'
-      - run: scripts/build
+          node-version: 'lts/*'
+          cache: yarn
+      - run: |
+          yarn
+          yarn build
+          mv docs/dist dist/docs
       - uses: actions/upload-artifact@87348cee5fefa95e42e9b4804b4d68e130304158
         with:
           name: animated-tailwindcss
           path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    needs: build
+
+    steps:
+      - uses: actions/download-artifact@f023be2c48cc18debc3bacd34cb396e0295e2869
+        with:
+          name: animated-tailwindcss
+      - uses: netlify/actions/cli@6c34c3fcafc69ac2e1d6dbf226560329c6dfc51b
+        with:
+          args: deploy --dir=docs --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

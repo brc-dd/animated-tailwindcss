@@ -1,14 +1,20 @@
 {
   "private": true,
   "scripts": {
-    "docs:build": "vitepress build docs",
-    "docs:dev": "vitepress dev docs",
-    "docs:serve": "serve docs/dist",
-    "postinstall": "husky install && yarn dlx @yarnpkg/sdks vscode"
+    "build": "run-s clean 'build:*'",
+    "build:base": "ttsc && ts-node --skip-project build.ts",
+    "build:docs": "vitepress build docs && shx mv docs/.vitepress/dist docs/dist/animated-tailwindcss",
+    "clean": "shx rm -rf dist docs/dist && shx mkdir docs/dist",
+    "dev:docs": "vitepress dev docs",
+    "postinstall": "is-ci || (husky install && sdks vscode)",
+    "lint": "lint-staged --allow-empty -p false",
+    "release": "release-it",
+    "serve:docs": "serve docs/dist"
   },
   "resolutions": {
     "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
-    "vitepress@0.21.6": "patch:vitepress@npm:0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746"
+    "vitepress@0.21.6": "patch:vitepress@npm:0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746",
+    "lint-staged@12.3.1": "patch:lint-staged@npm:12.3.1#.yarn/patches/lint-staged-npm-12.3.1-e2cd0c0b88"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -22,6 +28,7 @@
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "@yarnpkg/sdks": "latest",
     "autoprefixer": "latest",
     "conventional-changelog-conventionalcommits": "latest",
     "csstype": "latest",
@@ -37,12 +44,14 @@
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-security": "latest",
     "husky": "latest",
-    "lint-staged": "latest",
+    "is-ci": "latest",
+    "lint-staged": "12.3.1",
     "lodash.get": "latest",
     "lodash.range": "latest",
     "lodash.set": "latest",
     "markdown-it-container": "latest",
     "markdown-it-deflist": "latest",
+    "npm-run-all": "latest",
     "postcss": "latest",
     "postcss-flexbugs-fixes": "latest",
     "postcss-preset-env": "latest",
@@ -50,9 +59,11 @@
     "prettier-package-json": "latest",
     "release-it": "latest",
     "release-it-yarn-workspaces": "latest",
+    "replace": "latest",
     "sass": "latest",
     "semver": "latest",
     "serve": "latest",
+    "shx": "latest",
     "tailwindcss": "latest",
     "ts-node": "latest",
     "ttypescript": "latest",

@@ -1,0 +1,99 @@
+diff --git a/bin/lint-staged.js b/bin/lint-staged.js
+index 9a6f6ebd91c2531ac41d08e7653dbeb59e626ec2..bc443a74ddb06d8e4a49209d538db6a8f0e30a69 100644
+--- a/bin/lint-staged.js
++++ b/bin/lint-staged.js
+@@ -43,6 +43,7 @@ cmdline
+     'show task output even when tasks succeed; by default only failed output is shown',
+     false
+   )
++  .option('-a, --all', 'lint whole project', false)
+   .parse(process.argv)
+
+ const cmdlineOptions = cmdline.opts()
+@@ -84,6 +85,7 @@ const options = {
+   shell: cmdlineOptions.shell /* Either a boolean or a string pointing to the shell */,
+   stash: !!cmdlineOptions.stash, // commander inverts `no-<x>` flags to `!x`
+   verbose: !!cmdlineOptions.verbose,
++  includeAll: !!cmdlineOptions.all,
+ }
+
+ debugLog('Options parsed from command-line:', options)
+diff --git a/lib/getStagedFiles.js b/lib/getStagedFiles.js
+index a6a557383b5219ca55c591d39eaca2b27d050b03..151a0535cdb2240b1795a94dc461edd3c81d41fb 100644
+--- a/lib/getStagedFiles.js
++++ b/lib/getStagedFiles.js
+@@ -4,13 +4,13 @@ import normalize from 'normalize-path'
+
+ import { execGit } from './execGit.js'
+
+-export const getStagedFiles = async ({ cwd = process.cwd() } = {}) => {
++export const getStagedFiles = async ({ cwd = process.cwd(), includeAll = false } = {}) => {
+   try {
+     // Docs for --diff-filter option: https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---diff-filterACDMRTUXB82308203
+     // Docs for -z option: https://git-scm.com/docs/git-diff#Documentation/git-diff.txt--z
+-    const lines = await execGit(['diff', '--staged', '--diff-filter=ACMR', '--name-only', '-z'], {
+-      cwd,
+-    })
++    const lines = includeAll
++      ? await execGit(['ls-files', '-z'], { cwd })
++      : await execGit(['diff', '--staged', '--diff-filter=ACMR', '--name-only', '-z'], { cwd })
+
+     if (!lines) return []
+
+diff --git a/lib/index.js b/lib/index.js
+index 4d2c2574441375a5675b1d0c60c8766590e32cdc..872bbe5ea732ad6b859c6d60415ddfeac186a0b3 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -27,6 +27,7 @@ const debugLog = debug('lint-staged')
+  * @param {boolean|string} [options.shell] - Skip parsing of tasks for better shell support
+  * @param {boolean} [options.stash] - Enable the backup stash, and revert in case of errors
+  * @param {boolean} [options.verbose] - Show task output even when tasks succeed; by default only failed output is shown
++ * @param {boolean} [options.includeAll] - Run the tasks on all files
+  * @param {Logger} [logger]
+  *
+  * @returns {Promise<boolean>} Promise of whether the linting passed or failed
+@@ -45,6 +46,7 @@ const lintStaged = async (
+     shell = false,
+     stash = true,
+     verbose = false,
++    includeAll = false,
+   } = {},
+   logger = console
+ ) => {
+@@ -69,6 +71,7 @@ const lintStaged = async (
+         shell,
+         stash,
+         verbose,
++        includeAll,
+       },
+       logger
+     )
+diff --git a/lib/runAll.js b/lib/runAll.js
+index 4604fdb520d0c83b5d9d43d503e005a34ccc174d..5007d2070f5ef803519581e034cc8b781dcf126a 100644
+--- a/lib/runAll.js
++++ b/lib/runAll.js
+@@ -57,6 +57,7 @@ const createError = (ctx) => Object.assign(new Error('lint-staged failed'), { ct
+  * @param {boolean} [options.shell] - Skip parsing of tasks for better shell support
+  * @param {boolean} [options.stash] - Enable the backup stash, and revert in case of errors
+  * @param {boolean} [options.verbose] - Show task output even when tasks succeed; by default only failed output is shown
++ * @param {boolean} [options.includeAll] - Run the tasks on all files
+  * @param {Logger} logger
+  * @returns {Promise}
+  */
+@@ -74,6 +75,7 @@ export const runAll = async (
+     shell = false,
+     stash = true,
+     verbose = false,
++    includeAll = false,
+   },
+   logger = console
+ ) => {
+@@ -104,7 +106,7 @@ export const runAll = async (
+     logger.warn(skippingBackup(hasInitialCommit))
+   }
+
+-  const files = await getStagedFiles({ cwd: gitDir })
++  const files = await getStagedFiles({ cwd: gitDir, includeAll })
+   if (!files) {
+     if (!quiet) ctx.output.push(FAILED_GET_STAGED_FILES)
+     ctx.errors.add(GetStagedFilesError)

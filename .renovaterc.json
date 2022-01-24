@@ -1,0 +1,12 @@
+{
+  "extends": ["config:base", ":disableDependencyDashboard", ":maintainLockFilesWeekly"],
+  "groupName": "all",
+  "packageRules": [
+    {
+      "automerge": true,
+      "automergeStrategy": "squash",
+      "matchUpdateTypes": ["digest", "lockFileMaintenance"]
+    }
+  ],
+  "updatePinnedDependencies": false
+}

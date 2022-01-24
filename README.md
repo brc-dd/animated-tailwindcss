@@ -32,20 +32,6 @@
 - [tw-Playground](https://play.tailwindcss.com/TsNC9Yw9Nc)
 - [Docs for v2](https://www.npmjs.com/package/animated-tailwindcss/v/2.6.1)
 
-## License
-
-This configuration is licensed under [the MIT license](LICENSE).
-
-## Code of Conduct
-
-This project and everyone participating in it are governed by the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [contact@ikcb.org](mailto:contact@ikcb.org).
-
-## Contributing
-
-All sorts of contributions are welcome here! But please follow the [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) while creating PRs.
-
-When you submit code changes, your submissions are understood to be under the same MIT license that covers the project. Feel free to contact the maintainers if that's a concern.
-
 ## Credits
 
 - [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [the MIT license](https://cdn.jsdelivr.net/npm/animate.css@4.1.1/LICENSE).
