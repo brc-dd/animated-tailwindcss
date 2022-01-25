@@ -15,6 +15,7 @@
     "email": "codebase@iiitkota.ac.in"
   },
   "main": "index.min.js",
+  "browser": "bundle.min.js",
   "files": [
     "index.d.ts"
   ],

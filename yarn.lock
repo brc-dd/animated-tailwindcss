@@ -1283,6 +1283,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/esbuild-plugin-pnp@npm:latest":
+  version: 2.0.1-rc.1
+  resolution: "@yarnpkg/esbuild-plugin-pnp@npm:2.0.1-rc.1"
+  dependencies:
+    tslib: ^1.13.0
+  peerDependencies:
+    esbuild: ">=0.10.0"
+  checksum: 05717a9c1c17b71beee3e89dc6caf3b3ffd7db7f2b3f59ed35a5318a7cb2ca3eb2364ef801070919a278bfe43e6ed2df3363f838e3033b552fbf668c57b96bbc
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/fslib@npm:^2.5.0":
   version: 2.6.0
   resolution: "@yarnpkg/fslib@npm:2.6.0"
@@ -7760,6 +7771,7 @@ __metadata:
     "@types/node": latest
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": latest
+    "@yarnpkg/esbuild-plugin-pnp": latest
     "@yarnpkg/sdks": latest
     autoprefixer: latest
     conventional-changelog-conventionalcommits: latest

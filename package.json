@@ -28,6 +28,7 @@
     "@types/node": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "@yarnpkg/esbuild-plugin-pnp": "latest",
     "@yarnpkg/sdks": "latest",
     "autoprefixer": "latest",
     "conventional-changelog-conventionalcommits": "latest",

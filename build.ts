@@ -1,4 +1,7 @@
+import type { BuildOptions } from 'esbuild';
 import { build as esBuild } from 'esbuild';
+import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
+
 import {
   closeSync,
   copyFileSync,
@@ -15,15 +18,21 @@ const copyFiles = (src: string, dest = src): void => {
   src.split(' ').forEach((file, i) => copyFileSync(file, join(__dirname, 'dist', destList[i])));
 };
 
-void esBuild({
+const opts: BuildOptions = {
   bundle: true,
   charset: 'utf8',
-  entryPoints: ['dist/index.js'],
-  external: ['lodash*', 'tailwindcss'],
   minify: true,
-  outfile: 'dist/index.min.js',
-  platform: 'node',
+  plugins: [pnpPlugin()],
   target: 'es2019',
+};
+
+esBuild({
+  ...opts,
+  external: ['lodash*', 'tailwindcss'],
+  platform: 'node',
+
+  entryPoints: ['dist/index.js'],
+  outfile: 'dist/index.min.js',
 })
   .then(() => {
     readdirSync(join(__dirname, 'dist')).forEach((file) => {
@@ -39,7 +48,14 @@ void esBuild({
     writeSync(fd, `${readFileSync(join(__dirname, 'types', 'base.d.ts'))}\n${data}`);
     closeSync(fd);
 
-    //
+    // build for browser
+    return esBuild({
+      ...opts,
+      format: 'esm',
+
+      entryPoints: ['dist/index.min.js'],
+      outfile: 'dist/bundle.min.js',
+    });
   })
   .catch((err) => {
     console.error(err);
