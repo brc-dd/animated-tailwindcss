@@ -91,8 +91,17 @@
     @apply rounded-md my-4 bg-[color:var(--c-details-bg)];
   }
 
+  &.warning,
+  &.info {
+    @apply rounded-md text-inherit bg-[color:var(--c-bg-light)];
+  }
+
   &.warning {
-    @apply rounded-md border-[color:var(--c-warning)] text-inherit bg-[color:var(--c-bg-light)];
+    @apply border-[color:var(--c-warning)];
+
+    a {
+      @apply text-[color:var(--c-brand)];
+    }
 
     .custom-block-title {
       @apply text-[color:var(--c-warning-title)];

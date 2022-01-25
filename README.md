@@ -26,12 +26,6 @@
 
 ---
 
-## References
-
-- [Docs for v3](https://ikcb.org/animated-tailwindcss)
-- [tw-Playground](https://play.tailwindcss.com/TsNC9Yw9Nc)
-- [Docs for v2](https://www.npmjs.com/package/animated-tailwindcss/v/2.6.1)
-
 ## Credits
 
 - [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [the MIT license](https://cdn.jsdelivr.net/npm/animate.css@4.1.1/LICENSE).

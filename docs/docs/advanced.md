@@ -8,7 +8,7 @@ title: Advanced
 
 ## Editor Setup
 
-You don't need any additional configuration. IntelliSense will automatically detect the animations and utilities. Refer the [official docs](https://tailwindcss.com/docs/editor-setup) on setting up your editor.
+You do not need any additional configuration. IntelliSense will automatically detect the animations and utilities. Refer the [official docs](https://tailwindcss.com/docs/editor-setup) on setting up your editor.
 
 ## Customizing
 

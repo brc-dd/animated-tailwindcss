@@ -93,7 +93,7 @@ Class
     animation-timing-function: steps(n, jump-none);
     ```
 
-Here `[easing]` is one of those listed at [easings.net](https://easings.net/) in kebab-case. Note that some of the easing functions listed there cannot be written in CSS. If you're planning on using custom cubic-bezier function, we'd recommend using [cubic-bezier.com](https://cubic-bezier.com/) to find out what looks best. Also, `[n]` is one of `0..12`. You can also use arbitrary values instead.
+Here `[easing]` is one of those listed at [easings.net](https://easings.net/) in kebab-case. Note that some of the easing functions listed there cannot be written in CSS. If you are planning on using custom cubic-bezier function, we would recommend using [cubic-bezier.com](https://cubic-bezier.com/) to find out what looks best. Also, `[n]` is one of `0..12`. You can also use arbitrary values instead.
 
 ## Examples
 
