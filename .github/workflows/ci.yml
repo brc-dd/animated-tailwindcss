@@ -58,10 +58,10 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@ea2ef8554d3f400acc2e7d70043e7fbbf87c9936
+      - uses: github/codeql-action/init@e9d52340a3af4a63ff1e3fce3a2f48755268974f
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@ea2ef8554d3f400acc2e7d70043e7fbbf87c9936
+      - uses: github/codeql-action/analyze@e9d52340a3af4a63ff1e3fce3a2f48755268974f
 
   deploy:
     if: ${{ github.event_name == 'push' }}
