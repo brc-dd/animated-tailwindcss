@@ -10,11 +10,10 @@
     <img src="https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square" />
   </a>
   <a href="https://www.npmjs.com/package/animated-tailwindcss">
-    <img src="https://img.shields.io/npm/v/animated-tailwindcss?style=flat-square" />
     <img src="https://img.shields.io/npm/dm/animated-tailwindcss?logo=npm&style=flat-square" />
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/npm/l/animated-tailwindcss?style=flat-square" />
+    <img src="https://img.shields.io/npm/l/animated-tailwindcss?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjczIDIxMSA1ODMgNTYxIj48cGF0aCBmaWxsPSIjM2VhNjM5IiBzdHJva2U9IiMxZTU0MWUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxOS4yIiBkPSJNMzk4IDU5NWM0MS0xNSA2Mi00NCA2Mi05M2E5NSA5NSAwIDAgMC0xOTAgMGMwIDUwIDI0IDgzIDYyIDk1bC02NyAxNjVDMTc1IDczOSA4MyA2MzMgODMgNTAyYTI4MiAyODIgMCAwIDEgNTY0IDBjMCAxMzMtOTEgMjM4LTE4MyAyNjF6Ii8+PHBhdGggZD0ibTYyNiA3NDUgMiAzYzIgMCAyIDIgNCA0bDQgOWgtNWwtNC04LTMtNS00LTFoLTV2MTRoLTV2LTMzaDEwbDkgMmMxIDIgMyA1IDMgOGwtMiA1LTQgMm0tMTEtMTN2MTFoNWw1LTFjMi0xIDItMiAyLTRzMC00LTItNWwtNS0xaC01Ii8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNy41IiBkPSJNLTE3NCAzOTlhNDMgNDUgMCAxIDEtODYgMCA0MyA0NSAwIDEgMSA4NiAweiIgdHJhbnNmb3JtPSJtYXRyaXgoLjUzOTkgMCAwIC41MTY0MiA3MzkgNTM5KSIvPjwvc3ZnPg==&style=flat-square" />
   </a>
   <a href="https://conventionalcommits.org">
     <img src="https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg?style=flat-square" />
