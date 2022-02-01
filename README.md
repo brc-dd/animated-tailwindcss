@@ -22,6 +22,9 @@
   <a href="https://ikcb.org/animated-tailwindcss">
     <img src="https://img.shields.io/netlify/f63b8a42-3984-4b43-96ff-7419625005e8?label=docs&logo=netlify&style=flat-square" />
   </a>
+  <a href="https://deps.dev/npm/animated-tailwindcss">
+    <img src="https://img.shields.io/endpoint?color=green&style=flat-square&url=https%3A%2F%2Funtitled-ir741raqc767.runkit.sh" />
+  </a>
 </p>
 
 ---
