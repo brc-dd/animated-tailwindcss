@@ -7,7 +7,7 @@
   <br />
   <br />
   <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
-    <img src="https://img.shields.io/badge/animate.css-v4.1.1-007EC6?style=flat-square" />
+    <img src="https://img.shields.io/badge/animate.css-v4.1.1-blue?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEyMiA4MyAxOTYgMTk2Ij48cGF0aCBkPSJtMTIyIDE4MSA5OC05OCA5OCA5OC05OCA5OC05OC05OHoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjI4IDIwNWMtMyAxNC0yMCAxOC0zMiAxMi05LTUtMTEtMTgtOC0yOCA1LTEzIDIyLTE0IDM0LTE0aDVsLTEtMTBjLTEtNC01LTYtMTAtNi02LTEtMTEgMy0xNSA5bC0xMi0xMWMxMC0xOCA0NC0yMCA1NC0yIDIgNCAzIDkgMyAxNHYzM2MyIDAgNy0yIDcgMXYxM2wtMiAyLTEyLTFjLTYgMC05LTYtMTAtMTJoLTF6bS0xLTE4Yy03IDEtMTctMy0yMCA1LTEgMy0xIDcgMSAxMSA1IDQgMTUgMiAxOC0zbDEtMTN6Ii8+PC9zdmc+&style=flat-square" />
   </a>
   <a href="https://www.npmjs.com/package/animated-tailwindcss">
     <img src="https://img.shields.io/npm/dm/animated-tailwindcss?logo=npm&style=flat-square" />
