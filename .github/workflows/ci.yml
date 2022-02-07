@@ -23,7 +23,7 @@ jobs:
           node-version: 'lts/*'
           cache: yarn
       - run: yarn && yarn build
-      - uses: actions/upload-artifact@87348cee5fefa95e42e9b4804b4d68e130304158
+      - uses: actions/upload-artifact@2244c8200304ec9588bf9399eac622d9fadc28c4
         with:
           name: animated-tailwindcss
           path: dist
@@ -66,10 +66,10 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@16d4068732b5be11f5adc0dd0e2e51fcd20e0e59
+      - uses: github/codeql-action/init@edd03fbd2c9728a78e2e10ff69c4af455b0de4fd
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@16d4068732b5be11f5adc0dd0e2e51fcd20e0e59
+      - uses: github/codeql-action/analyze@edd03fbd2c9728a78e2e10ff69c4af455b0de4fd
 
   deploy:
     permissions:
