@@ -14,17 +14,14 @@
     "url": "https://github.com/ikcb/animated-tailwindcss/issues",
     "email": "codebase@iiitkota.ac.in"
   },
-  "main": "index.min.js",
-  "browser": "bundle.min.js",
+  "main": "./index-cjs.js",
+  "module": "./index-esm.js",
   "files": [
     "index.d.ts"
   ],
   "types": "index.d.ts",
   "dependencies": {
-    "csstype": "^3",
-    "lodash.get": "^4",
-    "lodash.range": "^3",
-    "lodash.set": "^4"
+    "csstype": "^3"
   },
   "peerDependencies": {
     "postcss": "^8",
@@ -48,5 +45,9 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "exports": {
+    "require": "./index-cjs.js",
+    "import": "./index-esm.js"
   }
 }

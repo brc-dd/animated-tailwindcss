@@ -28,15 +28,15 @@ const opts: BuildOptions = {
 
 esBuild({
   ...opts,
-  external: ['lodash*', 'tailwindcss'],
+  external: ['tailwindcss'],
   platform: 'node',
 
   entryPoints: ['dist/index.js'],
-  outfile: 'dist/index.min.js',
+  outfile: 'dist/index-cjs.js',
 })
   .then(() => {
     readdirSync(join(__dirname, 'dist')).forEach((file) => {
-      if (!/^index(\.min\.js|\.d\.ts)$/.test(file)) unlinkSync(join(__dirname, 'dist', file));
+      if (!/^index(-cjs\.js|\.d\.ts)$/.test(file)) unlinkSync(join(__dirname, 'dist', file));
     });
 
     copyFiles('.npmignore LICENSE README.md');
@@ -53,8 +53,8 @@ esBuild({
       ...opts,
       format: 'esm',
 
-      entryPoints: ['dist/index.min.js'],
-      outfile: 'dist/bundle.min.js',
+      entryPoints: ['dist/index-cjs.js'],
+      outfile: 'dist/index-esm.js',
     });
   })
   .catch((err) => {

@@ -6,7 +6,7 @@
     "build:docs": "vitepress build docs && shx mv docs/.vitepress/dist docs/dist/animated-tailwindcss",
     "clean": "shx rm -rf dist docs/dist && shx mkdir docs/dist",
     "dev:docs": "vitepress dev docs",
-    "postinstall": "is-ci || (husky install && sdks vscode)",
+    "postinstall": "is-ci || (husky install && sdks vscode && yarn build)",
     "lint": "lint-staged --allow-empty -p false",
     "release": "release-it",
     "serve:docs": "serve docs/dist"
@@ -20,9 +20,6 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@release-it/conventional-changelog": "latest",
-    "@types/lodash.get": "latest",
-    "@types/lodash.range": "latest",
-    "@types/lodash.set": "latest",
     "@types/markdown-it": "latest",
     "@types/markdown-it-container": "latest",
     "@types/node": "latest",
@@ -47,9 +44,6 @@
     "husky": "latest",
     "is-ci": "latest",
     "lint-staged": "12.3.1",
-    "lodash.get": "latest",
-    "lodash.range": "latest",
-    "lodash.set": "latest",
     "markdown-it-container": "latest",
     "markdown-it-deflist": "latest",
     "npm-run-all": "latest",
@@ -72,7 +66,7 @@
     "typescript-transform-paths": "latest",
     "vitepress": "0.21.6",
     "vls": "latest",
-    "vue": "next"
+    "vue": "latest"
   },
   "dependenciesMeta": {
     "conventional-changelog-conventionalcommits@4.6.1": {

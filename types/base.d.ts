@@ -7,7 +7,9 @@ type KeyValuePair<TKey extends keyof never = string, TValue = string> = Record<T
 
 type CSSProperties = CSS.Properties & Record<`--${string}`, string>;
 
-type CSSBlock = Record<string, CSSProperties | Record<string, CSSProperties>>;
+type CSSBlock = Record<string, CSSProperties | undefined>;
+
+type Keyframes = Record<string, CSSBlock | undefined>;
 
 type ConfigUtils = {
   negative: <TInput, TOutput>(input: TInput) => TOutput;
@@ -48,164 +50,161 @@ type ExperimentalConfig = Record<never, never> | 'all' | [];
 
 type DarkModeConfig = 'class' | 'media' | false;
 
-type ThemeConfig = Partial<
-  Record<string, unknown> & {
-    extend: Partial<Omit<ThemeConfig, 'extend'>>;
+type BaseThemeConfig = {
+  extend: Partial<Omit<BaseThemeConfig, 'extend'>>;
 
-    /** Responsiveness */
-    screens: ResolvableTo<KeyValuePair>;
+  /** Responsiveness */
+  screens: ResolvableTo<KeyValuePair>;
 
-    /** Reusable base configs */
-    colors: ResolvableTo<KeyValuePair | Record<string, Record<number | string, string>>>;
-    spacing: ResolvableTo<KeyValuePair>;
+  /** Reusable base configs */
+  colors: ResolvableTo<KeyValuePair | Record<string, Record<number | string, string>>>;
+  spacing: ResolvableTo<KeyValuePair>;
 
-    /** Background */
-    backgroundColor: ThemeConfig['colors'];
-    backgroundImage: ResolvableTo<KeyValuePair>;
-    gradientColorStops: ThemeConfig['colors'];
-    backgroundOpacity: ThemeConfig['opacity'];
-    backgroundPosition: ResolvableTo<KeyValuePair>;
-    backgroundSize: ResolvableTo<KeyValuePair>;
-    backgroundOrigin: ResolvableTo<KeyValuePair>;
+  /** Background */
+  backgroundColor: BaseThemeConfig['colors'];
+  backgroundImage: ResolvableTo<KeyValuePair>;
+  gradientColorStops: BaseThemeConfig['colors'];
+  backgroundOpacity: BaseThemeConfig['opacity'];
+  backgroundPosition: ResolvableTo<KeyValuePair>;
+  backgroundSize: ResolvableTo<KeyValuePair>;
+  backgroundOrigin: ResolvableTo<KeyValuePair>;
 
-    /** Border */
-    borderColor: ThemeConfig['colors'];
-    borderOpacity: ThemeConfig['opacity'];
-    borderRadius: ResolvableTo<KeyValuePair>;
-    borderWidth: ResolvableTo<KeyValuePair>;
+  /** Border */
+  borderColor: BaseThemeConfig['colors'];
+  borderOpacity: BaseThemeConfig['opacity'];
+  borderRadius: ResolvableTo<KeyValuePair>;
+  borderWidth: ResolvableTo<KeyValuePair>;
 
-    /** Shadow */
-    boxShadow: ResolvableTo<KeyValuePair>;
+  /** Shadow */
+  boxShadow: ResolvableTo<KeyValuePair>;
 
-    /** Outline */
-    outline: ResolvableTo<KeyValuePair>;
+  /** Outline */
+  outline: ResolvableTo<KeyValuePair>;
 
-    /** Cursor */
-    cursor: ResolvableTo<KeyValuePair>;
+  /** Cursor */
+  cursor: ResolvableTo<KeyValuePair>;
 
-    /** Content */
-    content: ResolvableTo<KeyValuePair>;
+  /** Content */
+  content: ResolvableTo<KeyValuePair>;
 
-    /** Divider */
-    divideColor: ThemeConfig['borderColor'];
-    divideOpacity: ThemeConfig['borderOpacity'];
-    devideWidth: ThemeConfig['borderWidth'];
+  /** Divider */
+  divideColor: BaseThemeConfig['borderColor'];
+  divideOpacity: BaseThemeConfig['borderOpacity'];
+  devideWidth: BaseThemeConfig['borderWidth'];
 
-    /** SVG */
-    fill: ResolvableTo<KeyValuePair>;
-    stroke: ResolvableTo<KeyValuePair>;
-    strokeWidth: ResolvableTo<KeyValuePair>;
+  /** SVG */
+  fill: ResolvableTo<KeyValuePair>;
+  stroke: ResolvableTo<KeyValuePair>;
+  strokeWidth: ResolvableTo<KeyValuePair>;
 
-    /** Flexbox */
-    flex: ResolvableTo<KeyValuePair>;
-    flexGrow: ResolvableTo<KeyValuePair>;
-    flexShrink: ResolvableTo<KeyValuePair>;
+  /** Flexbox */
+  flex: ResolvableTo<KeyValuePair>;
+  flexGrow: ResolvableTo<KeyValuePair>;
+  flexShrink: ResolvableTo<KeyValuePair>;
 
-    /** Fonts */
-    fontFamily: ResolvableTo<Record<string, Array<string>>>;
-    fontSize: ResolvableTo<KeyValuePair>;
-    fontWeight: ResolvableTo<KeyValuePair>;
+  /** Fonts */
+  fontFamily: ResolvableTo<Record<string, Array<string>>>;
+  fontSize: ResolvableTo<KeyValuePair>;
+  fontWeight: ResolvableTo<KeyValuePair>;
 
-    /** Sizes */
-    height: ThemeConfig['spacing'];
-    minHeight: ResolvableTo<KeyValuePair>;
-    maxHeight: ResolvableTo<KeyValuePair>;
-    width: ThemeConfig['spacing'];
-    minWidth: ResolvableTo<KeyValuePair>;
-    maxWidth: ResolvableTo<KeyValuePair>;
-    aspectRatio: ResolvableTo<KeyValuePair>;
+  /** Sizes */
+  height: BaseThemeConfig['spacing'];
+  minHeight: ResolvableTo<KeyValuePair>;
+  maxHeight: ResolvableTo<KeyValuePair>;
+  width: BaseThemeConfig['spacing'];
+  minWidth: ResolvableTo<KeyValuePair>;
+  maxWidth: ResolvableTo<KeyValuePair>;
+  aspectRatio: ResolvableTo<KeyValuePair>;
 
-    /** Positioning */
-    inset: ResolvableTo<KeyValuePair>;
-    zIndex: ResolvableTo<KeyValuePair>;
+  /** Positioning */
+  inset: ResolvableTo<KeyValuePair>;
+  zIndex: ResolvableTo<KeyValuePair>;
 
-    /** Text */
-    letterSpacing: ResolvableTo<KeyValuePair>;
-    lineHeight: ResolvableTo<KeyValuePair>;
-    textColor: ThemeConfig['colors'];
-    textOpacity: ThemeConfig['opacity'];
-    textIndent: ThemeConfig['spacing'];
+  /** Text */
+  letterSpacing: ResolvableTo<KeyValuePair>;
+  lineHeight: ResolvableTo<KeyValuePair>;
+  textColor: BaseThemeConfig['colors'];
+  textOpacity: BaseThemeConfig['opacity'];
+  textIndent: BaseThemeConfig['spacing'];
 
-    /** Input */
-    placeholderColor: ThemeConfig['colors'];
-    placeholderOpacity: ThemeConfig['opacity'];
-    caretColor: ThemeConfig['colors'];
+  /** Input */
+  placeholderColor: BaseThemeConfig['colors'];
+  placeholderOpacity: BaseThemeConfig['opacity'];
+  caretColor: BaseThemeConfig['colors'];
 
-    /** Lists */
-    listStyleType: ResolvableTo<KeyValuePair>;
+  /** Lists */
+  listStyleType: ResolvableTo<KeyValuePair>;
 
-    /** Layout */
-    margin: ThemeConfig['spacing'];
-    padding: ThemeConfig['spacing'];
-    space: ThemeConfig['spacing'];
-    opacity: ResolvableTo<KeyValuePair>;
-    order: ResolvableTo<KeyValuePair>;
-    columns: ResolvableTo<KeyValuePair>;
+  /** Layout */
+  margin: BaseThemeConfig['spacing'];
+  padding: BaseThemeConfig['spacing'];
+  space: BaseThemeConfig['spacing'];
+  opacity: ResolvableTo<KeyValuePair>;
+  order: ResolvableTo<KeyValuePair>;
+  columns: ResolvableTo<KeyValuePair>;
 
-    /** Images */
-    objectPosition: ResolvableTo<KeyValuePair>;
+  /** Images */
+  objectPosition: ResolvableTo<KeyValuePair>;
 
-    /** Grid */
-    gap: ThemeConfig['spacing'];
-    gridTemplateColumns: ResolvableTo<KeyValuePair>;
-    gridColumn: ResolvableTo<KeyValuePair>;
-    gridColumnStart: ResolvableTo<KeyValuePair>;
-    gridColumnEnd: ResolvableTo<KeyValuePair>;
-    gridTemplateRows: ResolvableTo<KeyValuePair>;
-    gridRow: ResolvableTo<KeyValuePair>;
-    gridRowStart: ResolvableTo<KeyValuePair>;
-    gridRowEnd: ResolvableTo<KeyValuePair>;
+  /** Grid */
+  gap: BaseThemeConfig['spacing'];
+  gridTemplateColumns: ResolvableTo<KeyValuePair>;
+  gridColumn: ResolvableTo<KeyValuePair>;
+  gridColumnStart: ResolvableTo<KeyValuePair>;
+  gridColumnEnd: ResolvableTo<KeyValuePair>;
+  gridTemplateRows: ResolvableTo<KeyValuePair>;
+  gridRow: ResolvableTo<KeyValuePair>;
+  gridRowStart: ResolvableTo<KeyValuePair>;
+  gridRowEnd: ResolvableTo<KeyValuePair>;
 
-    /** Transformations */
-    transformOrigin: ResolvableTo<KeyValuePair>;
-    scale: ResolvableTo<KeyValuePair>;
-    rotate: ResolvableTo<KeyValuePair>;
-    translate: ThemeConfig['spacing'];
-    skew: ResolvableTo<KeyValuePair>;
+  /** Transformations */
+  transformOrigin: ResolvableTo<KeyValuePair>;
+  scale: ResolvableTo<KeyValuePair>;
+  rotate: ResolvableTo<KeyValuePair>;
+  translate: BaseThemeConfig['spacing'];
+  skew: ResolvableTo<KeyValuePair>;
 
-    /** Transitions */
-    transitionProperty: ResolvableTo<KeyValuePair>;
-    transitionTimingFunction: ResolvableTo<KeyValuePair>;
-    transitionDuration: ResolvableTo<KeyValuePair>;
-    transitionDelay: ResolvableTo<KeyValuePair>;
-    willChange: ResolvableTo<KeyValuePair>;
+  /** Transitions */
+  transitionProperty: ResolvableTo<KeyValuePair>;
+  transitionTimingFunction: ResolvableTo<KeyValuePair>;
+  transitionDuration: ResolvableTo<KeyValuePair>;
+  transitionDelay: ResolvableTo<KeyValuePair>;
+  willChange: ResolvableTo<KeyValuePair>;
 
-    /** Animations */
-    animation: ResolvableTo<KeyValuePair>;
-    keyframes: ResolvableTo<Record<string, Record<string, KeyValuePair | string>>>;
+  /** Animations */
+  animation: ResolvableTo<KeyValuePair>;
+  keyframes: ResolvableTo<Keyframes>;
 
-    /** Filters */
-    blur: ResolvableTo<Record<string, Array<string> | string>>;
-    brightness: ResolvableTo<Record<string, Array<string> | string>>;
-    contrast: ResolvableTo<Record<string, Array<string> | string>>;
-    dropShadow: ResolvableTo<Record<string, Array<string> | string>>;
-    grayscale: ResolvableTo<Record<string, Array<string> | string>>;
-    hueRotate: ResolvableTo<Record<string, Array<string> | string>>;
-    invert: ResolvableTo<Record<string, Array<string> | string>>;
-    saturate: ResolvableTo<Record<string, Array<string> | string>>;
-    sepia: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropFilter: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropBlur: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropBrightness: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropContrast: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropGrayscale: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropHueRotate: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropInvert: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropOpacity: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropSaturate: ResolvableTo<Record<string, Array<string> | string>>;
-    backdropSepia: ResolvableTo<Record<string, Array<string> | string>>;
+  /** Filters */
+  blur: ResolvableTo<Record<string, Array<string> | string>>;
+  brightness: ResolvableTo<Record<string, Array<string> | string>>;
+  contrast: ResolvableTo<Record<string, Array<string> | string>>;
+  dropShadow: ResolvableTo<Record<string, Array<string> | string>>;
+  grayscale: ResolvableTo<Record<string, Array<string> | string>>;
+  hueRotate: ResolvableTo<Record<string, Array<string> | string>>;
+  invert: ResolvableTo<Record<string, Array<string> | string>>;
+  saturate: ResolvableTo<Record<string, Array<string> | string>>;
+  sepia: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropFilter: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropBlur: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropBrightness: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropContrast: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropGrayscale: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropHueRotate: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropInvert: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropOpacity: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropSaturate: ResolvableTo<Record<string, Array<string> | string>>;
+  backdropSepia: ResolvableTo<Record<string, Array<string> | string>>;
 
-    /** Components */
-    container: Partial<{
-      screens:
-        | Array<string>
-        | Record<string, { min: string; max: string }>
-        | Record<string, string>;
-      center: boolean;
-      padding: KeyValuePair | string;
-    }>;
-  }
->;
+  /** Components */
+  container: Partial<{
+    screens: Array<string> | Record<string, { min: string; max: string }> | Record<string, string>;
+    center: boolean;
+    padding: KeyValuePair | string;
+  }>;
+};
+
+type ThemeConfig = Partial<BaseThemeConfig & Record<string, unknown>>;
 
 type VariantsAPI = {
   variants: (path: string) => Array<string>;
@@ -296,8 +295,8 @@ type PluginAPI = {
     }) => void,
   ) => void;
 
-  matchUtilities: <T>(
-    utilities: Record<string, (value: T) => CSSBlock[string]>,
+  matchUtilities: <T = string>(
+    utilities: Record<string, (value: T) => CSSProperties>,
     options?: Partial<{
       values: Record<string, T>;
       type: Array<ValueType> | ValueType;
