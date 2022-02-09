@@ -82,7 +82,7 @@ It is as simple as this.
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module">
-      import withAnimations from 'https://unpkg.com/animated-tailwindcss';
+      import withAnimations from 'https://cdn.skypack.dev/animated-tailwindcss';
       tailwind.config = withAnimations();
     </script>
   </head>
