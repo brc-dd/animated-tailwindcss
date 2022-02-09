@@ -14,10 +14,10 @@
     "url": "https://github.com/ikcb/animated-tailwindcss/issues",
     "email": "codebase@iiitkota.ac.in"
   },
-  "main": "index-cjs.js",
-  "module": "index-esm.js",
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "browser": "index.mjs",
   "files": [
-    "index-esm.js",
     "index.d.ts"
   ],
   "types": "index.d.ts",
@@ -48,7 +48,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "exports": {
-    "require": "./index-cjs.js",
-    "import": "./index-esm.js"
+    "require": "./index.cjs",
+    "import": "./index.mjs"
   }
 }

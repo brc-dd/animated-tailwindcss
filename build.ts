@@ -32,11 +32,11 @@ esBuild({
   platform: 'node',
 
   entryPoints: ['dist/index.js'],
-  outfile: 'dist/index-cjs.js',
+  outfile: 'dist/index.cjs',
 })
   .then(() => {
     readdirSync(join(__dirname, 'dist')).forEach((file) => {
-      if (!/^index(-cjs\.js|\.d\.ts)$/.test(file)) unlinkSync(join(__dirname, 'dist', file));
+      if (!/^index(\.cjs|\.d\.ts)$/.test(file)) unlinkSync(join(__dirname, 'dist', file));
     });
 
     copyFiles('.npmignore LICENSE README.md');
@@ -53,8 +53,8 @@ esBuild({
       ...opts,
       format: 'esm',
 
-      entryPoints: ['dist/index-cjs.js'],
-      outfile: 'dist/index-esm.js',
+      entryPoints: ['dist/index.cjs'],
+      outfile: 'dist/index.mjs',
     });
   })
   .catch((err) => {
