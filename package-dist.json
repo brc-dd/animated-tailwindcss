@@ -17,6 +17,8 @@
   "main": "./index-cjs.js",
   "module": "./index-esm.js",
   "files": [
+    "index-cjs.js",
+    "index-esm.js",
     "index.d.ts"
   ],
   "types": "index.d.ts",
