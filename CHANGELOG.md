@@ -1,3 +1,9 @@
+### [3.2.1](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.0...v3.2.1) (2022-02-09)
+
+### Bug Fixes
+
+- add missing files ([e80cd7a](https://github.com/ikcb/animated-tailwindcss/commit/e80cd7a5e3386f5b95e1794498813764cb7e175b))
+
 ## [3.2.0](https://github.com/ikcb/animated-tailwindcss/compare/v3.1.1...v3.2.0) (2022-02-09)
 
 ### Bug Fixes
