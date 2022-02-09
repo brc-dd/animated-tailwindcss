@@ -14,10 +14,9 @@
     "url": "https://github.com/ikcb/animated-tailwindcss/issues",
     "email": "codebase@iiitkota.ac.in"
   },
-  "main": "./index-cjs.js",
-  "module": "./index-esm.js",
+  "main": "index-cjs.js",
+  "module": "index-esm.js",
   "files": [
-    "index-cjs.js",
     "index-esm.js",
     "index.d.ts"
   ],
