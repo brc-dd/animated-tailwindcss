@@ -1,3 +1,9 @@
+## [3.2.0](https://github.com/ikcb/animated-tailwindcss/compare/v3.1.1...v3.2.0) (2022-02-09)
+
+### Bug Fixes
+
+- remove dependencies on lodash ([2b6abfc](https://github.com/ikcb/animated-tailwindcss/commit/2b6abfcfd0257f3910322c3df23db7d17bdf0bb2))
+
 ### [3.1.1](https://github.com/ikcb/animated-tailwindcss/compare/v3.1.0...v3.1.1) (2022-02-02)
 
 ## [3.1.0](https://github.com/ikcb/animated-tailwindcss/compare/v3.0.1...v3.1.0) (2022-01-25)
