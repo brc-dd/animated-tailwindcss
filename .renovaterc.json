@@ -1,12 +1,15 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard", ":maintainLockFilesWeekly"],
-  "groupName": "all",
-  "packageRules": [
-    {
-      "automerge": true,
-      "automergeStrategy": "squash",
-      "matchUpdateTypes": ["digest", "lockFileMaintenance"]
-    }
+  "extends": [
+    ":automergeDigest",
+    ":automergePatch",
+    ":ignoreModulesAndTests",
+    ":maintainLockFilesWeekly",
+    ":semanticPrefixFixDepsChoreOthers",
+    "group:all",
+    "npm:unpublishSafe",
+    "schedule:weekly",
+    "workarounds:all"
   ],
+  "automergeStrategy": "squash",
   "updatePinnedDependencies": false
 }
