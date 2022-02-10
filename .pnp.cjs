@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/cli", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.1.0"],
             ["@commitlint/config-conventional", "npm:16.0.0"],
             ["@release-it/conventional-changelog", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.1.0"],
+            ["@skypack/package-check", "npm:0.2.2"],
             ["@types/markdown-it", "npm:12.2.3"],
             ["@types/markdown-it-container", "npm:2.0.5"],
             ["@types/node", "npm:17.0.16"],
@@ -46,6 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/esbuild-plugin-pnp", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.1-rc.3"],
             ["@yarnpkg/sdks", "npm:2.6.0-rc.6"],
             ["autoprefixer", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:10.4.2"],
+            ["badge-maker", "npm:3.3.1"],
             ["conventional-changelog-conventionalcommits", "npm:4.6.3"],
             ["csstype", "npm:3.0.10"],
             ["esbuild", "npm:0.14.21"],
@@ -1130,6 +1132,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@skypack/package-check", [
+        ["npm:0.2.2", {
+          "packageLocation": "./.yarn/cache/@skypack-package-check-npm-0.2.2-6ac0204a7a-7b35c33160.zip/node_modules/@skypack/package-check/",
+          "packageDependencies": [
+            ["@skypack/package-check", "npm:0.2.2"],
+            ["kleur", "npm:4.1.4"],
+            ["yargs-parser", "npm:20.2.9"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@szmarczak/http-timer", [
         ["npm:1.1.2", {
           "packageLocation": "./.yarn/cache/@szmarczak-http-timer-npm-1.1.2-ea82ca2d55-4d9158061c.zip/node_modules/@szmarczak/http-timer/",
@@ -2117,6 +2130,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["anafanafo", [
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/anafanafo-npm-2.0.0-b8e1cc372e-c166fc5920.zip/node_modules/anafanafo/",
+          "packageDependencies": [
+            ["anafanafo", "npm:2.0.0"],
+            ["char-width-table-consumer", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["ansi-align", [
         ["npm:3.0.1", {
           "packageLocation": "./.yarn/cache/ansi-align-npm-3.0.1-8e6288d20a-6abfa08f21.zip/node_modules/ansi-align/",
@@ -2403,6 +2426,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["badge-maker", [
+        ["npm:3.3.1", {
+          "packageLocation": "./.yarn/cache/badge-maker-npm-3.3.1-754e354385-17ddd409da.zip/node_modules/badge-maker/",
+          "packageDependencies": [
+            ["badge-maker", "npm:3.3.1"],
+            ["anafanafo", "npm:2.0.0"],
+            ["css-color-converter", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["balanced-match", [
         ["npm:1.0.2", {
           "packageLocation": "./.yarn/cache/balanced-match-npm-1.0.2-a53c126459-9706c088a2.zip/node_modules/balanced-match/",
@@ -2435,6 +2469,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/binary-extensions-npm-2.2.0-180c33fec7-ccd267956c.zip/node_modules/binary-extensions/",
           "packageDependencies": [
             ["binary-extensions", "npm:2.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["binary-search", [
+        ["npm:1.3.6", {
+          "packageLocation": "./.yarn/cache/binary-search-npm-1.3.6-b150a83e72-2e6b3459a9.zip/node_modules/binary-search/",
+          "packageDependencies": [
+            ["binary-search", "npm:1.3.6"]
           ],
           "linkType": "HARD",
         }]
@@ -2713,6 +2756,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["char-width-table-consumer", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/char-width-table-consumer-npm-1.0.0-60ca4402d3-daffca7cf4.zip/node_modules/char-width-table-consumer/",
+          "packageDependencies": [
+            ["char-width-table-consumer", "npm:1.0.0"],
+            ["binary-search", "npm:1.3.6"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["character-parser", [
         ["npm:2.2.0", {
           "packageLocation": "./.yarn/cache/character-parser-npm-2.2.0-a5df9fb883-71826fae50.zip/node_modules/character-parser/",
@@ -2927,6 +2980,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["color-convert", [
+        ["npm:0.5.3", {
+          "packageLocation": "./.yarn/cache/color-convert-npm-0.5.3-be3d6c0bf9-1074989a2c.zip/node_modules/color-convert/",
+          "packageDependencies": [
+            ["color-convert", "npm:0.5.3"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:1.9.3", {
           "packageLocation": "./.yarn/cache/color-convert-npm-1.9.3-1fe690075e-fd7a64a17c.zip/node_modules/color-convert/",
           "packageDependencies": [
@@ -3449,6 +3509,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["css-color-converter", [
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/css-color-converter-npm-2.0.0-663f20153d-87819fb364.zip/node_modules/css-color-converter/",
+          "packageDependencies": [
+            ["css-color-converter", "npm:2.0.0"],
+            ["color-convert", "npm:0.5.3"],
+            ["color-name", "npm:1.1.4"],
+            ["css-unit-converter", "npm:1.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["css-has-pseudo", [
         ["npm:3.0.4", {
           "packageLocation": "./.yarn/cache/css-has-pseudo-npm-3.0.4-e97bb61896-8f165d68f6.zip/node_modules/css-has-pseudo/",
@@ -3490,6 +3562,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [
             "@types/postcss",
             "postcss"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["css-unit-converter", [
+        ["npm:1.1.2", {
+          "packageLocation": "./.yarn/cache/css-unit-converter-npm-1.1.2-277ce2166c-0788803334.zip/node_modules/css-unit-converter/",
+          "packageDependencies": [
+            ["css-unit-converter", "npm:1.1.2"]
           ],
           "linkType": "HARD",
         }]
@@ -6347,6 +6428,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/kind-of-npm-6.0.3-ab15f36220-3ab01e7b1d.zip/node_modules/kind-of/",
           "packageDependencies": [
             ["kind-of", "npm:6.0.3"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["kleur", [
+        ["npm:4.1.4", {
+          "packageLocation": "./.yarn/cache/kleur-npm-4.1.4-7a73ff57c6-7f6db36e37.zip/node_modules/kleur/",
+          "packageDependencies": [
+            ["kleur", "npm:4.1.4"]
           ],
           "linkType": "HARD",
         }]
@@ -9294,6 +9384,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/cli", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.1.0"],
             ["@commitlint/config-conventional", "npm:16.0.0"],
             ["@release-it/conventional-changelog", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.1.0"],
+            ["@skypack/package-check", "npm:0.2.2"],
             ["@types/markdown-it", "npm:12.2.3"],
             ["@types/markdown-it-container", "npm:2.0.5"],
             ["@types/node", "npm:17.0.16"],
@@ -9302,6 +9393,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/esbuild-plugin-pnp", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.1-rc.3"],
             ["@yarnpkg/sdks", "npm:2.6.0-rc.6"],
             ["autoprefixer", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:10.4.2"],
+            ["badge-maker", "npm:3.3.1"],
             ["conventional-changelog-conventionalcommits", "npm:4.6.3"],
             ["csstype", "npm:3.0.10"],
             ["esbuild", "npm:0.14.21"],

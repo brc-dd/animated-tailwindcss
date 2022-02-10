@@ -53,6 +53,7 @@ jobs:
           git add .
           yarn lint --all --no-stash
           [ -z "$(git status --porcelain -- ':!.yarn')" ]
+          yarn package-check --cwd dist
 
   analyze:
     permissions:

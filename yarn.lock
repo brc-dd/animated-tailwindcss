@@ -813,6 +813,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@skypack/package-check@npm:latest":
+  version: 0.2.2
+  resolution: "@skypack/package-check@npm:0.2.2"
+  dependencies:
+    kleur: ^4.1.3
+    yargs-parser: ^20.2.3
+  bin:
+    package-check: index.bin.js
+  checksum: 7b35c331609b743815ba9d2a7d789e8157d5119ea167fe684cd9d95978892d01aac0e36db5ea8d54fc565e5f57f3732a9793c5c711d454ce9bf1581f34829e9f
+  languageName: node
+  linkType: hard
+
 "@szmarczak/http-timer@npm:^1.1.2":
   version: 1.1.2
   resolution: "@szmarczak/http-timer@npm:1.1.2"
@@ -1581,6 +1593,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"anafanafo@npm:2.0.0":
+  version: 2.0.0
+  resolution: "anafanafo@npm:2.0.0"
+  dependencies:
+    char-width-table-consumer: ^1.0.0
+  checksum: c166fc5920ca83c321ecfecdaf7b8b6e09553ad8c6214da39cd82e77decb4b06da440bdcb978ba567c4ed34746e048d61901ff9ddedf52555aeba82642115ac8
+  languageName: node
+  linkType: hard
+
 "ansi-align@npm:^3.0.0":
   version: 3.0.1
   resolution: "ansi-align@npm:3.0.1"
@@ -1823,6 +1844,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"badge-maker@npm:latest":
+  version: 3.3.1
+  resolution: "badge-maker@npm:3.3.1"
+  dependencies:
+    anafanafo: 2.0.0
+    css-color-converter: ^2.0.0
+  bin:
+    badge: lib/badge-cli.js
+  checksum: 17ddd409da395a5a58a4b984aa3224a26fec80a580f7b2f011cbfcf3d1ecc4b8daae879d0ff21b7bb78081eb03c703fd161bebc846018456edfa7e3544932e10
+  languageName: node
+  linkType: hard
+
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -1848,6 +1881,13 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  languageName: node
+  linkType: hard
+
+"binary-search@npm:^1.3.5":
+  version: 1.3.6
+  resolution: "binary-search@npm:1.3.6"
+  checksum: 2e6b3459a9c1ba1bd674a6a855a5ef7505f70707422244430e3510e989c0df6074a49fe60784a98b93b51545c9bcace1db1defee06ff861b124c036a2f2836bf
   languageName: node
   linkType: hard
 
@@ -2104,6 +2144,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"char-width-table-consumer@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "char-width-table-consumer@npm:1.0.0"
+  dependencies:
+    binary-search: ^1.3.5
+  checksum: daffca7cf4201f55acb75c6f98967be6d8a7cbb5783f3e58d90930d83cadc367e63e62fcfa893ea3985c05d8c32557a1bfa2ea7e2f39b845cb2dea966cfbeccd
+  languageName: node
+  linkType: hard
+
 "character-parser@npm:^2.2.0":
   version: 2.2.0
   resolution: "character-parser@npm:2.2.0"
@@ -2285,6 +2334,13 @@ __metadata:
   version: 1.0.4
   resolution: "clone@npm:1.0.4"
   checksum: d06418b7335897209e77bdd430d04f882189582e67bd1f75a04565f3f07f5b3f119a9d670c943b6697d0afb100f03b866b3b8a1f91d4d02d72c4ecf2bb64b5dd
+  languageName: node
+  linkType: hard
+
+"color-convert@npm:^0.5.2":
+  version: 0.5.3
+  resolution: "color-convert@npm:0.5.3"
+  checksum: 1074989a2c216d0171a397b870a0d698ef802ab3f9ece72b35bd92c4d20aeab31f222ea525dd5d3fad175a3f256a750eadd14ab882caed0089efc1cb7ba74086
   languageName: node
   linkType: hard
 
@@ -2747,6 +2803,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-color-converter@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "css-color-converter@npm:2.0.0"
+  dependencies:
+    color-convert: ^0.5.2
+    color-name: ^1.1.4
+    css-unit-converter: ^1.1.2
+  checksum: 87819fb3648bb433de49e534c5597d8021642f3199f8985f27b41dc5170c522f775db804fc4533ea78723f8cc70747c545c8f010f4a3ca0ba7bc4dd8f3eea532
+  languageName: node
+  linkType: hard
+
 "css-has-pseudo@npm:^3.0.3":
   version: 3.0.4
   resolution: "css-has-pseudo@npm:3.0.4"
@@ -2768,6 +2835,13 @@ __metadata:
   bin:
     css-prefers-color-scheme: dist/cli.cjs
   checksum: 3a2b02f0454adda68861cdcaf6a0d11f462eadf165301cba61c5ec7c5f229ac261c5baa54c377d9b811ec5f21b30d72a02bc032cdad2415b3a566f08a0c47b3a
+  languageName: node
+  linkType: hard
+
+"css-unit-converter@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "css-unit-converter@npm:1.1.2"
+  checksum: 07888033346a5128f34dbe2f72884c966d24e9f29db24416dcde92860242490617ef9a178ac193a92f730834bbeea026cdc7027701d92ba9bbbe59db7a37eb2a
   languageName: node
   linkType: hard
 
@@ -5231,6 +5305,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kleur@npm:^4.1.3":
+  version: 4.1.4
+  resolution: "kleur@npm:4.1.4"
+  checksum: 7f6db36e378045dec14acd3cbf0b1e59130c09e984ee8b8ce56dd2d2257cfff90389c1e8f8b19bd09dd5d241080566a814b4ccd99fdcef91f59ef93ec33c8a44
+  languageName: node
+  linkType: hard
+
 "latest-version@npm:^5.1.0":
   version: 5.1.0
   resolution: "latest-version@npm:5.1.0"
@@ -7588,6 +7669,7 @@ __metadata:
     "@commitlint/cli": latest
     "@commitlint/config-conventional": latest
     "@release-it/conventional-changelog": latest
+    "@skypack/package-check": latest
     "@types/markdown-it": latest
     "@types/markdown-it-container": latest
     "@types/node": latest
@@ -7596,6 +7678,7 @@ __metadata:
     "@yarnpkg/esbuild-plugin-pnp": latest
     "@yarnpkg/sdks": latest
     autoprefixer: latest
+    badge-maker: latest
     conventional-changelog-conventionalcommits: latest
     csstype: latest
     esbuild: latest
