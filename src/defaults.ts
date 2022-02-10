@@ -1,6 +1,6 @@
 const range = (a: number, b?: number, c?: number): Array<number> =>
-  [...Array(Math.abs(b ? Math.ceil((b - a) / (c || 1)) : a)).keys()].map(
-    (k) => (k * (c ?? (a < 0 ? -1 : 1)) || 0) + (b ? a : 0),
+  [...Array(Math.abs(b != null ? Math.ceil((b - a) / (c ?? 1)) : a)).keys()].map(
+    (k) => (k * (c ?? (a < 0 ? -1 : 1)) || 0) + (b != null ? a : 0),
   );
 
 const expandArray = <T extends number | string>(

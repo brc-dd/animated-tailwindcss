@@ -51,7 +51,7 @@ const config: UserConfig<DefaultTheme.Config> = {
         render: (tokens: Array<Token>, idx: number): string => {
           const m = /^snippet-item\s+(.*)$/.exec(tokens[idx].info.trim());
           if (tokens[idx].nesting !== 1) return '</div>\n';
-          return `<div title=${md.utils.escapeHtml(m?.[1] || '')}>\n`;
+          return `<div title=${md.utils.escapeHtml(m?.[1] ?? '')}>\n`;
         },
       });
 

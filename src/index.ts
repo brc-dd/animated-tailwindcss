@@ -10,13 +10,13 @@ const withAnimations: EntryPoint = (config = {}) => {
   const animations: KeyValuePair = Object.fromEntries(
     Object.keys(keyframes).map((k) => [
       k,
-      `${keyframeUtils[k]?.animationDuration || '1s'}
-      ${keyframeUtils[k]?.animationTimingFunction || ''}
+      `${keyframeUtils[k]?.animationDuration ?? '1s'}
+      ${keyframeUtils[k]?.animationTimingFunction ?? ''}
       both ${k}`.replace(/\s+/g, ' '),
     ]),
   );
 
-  const configAnimations = config.theme.extend?.animation || {};
+  const configAnimations = config.theme.extend?.animation ?? {};
   config.theme.animation = { ...animations, ...configAnimations };
   delete config.theme.extend?.animation;
 
