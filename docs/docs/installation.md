@@ -88,8 +88,8 @@ It is as simple as this.
   </head>
 
   <body>
-    <div class="flex justify-center items-center h-screen">
-      <div class="animate-tada animate-infinite animate-slow text-2xl">Hi!</div>
+    <div class="flex h-screen items-center justify-center">
+      <div class="animate-tada text-2xl animate-slow animate-infinite">Hi!</div>
     </div>
   </body>
 </html>

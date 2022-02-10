@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col mt-6">
+  <div class="mt-6 flex flex-col">
     <div
-      class="flex justify-center items-center p-20 sm:p-32 overflow-hidden rounded-md bg-[#333B45]"
+      class="flex items-center justify-center overflow-hidden rounded-md bg-[#333B45] p-20 sm:p-32"
     >
       <img
         alt="tw-Animated"
@@ -11,11 +11,11 @@
         src="/mark.svg"
       />
     </div>
-    <div class="flex self-center mt-6">
-      <button class="py-1 px-4 bg-[#3B3B3B] rounded-l-md" @click="copy" type="button">
+    <div class="mt-6 flex self-center">
+      <button class="rounded-l-md bg-[#3B3B3B] py-1 px-4" @click="copy" type="button">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 my-[3px]"
+          class="my-[3px] h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -39,14 +39,14 @@
       <select
         aria-label="Choose an animation."
         @change="handleChange"
-        class="py-1 px-4 bg-[#3B3B3B] border-x border-[#333] appearance-none"
+        class="appearance-none border-x border-[#333] bg-[#3B3B3B] py-1 px-4"
         id="animation"
       >
         <optgroup v-for="(keyframes, type) in animations" :label="type">
           <option v-for="keyframe in keyframes">{{ keyframe }}</option>
         </optgroup>
       </select>
-      <button type="button" class="py-1 px-4 bg-[#3B3B3B] rounded-r-md" @click="rerun">
+      <button type="button" class="rounded-r-md bg-[#3B3B3B] py-1 px-4" @click="rerun">
         Animate
       </button>
     </div>

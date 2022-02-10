@@ -52,6 +52,7 @@
     "postcss-preset-env": "latest",
     "prettier": "latest",
     "prettier-package-json": "latest",
+    "prettier-plugin-tailwindcss": "latest",
     "release-it": "latest",
     "release-it-yarn-workspaces": "latest",
     "replace": "latest",

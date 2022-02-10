@@ -6963,6 +6963,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-tailwindcss@npm:latest":
+  version: 0.1.7
+  resolution: "prettier-plugin-tailwindcss@npm:0.1.7"
+  peerDependencies:
+    prettier: ">=2.2.0"
+  checksum: a692a025a1c73bc95b0c1b2d1763ee47023908f95e83f120517e87f82bc4885a202ef5a0819f8b3c12bf71286b9ab6d4d014342983d84ba878bcef0e20a4e0d8
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.4.1, prettier@npm:latest":
   version: 2.5.1
   resolution: "prettier@npm:2.5.1"
@@ -7611,6 +7620,7 @@ __metadata:
     postcss-preset-env: latest
     prettier: latest
     prettier-package-json: latest
+    prettier-plugin-tailwindcss: latest
     release-it: latest
     release-it-yarn-workspaces: latest
     replace: latest
