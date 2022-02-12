@@ -1,6 +1,4 @@
 import type { BuildOptions } from 'esbuild';
-import { build as esBuild } from 'esbuild';
-import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
 
 import {
   closeSync,
@@ -12,6 +10,11 @@ import {
   writeSync,
 } from 'fs';
 import { join } from 'path';
+
+import { pnpPlugin } from '@yarnpkg/esbuild-plugin-pnp';
+import { build as esBuild } from 'esbuild';
+// @ts-ignore
+import replace from 'replace';
 
 const copyFiles = (src: string, dest = src): void => {
   const destList = dest.split(' ');
@@ -34,7 +37,7 @@ esBuild({
   entryPoints: ['dist/index.js'],
   outfile: 'dist/index.cjs',
 })
-  .then(() => {
+  .then(async () => {
     readdirSync(join(__dirname, 'dist')).forEach((file) => {
       if (!/^index(\.cjs|\.d\.ts)$/.test(file)) unlinkSync(join(__dirname, 'dist', file));
     });
@@ -47,6 +50,10 @@ esBuild({
     const fd = openSync(join(__dirname, 'dist', 'index.d.ts'), 'w+');
     writeSync(fd, `${readFileSync(join(__dirname, 'types', 'base.d.ts'))}\n${data}`);
     closeSync(fd);
+
+    [/<a href="[^"]*#gh-dark-mode-only">[^]*?<\/a>\s+/, /#gh-light-mode-only/].forEach((regex) =>
+      replace({ regex, replacement: '', paths: ['./dist/README.md'], silent: true }),
+    );
 
     // build for browser
     return esBuild({

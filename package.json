@@ -8,7 +8,7 @@
     "dev:docs": "vitepress dev docs",
     "postinstall": "is-ci || (husky install && sdks vscode && yarn build)",
     "lint": "lint-staged --allow-empty -p false",
-    "release": "release-it",
+    "release": "yarn build && release-it",
     "serve:docs": "serve docs/dist"
   },
   "resolutions": {
