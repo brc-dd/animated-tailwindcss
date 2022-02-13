@@ -66,7 +66,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "patch:lint-staged@npm%3A12.3.1#.yarn/patches/lint-staged-npm-12.3.1-e2cd0c0b88::version=12.3.1&hash=bbd614&locator=root-workspace-0b6124%40workspace%3A."],
             ["markdown-it-container", "npm:3.0.0"],
             ["markdown-it-deflist", "npm:2.1.0"],
-            ["npm-run-all", "npm:4.1.5"],
             ["postcss", "npm:8.4.6"],
             ["postcss-flexbugs-fixes", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.0.2"],
             ["postcss-preset-env", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.3.1"],
@@ -6766,15 +6765,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["memorystream", [
-        ["npm:0.3.1", {
-          "packageLocation": "./.yarn/cache/memorystream-npm-0.3.1-ae973f1d16-f18b42440d.zip/node_modules/memorystream/",
-          "packageDependencies": [
-            ["memorystream", "npm:0.3.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["meow", [
         ["npm:8.1.2", {
           "packageLocation": "./.yarn/cache/meow-npm-8.1.2-bcfe48d4f3-bc23bf1b44.zip/node_modules/meow/",
@@ -7244,24 +7234,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/normalize-url-npm-6.1.0-b95bc12ece-4a49446311.zip/node_modules/normalize-url/",
           "packageDependencies": [
             ["normalize-url", "npm:6.1.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["npm-run-all", [
-        ["npm:4.1.5", {
-          "packageLocation": "./.yarn/cache/npm-run-all-npm-4.1.5-3281f1c563-373b72c6a3.zip/node_modules/npm-run-all/",
-          "packageDependencies": [
-            ["npm-run-all", "npm:4.1.5"],
-            ["ansi-styles", "npm:3.2.1"],
-            ["chalk", "npm:2.4.2"],
-            ["cross-spawn", "npm:6.0.5"],
-            ["memorystream", "npm:0.3.1"],
-            ["minimatch", "npm:3.0.5"],
-            ["pidtree", "npm:0.3.1"],
-            ["read-pkg", "npm:3.0.0"],
-            ["shell-quote", "npm:1.7.3"],
-            ["string.prototype.padend", "npm:3.1.3"]
           ],
           "linkType": "HARD",
         }]
@@ -7773,15 +7745,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/picomatch-npm-2.3.1-c782cfd986-050c865ce8.zip/node_modules/picomatch/",
           "packageDependencies": [
             ["picomatch", "npm:2.3.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["pidtree", [
-        ["npm:0.3.1", {
-          "packageLocation": "./.yarn/cache/pidtree-npm-0.3.1-70dda1cc59-eb49025099.zip/node_modules/pidtree/",
-          "packageDependencies": [
-            ["pidtree", "npm:0.3.1"]
           ],
           "linkType": "HARD",
         }]
@@ -9412,7 +9375,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "patch:lint-staged@npm%3A12.3.1#.yarn/patches/lint-staged-npm-12.3.1-e2cd0c0b88::version=12.3.1&hash=bbd614&locator=root-workspace-0b6124%40workspace%3A."],
             ["markdown-it-container", "npm:3.0.0"],
             ["markdown-it-deflist", "npm:2.1.0"],
-            ["npm-run-all", "npm:4.1.5"],
             ["postcss", "npm:8.4.6"],
             ["postcss-flexbugs-fixes", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:5.0.2"],
             ["postcss-preset-env", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:7.3.1"],
@@ -9622,15 +9584,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/shebang-regex-npm-3.0.0-899a0cd65e-1a2bcae50d.zip/node_modules/shebang-regex/",
           "packageDependencies": [
             ["shebang-regex", "npm:3.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["shell-quote", [
-        ["npm:1.7.3", {
-          "packageLocation": "./.yarn/cache/shell-quote-npm-1.7.3-76a78a6d77-aca58e73a3.zip/node_modules/shell-quote/",
-          "packageDependencies": [
-            ["shell-quote", "npm:1.7.3"]
           ],
           "linkType": "HARD",
         }]
@@ -9951,18 +9904,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eastasianwidth", "npm:0.2.0"],
             ["emoji-regex", "npm:9.2.2"],
             ["strip-ansi", "npm:7.0.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["string.prototype.padend", [
-        ["npm:3.1.3", {
-          "packageLocation": "./.yarn/cache/string.prototype.padend-npm-3.1.3-2f153896cd-ef9ee0542c.zip/node_modules/string.prototype.padend/",
-          "packageDependencies": [
-            ["string.prototype.padend", "npm:3.1.3"],
-            ["call-bind", "npm:1.0.2"],
-            ["define-properties", "npm:1.1.3"],
-            ["es-abstract", "npm:1.19.1"]
           ],
           "linkType": "HARD",
         }]

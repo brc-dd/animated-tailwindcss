@@ -5,9 +5,6 @@
   "description": "A configuration to use Animate.css with Tailwind CSS",
   "license": "MIT",
   "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
-  "contributors": [
-    "Akash Tureha <2020kucp1138@iiitkota.ac.in> (https://github.com/MrMischievousX)"
-  ],
   "homepage": "https://ikcb.org/animated-tailwindcss",
   "repository": "github:ikcb/animated-tailwindcss",
   "bugs": {
@@ -20,6 +17,7 @@
   "files": [
     "index.d.ts"
   ],
+  "sideEffects": false,
   "types": "index.d.ts",
   "dependencies": {
     "csstype": "^3"

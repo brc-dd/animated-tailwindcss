@@ -1,14 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "build": "run-s clean 'build:*'",
+    "build": "yarn clean && yarn build:base && yarn build:docs",
     "build:base": "ttsc && ts-node --skip-project build.ts",
     "build:docs": "vitepress build docs && shx mv docs/.vitepress/dist docs/dist/animated-tailwindcss",
     "clean": "shx rm -rf dist docs/dist && shx mkdir docs/dist",
     "dev:docs": "vitepress dev docs",
     "postinstall": "is-ci || (husky install && sdks vscode && yarn build)",
     "lint": "lint-staged --allow-empty -p false",
-    "release": "yarn build && release-it",
+    "lint:all": "git add . && yarn lint --all --no-stash",
+    "release": "yarn lint:all && yarn build && release-it",
     "serve:docs": "serve docs/dist"
   },
   "resolutions": {
@@ -48,7 +49,6 @@
     "lint-staged": "12.3.1",
     "markdown-it-container": "latest",
     "markdown-it-deflist": "latest",
-    "npm-run-all": "latest",
     "postcss": "latest",
     "postcss-flexbugs-fixes": "latest",
     "postcss-preset-env": "latest",
