@@ -1,3 +1,9 @@
+### [3.2.5](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.4...v3.2.5) (2022-02-13)
+
+### Bug Fixes
+
+- mark files as side-effect free ([05df34e](https://github.com/ikcb/animated-tailwindcss/commit/05df34e5166e2321190ae8d6078c45be8183c108))
+
 ### [3.2.4](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.3...v3.2.4) (2022-02-12)
 
 ### [3.2.3](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.2...v3.2.3) (2022-02-09)
