@@ -68,10 +68,10 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@7f9dca29821cf2a54f736a581c164ce60afef936
+      - uses: github/codeql-action/init@2c6b76bc5a6dafa5a35d5865bb3aa1c1f21e7a44
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@7f9dca29821cf2a54f736a581c164ce60afef936
+      - uses: github/codeql-action/analyze@2c6b76bc5a6dafa5a35d5865bb3aa1c1f21e7a44
 
   deploy:
     permissions:
