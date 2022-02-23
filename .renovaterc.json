@@ -7,7 +7,7 @@
     ":semanticPrefixFixDepsChoreOthers",
     "group:all",
     "npm:unpublishSafe",
-    "schedule:weekly",
+    "schedule:daily",
     "workarounds:all"
   ],
   "automergeStrategy": "squash",
