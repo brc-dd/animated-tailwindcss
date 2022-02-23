@@ -1,7 +1,9 @@
-const range = (a: number, b?: number, c?: number): Array<number> =>
-  [...Array(Math.abs(b != null ? Math.ceil((b - a) / (c ?? 1)) : a)).keys()].map(
-    (k) => (k * (c ?? (a < 0 ? -1 : 1)) || 0) + (b != null ? a : 0),
+const range = (a: number, b?: number, c?: number): Array<number> => {
+  if (b != null && c != null && ((a >= b && c >= 0) || (a < b && c < 0))) return [];
+  return [...Array(Math.abs(b != null ? Math.ceil((b - a) / ((c ?? 1) || 1)) : a)).keys()].map(
+    (k) => (k * (c ?? ((b != null ? a > b : a < 0) ? -1 : 1)) || 0) + (b != null ? a : 0),
   );
+};
 
 const expandArray = <T extends number | string>(
   arr: Array<T>,
