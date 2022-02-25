@@ -5,11 +5,11 @@
     ":ignoreModulesAndTests",
     ":maintainLockFilesWeekly",
     ":semanticPrefixFixDepsChoreOthers",
-    "group:all",
     "npm:unpublishSafe",
     "schedule:weekly",
     "workarounds:all"
   ],
+  "groupName": "all",
   "automergeStrategy": "squash",
   "updatePinnedDependencies": false
 }
