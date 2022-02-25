@@ -1,3 +1,9 @@
+### [3.2.6](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.5...v3.2.6) (2022-02-25)
+
+### Bug Fixes
+
+- modify range function ([b4ed7c2](https://github.com/ikcb/animated-tailwindcss/commit/b4ed7c2d34c56698e297614f42e7effcf8ea4490))
+
 ### [3.2.5](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.4...v3.2.5) (2022-02-13)
 
 ### Bug Fixes
