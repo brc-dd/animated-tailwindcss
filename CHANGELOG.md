@@ -1,3 +1,5 @@
+### [3.2.7](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.6...v3.2.7) (2022-02-25)
+
 ### [3.2.6](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.5...v3.2.6) (2022-02-25)
 
 ### Bug Fixes
