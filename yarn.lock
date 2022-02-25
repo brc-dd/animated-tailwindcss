@@ -1190,7 +1190,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:^2.0.0":
+"@vitejs/plugin-vue@npm:^2.2.0":
   version: 2.2.2
   resolution: "@vitejs/plugin-vue@npm:2.2.2"
   peerDependencies:
@@ -5373,9 +5373,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:12.3.1":
-  version: 12.3.1
-  resolution: "lint-staged@npm:12.3.1"
+"lint-staged@npm:12.3.4":
+  version: 12.3.4
+  resolution: "lint-staged@npm:12.3.4"
   dependencies:
     cli-truncate: ^3.1.0
     colorette: ^2.0.16
@@ -5392,13 +5392,13 @@ __metadata:
     yaml: ^1.10.2
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 53e4a0e6021221f8d712397996d4a10374f2ee287a0d62dab2e84ddd1e06f5cc4cb42ac909337c52feba20a13f89bfefe7939683003ccedc04ac6ec20fd65651
+  checksum: 4e0b4b9da4183a0daeab35d41e4d243fb1270a39db997efa0c3745fa148a7a4b8b723a51cb757595fc8bb118796ca1465e67aede72f25e9ea48165aec36cec3b
   languageName: node
   linkType: hard
 
-"lint-staged@patch:lint-staged@npm:12.3.1#.yarn/patches/lint-staged-npm-12.3.1-e2cd0c0b88::locator=root-workspace-0b6124%40workspace%3A.":
-  version: 12.3.1
-  resolution: "lint-staged@patch:lint-staged@npm%3A12.3.1#.yarn/patches/lint-staged-npm-12.3.1-e2cd0c0b88::version=12.3.1&hash=bbd614&locator=root-workspace-0b6124%40workspace%3A."
+"lint-staged@patch:lint-staged@npm:12.3.4#.yarn/patches/lint-staged-npm-12.3.4-fe50622cdf::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 12.3.4
+  resolution: "lint-staged@patch:lint-staged@npm%3A12.3.4#.yarn/patches/lint-staged-npm-12.3.4-fe50622cdf::version=12.3.4&hash=5e9856&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     cli-truncate: ^3.1.0
     colorette: ^2.0.16
@@ -5415,7 +5415,7 @@ __metadata:
     yaml: ^1.10.2
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: b798193c01f7b635cb3e3195b5d7d212cf2c8f266442f912b8d5e186cde1cdf2877322017a2155958429add62a842a33c3fd7123a28db67bc2bf46bbff6af9ca
+  checksum: 37de658869663c065a8176c58dd0d76dadb60cc3845b507c90379fa79b193794bebb22aadcc1fe00d966b4bbcd118756a7caf4834adc9521422d977ed228af2b
   languageName: node
   linkType: hard
 
@@ -7698,7 +7698,7 @@ __metadata:
     eslint-plugin-security: latest
     husky: latest
     is-ci: latest
-    lint-staged: 12.3.1
+    lint-staged: 12.3.4
     markdown-it-container: latest
     markdown-it-deflist: latest
     postcss: latest
@@ -7719,7 +7719,7 @@ __metadata:
     ttypescript: latest
     typescript: latest
     typescript-transform-paths: latest
-    vitepress: 0.21.6
+    vitepress: 0.22.3
     vls: latest
     vue: latest
   dependenciesMeta:
@@ -8929,7 +8929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.7.12":
+"vite@npm:^2.8.1":
   version: 2.8.4
   resolution: "vite@npm:2.8.4"
   dependencies:
@@ -8958,35 +8958,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitepress@npm:0.21.6":
-  version: 0.21.6
-  resolution: "vitepress@npm:0.21.6"
+"vitepress@npm:0.22.3":
+  version: 0.22.3
+  resolution: "vitepress@npm:0.22.3"
   dependencies:
     "@docsearch/css": ^3.0.0-alpha.41
     "@docsearch/js": ^3.0.0-alpha.41
-    "@vitejs/plugin-vue": ^2.0.0
+    "@vitejs/plugin-vue": ^2.2.0
     prismjs: ^1.25.0
-    vite: ^2.7.12
-    vue: ^3.2.27
+    vite: ^2.8.1
+    vue: ^3.2.31
   bin:
     vitepress: bin/vitepress.js
-  checksum: 32087b2dce97f2ddc253f8b8b3e5f4ef5c124ea864813476792d86531c8010ab6c39acb6759b8672a616d4cbd0603c56830d75bb32b2f1f8f99c7a111c53986c
+  checksum: fb41e5f10fe2b780ea08f07a4ad6ca3263463a1d79ce26ff65ec63c03bbf196fba8213da40605d1d928b1551d0ef9b312463c799958f91df68fa803c5e6ecdc4
   languageName: node
   linkType: hard
 
-"vitepress@patch:vitepress@npm:0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746::locator=root-workspace-0b6124%40workspace%3A.":
-  version: 0.21.6
-  resolution: "vitepress@patch:vitepress@npm%3A0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746::version=0.21.6&hash=e6104a&locator=root-workspace-0b6124%40workspace%3A."
+"vitepress@patch:vitepress@npm:0.22.3#.yarn/patches/vitepress-npm-0.22.3-a74d655326::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 0.22.3
+  resolution: "vitepress@patch:vitepress@npm%3A0.22.3#.yarn/patches/vitepress-npm-0.22.3-a74d655326::version=0.22.3&hash=7eda12&locator=root-workspace-0b6124%40workspace%3A."
   dependencies:
     "@docsearch/css": ^3.0.0-alpha.41
     "@docsearch/js": ^3.0.0-alpha.41
-    "@vitejs/plugin-vue": ^2.0.0
+    "@vitejs/plugin-vue": ^2.2.0
     prismjs: ^1.25.0
-    vite: ^2.7.12
-    vue: ^3.2.27
+    vite: ^2.8.1
+    vue: ^3.2.31
   bin:
     vitepress: bin/vitepress.js
-  checksum: 33cec844141768c7825947eefe9dd14bee955ec2f544a70afd4688d58b93daa25d4baad2f1649db94096826ff6500f544f84af1d6f8b1cf7ed5677a682ccc5fa
+  checksum: 6156141baeaedf59d7765df57d01937c0bb39227bf280c78452b02c54d371522d22537982747f37ff7174171795ddf6a9a128c2c0fdabf98fd8ceebef9b3af28
   languageName: node
   linkType: hard
 
@@ -9023,7 +9023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.2.27, vue@npm:latest":
+"vue@npm:^3.2.31, vue@npm:latest":
   version: 3.2.31
   resolution: "vue@npm:3.2.31"
   dependencies:

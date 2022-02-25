@@ -13,9 +13,9 @@
     "serve:docs": "serve docs/dist"
   },
   "resolutions": {
+    "lint-staged@12.3.4": "patch:lint-staged@npm:12.3.4#.yarn/patches/lint-staged-npm-12.3.4-fe50622cdf",
     "prettier-package-json@latest": "patch:prettier-package-json@npm:2.6.0#.yarn/patches/prettier-package-json-npm-2.6.0-2099d2b2cf",
-    "vitepress@0.21.6": "patch:vitepress@npm:0.21.6#.yarn/patches/vitepress-npm-0.21.6-b8a60ff746",
-    "lint-staged@12.3.1": "patch:lint-staged@npm:12.3.1#.yarn/patches/lint-staged-npm-12.3.1-e2cd0c0b88"
+    "vitepress@0.22.3": "patch:vitepress@npm:0.22.3#.yarn/patches/vitepress-npm-0.22.3-a74d655326"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -46,7 +46,7 @@
     "eslint-plugin-security": "latest",
     "husky": "latest",
     "is-ci": "latest",
-    "lint-staged": "12.3.1",
+    "lint-staged": "12.3.4",
     "markdown-it-container": "latest",
     "markdown-it-deflist": "latest",
     "postcss": "latest",
@@ -67,7 +67,7 @@
     "ttypescript": "latest",
     "typescript": "latest",
     "typescript-transform-paths": "latest",
-    "vitepress": "0.21.6",
+    "vitepress": "0.22.3",
     "vls": "latest",
     "vue": "latest"
   },

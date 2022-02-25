@@ -69,7 +69,7 @@ index 4d2c2574441375a5675b1d0c60c8766590e32cdc..872bbe5ea732ad6b859c6d60415ddfea
        logger
      )
 diff --git a/lib/runAll.js b/lib/runAll.js
-index 4604fdb520d0c83b5d9d43d503e005a34ccc174d..5007d2070f5ef803519581e034cc8b781dcf126a 100644
+index 1e282630a2b514d79dbf6f80f4817d27261700db..83bd00e130cba5b43d9ad4dc0fae5229f6bf2b8d 100644
 --- a/lib/runAll.js
 +++ b/lib/runAll.js
 @@ -57,6 +57,7 @@ const createError = (ctx) => Object.assign(new Error('lint-staged failed'), { ct
@@ -88,7 +88,7 @@ index 4604fdb520d0c83b5d9d43d503e005a34ccc174d..5007d2070f5ef803519581e034cc8b78
    },
    logger = console
  ) => {
-@@ -104,7 +106,7 @@ export const runAll = async (
+@@ -105,7 +107,7 @@ export const runAll = async (
      logger.warn(skippingBackup(hasInitialCommit))
    }
 

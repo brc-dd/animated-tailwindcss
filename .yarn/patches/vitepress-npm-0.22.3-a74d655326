@@ -1,8 +1,8 @@
 diff --git a/dist/client/app/router.js b/dist/client/app/router.js
-index 58d82bdd05eed35f7a44988f17c4736c4da0bcc7..4407a6eeefcfca9a9282c474c63fdd3ec45d89a4 100644
+index 0e34ee13c32d4beed5def2f21b199ec878791568..6f282a6842cc82e87290c6dac93c8ac9dc65c655 100644
 --- a/dist/client/app/router.js
 +++ b/dist/client/app/router.js
-@@ -16,12 +16,6 @@ const getDefaultRoute = () => ({
+@@ -21,12 +21,6 @@ const getDefaultRoute = () => ({
  export function createRouter(loadPageModule, fallbackComponent) {
      const route = reactive(getDefaultRoute());
      function go(href = inBrowser ? location.href : '/') {
@@ -15,22 +15,6 @@ index 58d82bdd05eed35f7a44988f17c4736c4da0bcc7..4407a6eeefcfca9a9282c474c63fdd3e
          if (inBrowser) {
              // save scroll position before changing url
              history.replaceState({ scrollPosition: window.scrollY }, document.title);
-@@ -79,6 +73,15 @@ export function createRouter(loadPageModule, fallbackComponent) {
-                 latestPendingPath = null;
-                 route.path = pendingPath;
-                 route.component = fallbackComponent ? markRaw(fallbackComponent) : null;
-+                // reset page data
-+                route.data = {
-+                    relativePath: '',
-+                    title: '404',
-+                    description: 'Not Found',
-+                    headers: [],
-+                    frontmatter: {},
-+                    lastUpdated: 0
-+                };
-             }
-         }
-     }
 diff --git a/dist/client/app/utils.js b/dist/client/app/utils.js
 index 0411dde2de1581dd50e779dc82093268a103a3d9..047102a11fbd7f5b05b2fdf189221888f9bd16d1 100644
 --- a/dist/client/app/utils.js
@@ -45,19 +29,6 @@ index 0411dde2de1581dd50e779dc82093268a103a3d9..047102a11fbd7f5b05b2fdf189221888
              // client production build needs to account for page hash, which is
              // injected directly in the page's html
              const pageHash = __VP_HASH_MAP__[pagePath.toLowerCase()];
-diff --git a/dist/client/theme-default/components/LastUpdated.vue b/dist/client/theme-default/components/LastUpdated.vue
-index ab888fbc222e5dba6b60fcab08972fe29c61b5fc..3191ab05e0c0a9d5882f07c4ad20d46b87333eae 100644
---- a/dist/client/theme-default/components/LastUpdated.vue
-+++ b/dist/client/theme-default/components/LastUpdated.vue
-@@ -7,7 +7,7 @@ const { theme, page } = useData()
- const hasLastUpdated = computed(() => {
-   const lu = theme.value.lastUpdated
-
--  return lu !== undefined && lu !== false
-+  return lu !== undefined && lu !== false && page.value.lastUpdated !== 0
- })
-
- const prefix = computed(() => {
 diff --git a/dist/client/theme-default/components/NavBarTitle.vue b/dist/client/theme-default/components/NavBarTitle.vue
 index 8b9d3709763ad0e16a8a4d88bfc874767509bbb7..686a685ad041cb01e04aacbe88c9e3dfe46aa18f 100644
 --- a/dist/client/theme-default/components/NavBarTitle.vue
@@ -100,7 +71,7 @@ index df72937df2407e8405f940735f5bc21611956da0..c52fbd84870ab094343a01e864f1f090
          if (frontSidebar === false) {
              return [];
 diff --git a/dist/node/index.d.ts b/dist/node/index.d.ts
-index 9605e5ba9dc2dc4bb822c31fcb07d9cdb2ff9882..51865ef134c92ca70874e6af53f4ddeea01ec8ac 100644
+index 5f4ac2ac2a9bc24d66b5e0c5ea0aaafa0a2e7d59..2a481555a0639e147e22e6c685cc0a844cf33698 100644
 --- a/dist/node/index.d.ts
 +++ b/dist/node/index.d.ts
 @@ -20,6 +20,7 @@ export declare namespace DefaultTheme {
@@ -111,14 +82,14 @@ index 9605e5ba9dc2dc4bb822c31fcb07d9cdb2ff9882..51865ef134c92ca70874e6af53f4ddee
 
          /**
           * GitHub repository following the format <user>/<project>.
-diff --git a/dist/node/serve-9874c5ac.js b/dist/node/serve-9874c5ac.js
-index e024d9eb80502d794ad7e6c078b499770d701a55..f8ac9259cea2ac35a038dd7e75d7e8db93240d35 100644
---- a/dist/node/serve-9874c5ac.js
-+++ b/dist/node/serve-9874c5ac.js
-@@ -35127,12 +35127,7 @@ const linkPlugin = (md, externalAttrs) => {
+diff --git a/dist/node/serve-777539c0.js b/dist/node/serve-777539c0.js
+index 0ba6313a6685846f07c2c39052dd9ff53763857f..16f8db044728f767ff714413b7a9373be7829831 100644
+--- a/dist/node/serve-777539c0.js
++++ b/dist/node/serve-777539c0.js
+@@ -35130,12 +35130,7 @@ const linkPlugin = (md, externalAttrs, base) => {
        url = path + hash;
      } else {
-       let cleanUrl = url.replace(/\#.*$/, "").replace(/\?.*$/, "");
+       let cleanUrl = url.replace(/[?#].*$/, "");
 -      if (cleanUrl.endsWith(".md")) {
 -        cleanUrl = cleanUrl.replace(/\.md$/, ".html");
 -      }
@@ -129,35 +100,27 @@ index e024d9eb80502d794ad7e6c078b499770d701a55..f8ac9259cea2ac35a038dd7e75d7e8db
        const parsed = new url$1.URL(url, "http://a.com");
        url = cleanUrl + parsed.search + parsed.hash;
      }
-diff --git a/types/default-theme.d.ts b/types/default-theme.d.ts
-index d72848717e1980bc9ac78c94b4262868b19593b3..f4071a7bf9069272050117b4f2c647a1f83ecb28 100644
---- a/types/default-theme.d.ts
-+++ b/types/default-theme.d.ts
-@@ -3,6 +3,7 @@ export namespace DefaultTheme {
-     logo?: string
-     nav?: NavItem[] | false
-     sidebar?: SideBarConfig | MultiSideBarConfig
-+    sidebarDepth?: number
-
-     /**
-      * GitHub repository following the format <user>/<project>.
-diff --git a/dist/node/serve-9874c5ac.js b/dist/node/serve-9874c5ac.js
-index e024d9eb80502d794ad7e6c078b499770d701a55..d45c5cdd88871c21c3bf78873a80f3269f5f4360 100644
---- a/dist/node/serve-9874c5ac.js
-+++ b/dist/node/serve-9874c5ac.js
-@@ -40251,7 +40251,7 @@ async function renderPage(config, page, result, appChunk, cssChunk, pageToHashMa
+@@ -40928,7 +40923,10 @@ async function renderPage(config, page, result, appChunk, cssChunk, pageToHashMa
    }).join("\n    ");
    const stylesheetLink = cssChunk ? `<link rel="stylesheet" href="${siteData.base}${cssChunk.fileName}">` : "";
    const title = pageData.title && pageData.title !== "Home" ? `${pageData.title} | ${siteData.title}` : siteData.title;
 -  const head = addSocialTags(title, ...siteData.head, ...filterOutHeadDescription(pageData.frontmatter.head));
-+  const head = [...siteData.head, ...filterOutHeadDescription(pageData.frontmatter.head)];
++  const head = [
++    ...siteData.head,
++    ...filterOutHeadDescription(pageData.frontmatter.head)
++  ];
    let inlinedScript = "";
    if (config.mpa && result) {
      const matchingChunk = result.output.find((chunk) => chunk.type === "chunk" && chunk.facadeModuleId === slash(path__default["default"].join(config.srcDir, page)));
-@@ -40330,17 +40330,6 @@ function hasTag(head, tag) {
-   const [attr, value] = Object.entries(tagAttrs)[0];
-   return head.some(([type, attrs]) => type === tagType && attrs[attr] === value);
+@@ -41002,22 +41000,6 @@ function isMetaDescription(headConfig) {
+ function filterOutHeadDescription(head) {
+   return head ? head.filter((h) => !isMetaDescription(h)) : [];
  }
+-function hasTag(head, tag) {
+-  const [tagType, tagAttrs] = tag;
+-  const [attr, value] = Object.entries(tagAttrs)[0];
+-  return head.some(([type, attrs]) => type === tagType && attrs[attr] === value);
+-}
 -function addSocialTags(title, ...head) {
 -  const tags = [
 -    ["meta", { name: "twitter:title", content: title }],
@@ -172,3 +135,15 @@ index e024d9eb80502d794ad7e6c078b499770d701a55..d45c5cdd88871c21c3bf78873a80f326
 
  async function build(root, buildOptions = {}) {
    const start = Date.now();
+diff --git a/types/default-theme.d.ts b/types/default-theme.d.ts
+index d72848717e1980bc9ac78c94b4262868b19593b3..f4071a7bf9069272050117b4f2c647a1f83ecb28 100644
+--- a/types/default-theme.d.ts
++++ b/types/default-theme.d.ts
+@@ -3,6 +3,7 @@ export namespace DefaultTheme {
+     logo?: string
+     nav?: NavItem[] | false
+     sidebar?: SideBarConfig | MultiSideBarConfig
++    sidebarDepth?: number
+
+     /**
+      * GitHub repository following the format <user>/<project>.
