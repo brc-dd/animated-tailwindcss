@@ -1,10 +1,10 @@
 <!-- markdownlint-disable MD033 MD041 -->
 <p align="center">
   <a href="https://ikcb.org/animated-tailwindcss#gh-light-mode-only">
-    <img src="docs/public/logo_light.svg" width="350" />
+    <img src="https://ikcb.org/animated-tailwindcss/logo_light.svg" width="350" />
   </a>
   <a href="https://ikcb.org/animated-tailwindcss#gh-dark-mode-only">
-    <img src="docs/public/logo_dark.svg" width="350" />
+    <img src="https://ikcb.org/animated-tailwindcss/logo_dark.svg" width="350" />
   </a>
   <br />
   <br />
@@ -26,13 +26,13 @@
   </a>
   <br />
   <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
-    <img src="docs/public/animate-css.svg" />
+    <img src="https://ikcb.org/animated-tailwindcss/animate-css.svg" />
   </a>
-  <a href="LICENSE">
-    <img src="docs/public/license.svg" />
+  <a href="https://github.com/ikcb/animated-tailwindcss/blob/main/LICENSE">
+    <img src="https://ikcb.org/animated-tailwindcss/license.svg" />
   </a>
   <a href="https://conventionalcommits.org">
-    <img src="docs/public/commits.svg" />
+    <img src="https://ikcb.org/animated-tailwindcss/commits.svg" />
   </a>
 </p>
 
