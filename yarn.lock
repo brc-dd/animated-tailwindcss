@@ -588,9 +588,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@eslint/eslintrc@npm:1.1.0"
+"@eslint/eslintrc@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@eslint/eslintrc@npm:1.2.0"
   dependencies:
     ajv: ^6.12.4
     debug: ^4.3.2
@@ -601,7 +601,7 @@ __metadata:
     js-yaml: ^4.1.0
     minimatch: ^3.0.4
     strip-json-comments: ^3.1.1
-  checksum: 784aa2157e2808b52bbbaf1d1cfca9a6ba0b2faaa3696eb7a1229d4b357400fbd8a6aa09a16e7ae0868ea075d3a8f365cf5928b6d05a1df47f40a1167423a4fa
+  checksum: a5e51dcf02627363567094456d7880b46b6a14a285d7a057f083ca903bdd862483bb6314cbc9fb6fa2d2c4537d50e0d28bd5e39650840241ae4796faaec65d2e
   languageName: node
   linkType: hard
 
@@ -834,8 +834,8 @@ __metadata:
   linkType: hard
 
 "@release-it/conventional-changelog@npm:latest":
-  version: 4.1.0
-  resolution: "@release-it/conventional-changelog@npm:4.1.0"
+  version: 4.2.0
+  resolution: "@release-it/conventional-changelog@npm:4.2.0"
   dependencies:
     concat-stream: ^2.0.0
     conventional-changelog: ^3.1.25
@@ -843,7 +843,7 @@ __metadata:
     prepend-file: ^2.0.0
   peerDependencies:
     release-it: ^14.12.1
-  checksum: 7168a9eb60f0f8eeec5ce96f6c5d4de18aaf9047fdd1fe5e6c9a422e11e8b9ae72efe9e8847146c3f3f025eadc5259952510f24f594abccc10f7340d62b8171e
+  checksum: 24fe6050852c44c1da17edc104ac85988dc9c5af97f0628878061550dc046fa64df2f12f21a7c78b68976ab2ede41543451799161ebce2d29048dc3ed7614074
   languageName: node
   linkType: hard
 
@@ -855,9 +855,9 @@ __metadata:
   linkType: hard
 
 "@sindresorhus/is@npm:^4.0.0":
-  version: 4.4.0
-  resolution: "@sindresorhus/is@npm:4.4.0"
-  checksum: 1d2471a75e03ce2182c3a3d014d027addeaeae1a7a2adfdb03c91cce17900b207e493db012e35ffa21808c563ce3b8e2e7c24646b3d5c27467e08bef8b0e16f0
+  version: 4.6.0
+  resolution: "@sindresorhus/is@npm:4.6.0"
+  checksum: 83839f13da2c29d55c97abc3bc2c55b250d33a0447554997a85c539e058e57b8da092da396e252b11ec24a0279a0bed1f537fa26302209327060643e327f81d2
   languageName: node
   linkType: hard
 
@@ -2306,13 +2306,13 @@ __metadata:
   linkType: hard
 
 "clipanion@npm:^3.2.0-rc.4":
-  version: 3.2.0-rc.9
-  resolution: "clipanion@npm:3.2.0-rc.9"
+  version: 3.2.0-rc.10
+  resolution: "clipanion@npm:3.2.0-rc.10"
   dependencies:
     typanion: ^3.3.1
   peerDependencies:
     typanion: "*"
-  checksum: 00690c6112649314ad7c57c7d310d6dca26691d2c473d2a3682394cd1ec056ef229fc2c12856dce48806a51d481d1153f4f50435675f2b252b0be80e5e7f22f8
+  checksum: 8e45be128201607620c6b154fc4ee2c6211cc9ff7ecad2959999269c9c1d8b8a12915345101aecdd81fee856daeccb43c143fefb451649c7b8d1862aa50d16b4
   languageName: node
   linkType: hard
 
@@ -3782,10 +3782,10 @@ __metadata:
   linkType: hard
 
 "eslint@npm:latest":
-  version: 8.9.0
-  resolution: "eslint@npm:8.9.0"
+  version: 8.10.0
+  resolution: "eslint@npm:8.10.0"
   dependencies:
-    "@eslint/eslintrc": ^1.1.0
+    "@eslint/eslintrc": ^1.2.0
     "@humanwhocodes/config-array": ^0.9.2
     ajv: ^6.10.0
     chalk: ^4.0.0
@@ -3822,7 +3822,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 8efecdb9752ee6cb4d2787a14e00cbeab29562ed95dd71c6f3f8ac410426a067d5aa659416d2290e46ca44bc5607e6a6e6c62f814694d8639f80666f522022a7
+  checksum: 8b31ab3de5b48b6828bf13c09c9e62ee0045fa0afa017efaa73eedcf4dc33bc204ee4c467d4677e37967d1645f73816ddef4271422e691fded352040f8f83093
   languageName: node
   linkType: hard
 
@@ -8181,13 +8181,13 @@ __metadata:
   linkType: hard
 
 "string-width@npm:^5.0.0":
-  version: 5.1.0
-  resolution: "string-width@npm:5.1.0"
+  version: 5.1.1
+  resolution: "string-width@npm:5.1.1"
   dependencies:
     eastasianwidth: ^0.2.0
     emoji-regex: ^9.2.2
     strip-ansi: ^7.0.1
-  checksum: f9f84226bade99b044ece0f143ba0979bbd0b4bbb867ce2e785debf8abe99e9491382d584e51c32272ec2dc82f2fa93b212ef4fdd21c739dac8e78f7815b7dfb
+  checksum: e0e5ee972e837476ddb273f37e77e50f90f6f0895a1421f0dbe749043eb3044c5aa27dd6792fc469e0286fed51ea1c3435d002f3ac15568a4fb004a53990fb4e
   languageName: node
   linkType: hard
 
@@ -8745,11 +8745,11 @@ __metadata:
   linkType: hard
 
 "uglify-js@npm:^3.1.4":
-  version: 3.15.1
-  resolution: "uglify-js@npm:3.15.1"
+  version: 3.15.2
+  resolution: "uglify-js@npm:3.15.2"
   bin:
     uglifyjs: bin/uglifyjs
-  checksum: cf88574ec8af4d69368142a3f9fb83ac11b1344a117dff08890fcf99ed12c782c810f02e71a0c2a7e8666ea6225894f1c171cbd90e1a1fe4b2c4a198f8ad61a3
+  checksum: 5bbe848e01281032db94567f27eee3ab61ec685275c1c6825fbad55f231910fc1b47f1ceef1dc1d946e1253e946fde8b0d2809aa3ae186e4ddd6bda2f6dc7850
   languageName: node
   linkType: hard
 
@@ -9258,9 +9258,9 @@ __metadata:
   linkType: hard
 
 "yargs-parser@npm:^21.0.0":
-  version: 21.0.0
-  resolution: "yargs-parser@npm:21.0.0"
-  checksum: 1e205fca1cb7a36a1585e2b94a64e641c12741b53627d338e12747f4dca3c3610cdd9bb235040621120548dd74c3ef03a8168d52a1eabfedccbe4a62462b6731
+  version: 21.0.1
+  resolution: "yargs-parser@npm:21.0.1"
+  checksum: c3ea2ed12cad0377ce3096b3f138df8267edf7b1aa7d710cd502fe16af417bafe4443dd71b28158c22fcd1be5dfd0e86319597e47badf42ff83815485887323a
   languageName: node
   linkType: hard
 
