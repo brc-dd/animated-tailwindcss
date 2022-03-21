@@ -29,7 +29,7 @@ jobs:
         with:
           name: animated-tailwindcss
           path: dist
-      - uses: actions/cache@deae296ab340574da1ec86242984dfc91f0a7b81
+      - uses: actions/cache@7799d864d909465e939ecccbd5b3fa8313dd151c
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -41,7 +41,7 @@ jobs:
     needs: build
 
     steps:
-      - uses: actions/cache@deae296ab340574da1ec86242984dfc91f0a7b81
+      - uses: actions/cache@7799d864d909465e939ecccbd5b3fa8313dd151c
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -64,14 +64,14 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@deae296ab340574da1ec86242984dfc91f0a7b81
+      - uses: actions/cache@7799d864d909465e939ecccbd5b3fa8313dd151c
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@761da7eb50af67e35da924ae3bea2bf060148f6b
+      - uses: github/codeql-action/init@81bfc289f5947eca8a3358341c874cb4f4697b64
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@761da7eb50af67e35da924ae3bea2bf060148f6b
+      - uses: github/codeql-action/analyze@81bfc289f5947eca8a3358341c874cb4f4697b64
 
   deploy:
     permissions:
@@ -81,7 +81,7 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@deae296ab340574da1ec86242984dfc91f0a7b81
+      - uses: actions/cache@7799d864d909465e939ecccbd5b3fa8313dd151c
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
