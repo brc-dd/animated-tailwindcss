@@ -1,1 +1,14 @@
-{ "recommendations": ["arcanis.vscode-zipfs", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"] }
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "dbaeumer.vscode-eslint",
+    "DotJoshJohnson.xml",
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "ms-vscode.vscode-typescript-next",
+    "octref.vetur",
+    "rohit-gohri.format-code-action",
+    "streetsidesoftware.code-spell-checker",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}

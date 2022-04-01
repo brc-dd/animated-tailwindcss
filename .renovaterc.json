@@ -10,6 +10,5 @@
     "workarounds:all"
   ],
   "groupName": "all",
-  "automergeStrategy": "squash",
-  "updatePinnedDependencies": false
+  "automergeStrategy": "squash"
 }
