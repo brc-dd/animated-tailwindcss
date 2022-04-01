@@ -51,7 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esbuild", "npm:0.14.29"],\
             ["eslint", "npm:8.12.0"],\
             ["eslint-config-airbnb-base", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:15.0.0"],\
-            ["eslint-config-airbnb-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.1.4"],\
+            ["eslint-config-airbnb-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.2.0"],\
             ["eslint-config-prettier", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.5.0"],\
             ["eslint-import-resolver-node", "npm:0.3.6"],\
             ["eslint-import-resolver-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.7.0"],\
@@ -4545,17 +4545,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["eslint-config-airbnb-typescript", [\
-        ["npm:16.1.4", {\
-          "packageLocation": "./.yarn/cache/eslint-config-airbnb-typescript-npm-16.1.4-0792da35e5-86556b82ec.zip/node_modules/eslint-config-airbnb-typescript/",\
+        ["npm:16.2.0", {\
+          "packageLocation": "./.yarn/cache/eslint-config-airbnb-typescript-npm-16.2.0-ddead1e48a-eb44e32874.zip/node_modules/eslint-config-airbnb-typescript/",\
           "packageDependencies": [\
-            ["eslint-config-airbnb-typescript", "npm:16.1.4"]\
+            ["eslint-config-airbnb-typescript", "npm:16.2.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.1.4", {\
-          "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-typescript-virtual-967dcf2d16/0/cache/eslint-config-airbnb-typescript-npm-16.1.4-0792da35e5-86556b82ec.zip/node_modules/eslint-config-airbnb-typescript/",\
+        ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/eslint-config-airbnb-typescript-virtual-7fb7bc3f81/0/cache/eslint-config-airbnb-typescript-npm-16.2.0-ddead1e48a-eb44e32874.zip/node_modules/eslint-config-airbnb-typescript/",\
           "packageDependencies": [\
-            ["eslint-config-airbnb-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.1.4"],\
+            ["eslint-config-airbnb-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.2.0"],\
             ["@types/eslint", null],\
             ["@types/eslint-plugin-import", null],\
             ["@types/typescript-eslint__eslint-plugin", null],\
@@ -9501,7 +9501,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["esbuild", "npm:0.14.29"],\
             ["eslint", "npm:8.12.0"],\
             ["eslint-config-airbnb-base", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:15.0.0"],\
-            ["eslint-config-airbnb-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.1.4"],\
+            ["eslint-config-airbnb-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:16.2.0"],\
             ["eslint-config-prettier", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:8.5.0"],\
             ["eslint-import-resolver-node", "npm:0.3.6"],\
             ["eslint-import-resolver-typescript", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.7.0"],\
