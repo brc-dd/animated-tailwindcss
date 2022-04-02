@@ -1,9 +1,7 @@
 {
   "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[ignore]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[properties]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[ignore][properties][shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
   "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
   "editor.formatOnSave": false,
   "eslint.nodePath": ".yarn/sdks",
