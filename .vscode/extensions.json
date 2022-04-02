@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "arcanis.vscode-zipfs",
+    "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
     "DotJoshJohnson.xml",
     "EditorConfig.EditorConfig",
