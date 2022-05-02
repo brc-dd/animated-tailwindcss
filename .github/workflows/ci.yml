@@ -17,15 +17,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-      - uses: actions/setup-node@146c4d84a51256d5571b40011b76c0c6f7dfd981
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
+      - uses: actions/setup-node@0bd06765ef0b51db720effb3b27b09a604b36300
         with:
           node-version: 'lts/*'
           cache: yarn
       - run: |
           yarn
           yarn build
-      - uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
+      - uses: actions/upload-artifact@09a5d6a283da3e7c9f3253a5d4cdab2347712a66
         with:
           name: animated-tailwindcss
           path: dist
@@ -45,7 +45,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@146c4d84a51256d5571b40011b76c0c6f7dfd981
+      - uses: actions/setup-node@0bd06765ef0b51db720effb3b27b09a604b36300
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -68,10 +68,10 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@e6e327771b98fd05cc6a83cbe30b4a6f74d5ee88
+      - uses: github/codeql-action/init@ceeddf263846258329116eb57e36db63e530c0c7
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@e6e327771b98fd05cc6a83cbe30b4a6f74d5ee88
+      - uses: github/codeql-action/analyze@ceeddf263846258329116eb57e36db63e530c0c7
 
   deploy:
     permissions:
@@ -85,7 +85,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@146c4d84a51256d5571b40011b76c0c6f7dfd981
+      - uses: actions/setup-node@0bd06765ef0b51db720effb3b27b09a604b36300
         with:
           node-version: 'lts/*'
           cache: yarn
