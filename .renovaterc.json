@@ -6,7 +6,7 @@
     ":maintainLockFilesWeekly",
     ":semanticPrefixFixDepsChoreOthers",
     "npm:unpublishSafe",
-    "schedule:weekly",
+    "schedule:weekends",
     "workarounds:all"
   ],
   "groupName": "all",
