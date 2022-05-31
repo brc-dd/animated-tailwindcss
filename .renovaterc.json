@@ -10,5 +10,6 @@
     "workarounds:all"
   ],
   "groupName": "all",
-  "automergeStrategy": "squash"
+  "automergeStrategy": "squash",
+  "packageRules": [{ "packagePatterns": ["release-it"], "enabled": false }]
 }

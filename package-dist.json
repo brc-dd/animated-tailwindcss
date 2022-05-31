@@ -4,7 +4,7 @@
   "version": "3.2.7",
   "description": "A configuration to use Animate.css with Tailwind CSS",
   "license": "MIT",
-  "author": "Divyansh Singh <divyansh.singh@ikcb.org> (https://github.com/brc-dd)",
+  "author": "Divyansh Singh <brc-dd@hotmail.com> (https://github.com/brc-dd)",
   "homepage": "https://ikcb.org/animated-tailwindcss",
   "repository": "github:ikcb/animated-tailwindcss",
   "bugs": {
