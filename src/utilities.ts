@@ -1,4 +1,7 @@
 export const keyframeUtils: CSSBlock = {
+  twSpin: { animationTimingFunction: 'linear' },
+  twPing: { animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+  twPulse: { animationDuration: '2s', animationTimingFunction: 'cubic-bezier(0.4, 0, 0.6, 1)' },
   bounce: { transformOrigin: 'center bottom' },
   pulse: { animationTimingFunction: 'ease-in-out' },
   headShake: { animationTimingFunction: 'ease-in-out' },

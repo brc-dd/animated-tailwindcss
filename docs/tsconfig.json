@@ -1,4 +1,4 @@
 {
-  "compilerOptions": { "strict": true, "esModuleInterop": true },
+  "compilerOptions": { "strict": true, "esModuleInterop": true, "lib": ["es2017", "dom"] },
   "include": [".vitepress/**/*", "**/*"]
 }

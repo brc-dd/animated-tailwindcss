@@ -1,4 +1,6 @@
 const Animations: Record<string, Array<string>> = {
+  'TailwindCSS Builtins': ['twSpin', 'twPing', 'twPulse', 'twBounce'],
+
   'Attention Seekers': [
     'bounce',
     'flash',

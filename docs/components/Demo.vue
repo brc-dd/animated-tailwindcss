@@ -1,18 +1,27 @@
 <template>
   <div class="mt-6 flex flex-col">
     <div
-      class="flex items-center justify-center overflow-hidden rounded-md bg-[#333B45] p-20 sm:p-32"
+      class="relative flex items-center justify-center overflow-hidden rounded-md bg-[#333B45] p-20 sm:p-32"
     >
       <img
         alt="tw-Animated"
         @animationend="reset"
         class="w-32 animate-delay-100"
-        :class="{ [`animate-${animation}`]: shouldAnimate }"
+        :class="{ [`animate-${animation}`]: shouldAnimate, 'animate-infinite': repeat }"
         src="/mark.svg"
       />
+      <button
+        class="absolute bottom-2 right-4 rounded-md border-2 border-slate-600 p-2 text-white"
+        :class="{ 'bg-slate-600': repeat }"
+        id="repeat"
+        type="button"
+        @click="handleRepeat"
+      >
+        Repeat
+      </button>
     </div>
     <div class="mt-6 flex self-center">
-      <button class="rounded-l-md bg-[#3B3B3B] py-1 px-4" @click="copy" type="button">
+      <button class="rounded-l-md bg-[#3B3B3B] py-1 px-4" type="button" @click="copy">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="my-[3px] h-6 w-6"
@@ -38,9 +47,8 @@
       </button>
       <select
         aria-label="Choose an animation."
-        @change="handleChange"
         class="appearance-none border-x border-[#333] bg-[#3B3B3B] py-1 px-4"
-        id="animation"
+        @change="handleChange"
       >
         <optgroup v-for="(keyframes, type) in animations" :label="type">
           <option v-for="keyframe in keyframes">{{ keyframe }}</option>
@@ -58,8 +66,13 @@ import { ref } from 'vue';
 import animations from '../utils/animations';
 
 const animation = ref(Object.values(animations)[0][0]);
+const repeat = ref(false);
 const shouldAnimate = ref(false);
 const copied = ref(false);
+
+const handleRepeat: EventListener = (e) => {
+  repeat.value = !repeat.value;
+};
 
 const handleChange: EventListener = (e) => {
   shouldAnimate.value = true;
@@ -75,9 +88,11 @@ const rerun: EventListener = () => {
 };
 
 const copy: EventListener = () => {
-  navigator.clipboard.writeText(`animate-${animation.value}`).then(() => {
-    copied.value = true;
-  });
+  navigator.clipboard
+    .writeText(`animate-${animation.value}${repeat.value ? ' animate-infinite' : ''}`)
+    .then(() => {
+      copied.value = true;
+    });
   setTimeout(() => {
     copied.value = false;
   }, 1200);

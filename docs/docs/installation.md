@@ -61,7 +61,7 @@ After proper config, you can use the animations of Animate.css the same way as y
 
 - If you are coming from classical Animate.css, please note that you need to reference the classes as `.animate-...` instead of `.animate__...`.
 
-- Also, for compatibility reasons, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) will be removed (or replaced by their Animate.css counterparts).
+- Also, to avoid conflicts, the built-in animations (`spin`, `ping`, `pulse`, `bounce`) are prefixed by `tw`, i.e. `spin` becomes `twSpin`.
 
 - The animations this package provides are not _exactly_ same as that of Animate.css. We have done some cleaning up to provide you with more consistent animations.
 

@@ -1,4 +1,20 @@
 export const keyframes: Keyframes = {
+  twSpin: {
+    from: { transform: 'rotate3d(0, 0, 1, 0)' },
+    to: { transform: 'rotate3d(0, 0, 1, 360deg)' },
+  },
+  twPing: { '75%, 100%': { transform: 'scale3d(2, 2, 1)', opacity: '0' } },
+  twPulse: { '0%, 100%': { opacity: 1 }, '50%': { opacity: '0.5' } },
+  twBounce: {
+    '0%, 100%': {
+      transform: 'translate3d(0, -25%, 0)',
+      animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
+    },
+    '50%': {
+      transform: 'translate3d(0, 0, 0)',
+      animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
+    },
+  },
   bounce: {
     'from, 20%, 53%, to': {
       animationTimingFunction: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
