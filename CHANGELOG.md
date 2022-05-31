@@ -1,3 +1,9 @@
+## 3.3.0 (2022-05-31)
+
+### Bug Fixes
+
+- add default animations ([7005df5](https://github.com/ikcb/animated-tailwindcss/commit/7005df514b46c6241fb7074df1c9b5c5042fff55))
+
 ### [3.2.7](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.6...v3.2.7) (2022-02-25)
 
 ### [3.2.6](https://github.com/ikcb/animated-tailwindcss/compare/v3.2.5...v3.2.6) (2022-02-25)
