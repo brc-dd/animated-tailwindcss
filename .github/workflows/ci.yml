@@ -29,7 +29,7 @@ jobs:
         with:
           name: animated-tailwindcss
           path: dist
-      - uses: actions/cache@afc669e7fce1370457d4c97e4ce71cd7b277760f
+      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -41,7 +41,7 @@ jobs:
     needs: build
 
     steps:
-      - uses: actions/cache@afc669e7fce1370457d4c97e4ce71cd7b277760f
+      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -64,7 +64,7 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@afc669e7fce1370457d4c97e4ce71cd7b277760f
+      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -81,7 +81,7 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@afc669e7fce1370457d4c97e4ce71cd7b277760f
+      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
