@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-node@cdcc53e14f65270996e107107b9a9f72862f58ee
+      - uses: actions/setup-node@7d610f0c26c6678ccf333bae93abbfb08cebbea8
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -29,7 +29,7 @@ jobs:
         with:
           name: animated-tailwindcss
           path: dist
-      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
+      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -41,11 +41,11 @@ jobs:
     needs: build
 
     steps:
-      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
+      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@cdcc53e14f65270996e107107b9a9f72862f58ee
+      - uses: actions/setup-node@7d610f0c26c6678ccf333bae93abbfb08cebbea8
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -64,14 +64,14 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
+      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@47bcabd3e8a91c86691273b4b0a8896a3f31be79
+      - uses: github/codeql-action/init@ca8a203b51cf2b4a0722f4c1e0e75315b6bd4b7d
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@47bcabd3e8a91c86691273b4b0a8896a3f31be79
+      - uses: github/codeql-action/analyze@ca8a203b51cf2b4a0722f4c1e0e75315b6bd4b7d
 
   deploy:
     permissions:
@@ -81,11 +81,11 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@eec8cd3f5f6c5051d6f6977ae774b9ede9fd39ef
+      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@cdcc53e14f65270996e107107b9a9f72862f58ee
+      - uses: actions/setup-node@7d610f0c26c6678ccf333bae93abbfb08cebbea8
         with:
           node-version: 'lts/*'
           cache: yarn
