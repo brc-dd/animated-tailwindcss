@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-node@7d610f0c26c6678ccf333bae93abbfb08cebbea8
+      - uses: actions/setup-node@09ba51f18e18a3756fea1f54d09c6745c064491d
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -29,7 +29,7 @@ jobs:
         with:
           name: animated-tailwindcss
           path: dist
-      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
+      - uses: actions/cache@354a2ae15e3e38c9c450c9bacb8f2fe7c684cacb
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -41,11 +41,11 @@ jobs:
     needs: build
 
     steps:
-      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
+      - uses: actions/cache@354a2ae15e3e38c9c450c9bacb8f2fe7c684cacb
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@7d610f0c26c6678ccf333bae93abbfb08cebbea8
+      - uses: actions/setup-node@09ba51f18e18a3756fea1f54d09c6745c064491d
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -64,7 +64,7 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
+      - uses: actions/cache@354a2ae15e3e38c9c450c9bacb8f2fe7c684cacb
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -81,11 +81,11 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@baed3516c3cc37166689253270efb7d0da2a962b
+      - uses: actions/cache@354a2ae15e3e38c9c450c9bacb8f2fe7c684cacb
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@7d610f0c26c6678ccf333bae93abbfb08cebbea8
+      - uses: actions/setup-node@09ba51f18e18a3756fea1f54d09c6745c064491d
         with:
           node-version: 'lts/*'
           cache: yarn
