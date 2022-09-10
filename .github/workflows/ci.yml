@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-node@9efe00a0025efeba48d576d3e3098477d681ce43
+      - uses: actions/setup-node@30f0e7dc5aa0e546410a28dc80a10d8114ee873e
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -45,7 +45,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@9efe00a0025efeba48d576d3e3098477d681ce43
+      - uses: actions/setup-node@30f0e7dc5aa0e546410a28dc80a10d8114ee873e
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -68,10 +68,10 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@03e34531021824753d768a850f18086934273226
+      - uses: github/codeql-action/init@9ba4d500aa0261992135290a8c8eff47a4bb2ecb
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@03e34531021824753d768a850f18086934273226
+      - uses: github/codeql-action/analyze@9ba4d500aa0261992135290a8c8eff47a4bb2ecb
 
   deploy:
     permissions:
@@ -85,7 +85,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@9efe00a0025efeba48d576d3e3098477d681ce43
+      - uses: actions/setup-node@30f0e7dc5aa0e546410a28dc80a10d8114ee873e
         with:
           node-version: 'lts/*'
           cache: yarn
