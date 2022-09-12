@@ -7,3 +7,4 @@ dist
 temp
 TODO
 .vite
+node_modules
