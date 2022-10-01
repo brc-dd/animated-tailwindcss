@@ -1,3 +1,5 @@
+import type { CSSBlock } from './types.js'
+
 export const keyframeUtils: CSSBlock = {
   twSpin: { animationTimingFunction: 'linear' },
   twPing: { animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
@@ -45,7 +47,7 @@ export const keyframeUtils: CSSBlock = {
   zoomOutLeft: { transformOrigin: 'left center' },
   zoomOutRight: { transformOrigin: 'right center' },
   zoomOutUp: { transformOrigin: 'center bottom' },
-};
+}
 
 export const animationUtils: CSSBlock = {
   none: { animation: 'none' },
@@ -66,4 +68,4 @@ export const animationUtils: CSSBlock = {
 
   paused: { animationPlayState: 'paused' },
   running: { animationPlayState: 'running' },
-};
+}

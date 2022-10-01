@@ -1,9 +1,9 @@
 const range = (a: number, b?: number, c?: number): Array<number> => {
-  if (b != null && c != null && ((a >= b && c >= 0) || (a < b && c < 0))) return [];
+  if (b != null && c != null && ((a >= b && c >= 0) || (a < b && c < 0))) return []
   return [...Array(Math.abs(b != null ? Math.ceil((b - a) / ((c ?? 1) || 1)) : a)).keys()].map(
     (k) => (k * (c ?? ((b != null ? a > b : a < 0) ? -1 : 1)) || 0) + (b != null ? a : 0),
-  );
-};
+  )
+}
 
 const expandArray = <T extends number | string>(
   arr: Array<T>,
@@ -11,9 +11,9 @@ const expandArray = <T extends number | string>(
   inKey = false,
   transform = (v: T): T => v,
 ): Record<string, string> =>
-  arr.reduce((a, v) => ({ ...a, [`${v}${inKey ? append : ''}`]: `${transform(v)}${append}` }), {});
+  arr.reduce((a, v) => ({ ...a, [`${v}${inKey ? append : ''}`]: `${transform(v)}${append}` }), {})
 
-export const duration = expandArray([75, 100, 150, 200, 300, 500, 700, 1000], 'ms');
+export const duration = expandArray([75, 100, 150, 200, 300, 500, 700, 1000], 'ms')
 
 export const ease = {
   linear: '0,0,1,1',
@@ -44,13 +44,13 @@ export const ease = {
   'in-back': '.36,0,.66,-.56',
   'out-back': '.34,1.56,.64,1',
   'in-out-back': '.68,-.6,.32,1.6',
-};
+}
 
-export const delay = { ...duration, ...expandArray(range(6), 's', true) };
+export const delay = { ...duration, ...expandArray(range(6), 's', true) }
 
-export const repeat = expandArray(range(13));
+export const repeat = expandArray(range(13))
 
-export const fill = expandArray(['none', 'forwards', 'backwards', 'both']);
+export const fill = expandArray(['none', 'forwards', 'backwards', 'both'])
 
 export const distance: Record<string, string> = {
   px: '1px',
@@ -95,4 +95,4 @@ export const distance: Record<string, string> = {
   '11/12': '91.666667%',
   full: '100%',
   screen: '100vh',
-};
+}

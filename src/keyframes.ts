@@ -1,3 +1,5 @@
+import type { Keyframes } from './types.js'
+
 export const keyframes: Keyframes = {
   twSpin: {
     from: { transform: 'rotate3d(0, 0, 1, 0)' },
@@ -417,4 +419,4 @@ export const keyframes: Keyframes = {
   slideOutLeft: { to: { transform: 'translate3d(-100%, 0, 0)' } },
   slideOutRight: { to: { transform: 'translate3d(100%, 0, 0)' } },
   slideOutUp: { to: { transform: 'translate3d(0, -100%, 0)' } },
-};
+}

@@ -1,18 +1,8 @@
 {
-  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[ignore][properties][shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
-  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
   "editor.formatOnSave": false,
-  "eslint.nodePath": ".yarn/sdks",
-  "eslint.packageManager": "yarn",
+  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
   "eslint.probe": ["typescript"],
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "scss.lint.unknownAtRules": "ignore",
-  "search.exclude": { "**/.yarn": true, "**/.pnp.*": true },
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "vetur.validation.script": false,
-  "vetur.validation.style": false,
-  "vetur.validation.template": false
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

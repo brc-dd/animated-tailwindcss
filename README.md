@@ -1,10 +1,10 @@
 <!-- markdownlint-disable MD033 MD041 -->
 <p align="center">
-  <a href="https://ikcb.org/animated-tailwindcss#gh-light-mode-only">
-    <img src="https://ikcb.org/animated-tailwindcss/logo_light.svg" width="350" />
-  </a>
-  <a href="https://ikcb.org/animated-tailwindcss#gh-dark-mode-only">
-    <img src="https://ikcb.org/animated-tailwindcss/logo_dark.svg" width="350" />
+  <a href="https://ikcb.org/animated-tailwindcss">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://ikcb.org/animated-tailwindcss/logo_dark.svg" />
+      <img src="https://ikcb.org/animated-tailwindcss/logo_light.svg" width="350" />
+    </picture>
   </a>
   <br />
   <br />
@@ -40,5 +40,9 @@
 
 ## Credits
 
-- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for animation utilities & keyframes &ndash; used under [the MIT license](https://cdn.jsdelivr.net/npm/animate.css@4.1.1/LICENSE).
-- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting Animate.css to JS &ndash; used under [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
+- [Animate.css](https://github.com/animate-css/animate.css) &ndash; for
+  animation utilities & keyframes &ndash; used under
+  [the MIT license](https://cdn.jsdelivr.net/npm/animate.css@4.1.1/LICENSE).
+- [Transform.tools](https://github.com/ritz078/transform) &ndash; for converting
+  Animate.css to JS &ndash; used under
+  [the MIT license](https://github.com/ritz078/transform/blob/master/LICENSE).
