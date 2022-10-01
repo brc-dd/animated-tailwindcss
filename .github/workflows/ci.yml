@@ -17,8 +17,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
-      - uses: actions/setup-node@9f3a02bbd17adc05b078145bb8f676c84be77e89
+      - uses: actions/checkout@e6d535c99c374d0c3f6d8cd8086a57b43c6c700a
+      - uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -29,7 +29,7 @@ jobs:
         with:
           name: animated-tailwindcss
           path: dist
-      - uses: actions/cache@12681847c623a9274356751fdf0a63576ff3f846
+      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -41,11 +41,11 @@ jobs:
     needs: build
 
     steps:
-      - uses: actions/cache@12681847c623a9274356751fdf0a63576ff3f846
+      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@9f3a02bbd17adc05b078145bb8f676c84be77e89
+      - uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -64,14 +64,14 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@12681847c623a9274356751fdf0a63576ff3f846
+      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@4c8f13758e748234abaa6a831d6f53981844a524
+      - uses: github/codeql-action/init@4cf80047d007eb034cffcb38e4e4c6353832cfe1
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@4c8f13758e748234abaa6a831d6f53981844a524
+      - uses: github/codeql-action/analyze@4cf80047d007eb034cffcb38e4e4c6353832cfe1
 
   deploy:
     permissions:
@@ -81,11 +81,11 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@12681847c623a9274356751fdf0a63576ff3f846
+      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@9f3a02bbd17adc05b078145bb8f676c84be77e89
+      - uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
         with:
           node-version: 'lts/*'
           cache: yarn
