@@ -17,19 +17,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@e6d535c99c374d0c3f6d8cd8086a57b43c6c700a
-      - uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
+      - uses: actions/checkout@bf085276cecdb0cc76fbbe0687a5a0e786646936
+      - uses: actions/setup-node@3ae886ede4e5ed7ca0b68ff6124d681158afe891
         with:
           node-version: 'lts/*'
           cache: yarn
       - run: |
           yarn
           yarn build
-      - uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+      - uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb
         with:
           name: animated-tailwindcss
           path: dist
-      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
+      - uses: actions/cache@e2d614414f9efb4e3358bd4f3092a6406b2e4a32
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
@@ -41,11 +41,11 @@ jobs:
     needs: build
 
     steps:
-      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
+      - uses: actions/cache@e2d614414f9efb4e3358bd4f3092a6406b2e4a32
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
+      - uses: actions/setup-node@3ae886ede4e5ed7ca0b68ff6124d681158afe891
         with:
           node-version: 'lts/*'
           cache: yarn
@@ -64,14 +64,14 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
+      - uses: actions/cache@e2d614414f9efb4e3358bd4f3092a6406b2e4a32
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: github/codeql-action/init@4cf80047d007eb034cffcb38e4e4c6353832cfe1
+      - uses: github/codeql-action/init@9af9a11da83a6f53a3b16f63fe26bfc65983895a
         with:
           languages: javascript
-      - uses: github/codeql-action/analyze@4cf80047d007eb034cffcb38e4e4c6353832cfe1
+      - uses: github/codeql-action/analyze@9af9a11da83a6f53a3b16f63fe26bfc65983895a
 
   deploy:
     permissions:
@@ -81,11 +81,11 @@ jobs:
     needs: lint
 
     steps:
-      - uses: actions/cache@ac8075791e805656e71b4ba23325ace9e3421120
+      - uses: actions/cache@e2d614414f9efb4e3358bd4f3092a6406b2e4a32
         with:
           path: ./*
           key: ${{ github.sha }}-${{ github.run_number }}-${{ github.run_attempt }}
-      - uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b
+      - uses: actions/setup-node@3ae886ede4e5ed7ca0b68ff6124d681158afe891
         with:
           node-version: 'lts/*'
           cache: yarn
