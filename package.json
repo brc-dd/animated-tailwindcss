@@ -43,7 +43,7 @@
   "scripts": {
     "build": "rimraf dist && tsup ./src/index.ts --dts-resolve --format esm,cjs --minify --treeshake",
     "lint": "lefthook run pre-commit",
-    "prerelease": "git add . && pnpm i && pnpm lint && pnpm build",
+    "prerelease": "git add . && pnpm i && pnpm build && pnpm lint",
     "release": "pnpm prerelease && release-it"
   },
   "devDependencies": {
