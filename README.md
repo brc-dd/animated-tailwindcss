@@ -1,9 +1,9 @@
-<!-- markdownlint-disable MD033 MD041 -->
+<!-- markdownlint-disable MD013 MD041 -->
 <p align="center">
   <a href="https://ikcb.org/animated-tailwindcss">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://ikcb.org/animated-tailwindcss/logo_dark.svg" />
-      <img src="https://ikcb.org/animated-tailwindcss/logo_light.svg" width="350" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://brc-dd.github.io/animated-tailwindcss/logo_dark.svg" />
+      <img src="https://brc-dd.github.io/animated-tailwindcss/logo_light.svg" width="350" />
     </picture>
   </a>
   <br />
@@ -13,7 +13,7 @@
   <br />
   <br />
   <a href="https://github.com/ikcb/animated-tailwindcss/actions/workflows/ci.yml">
-    <img src="https://img.shields.io/github/workflow/status/ikcb/animated-tailwindcss/CI/main?label=CI&logo=github&style=flat-square" />
+    <img src="https://img.shields.io/github/actions/workflow/status/brc-dd/animated-tailwindcss/ci.yaml?branch=main&label=CI&logo=github&style=flat-square" />
   </a>
   <a href="https://npm.im/animated-tailwindcss">
     <img src="https://img.shields.io/npm/dm/animated-tailwindcss?logo=npm&style=flat-square" />
@@ -26,13 +26,13 @@
   </a>
   <br />
   <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
-    <img src="https://ikcb.org/animated-tailwindcss/animate-css.svg" />
+    <img src="https://brc-dd.github.io/animated-tailwindcss/animate-css.svg" />
   </a>
   <a href="https://github.com/ikcb/animated-tailwindcss/blob/main/LICENSE">
-    <img src="https://ikcb.org/animated-tailwindcss/license.svg" />
+    <img src="https://brc-dd.github.io/animated-tailwindcss/license.svg" />
   </a>
   <a href="https://conventionalcommits.org">
-    <img src="https://ikcb.org/animated-tailwindcss/commits.svg" />
+    <img src="https://brc-dd.github.io/animated-tailwindcss/commits.svg" />
   </a>
 </p>
 
