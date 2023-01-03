@@ -12,7 +12,7 @@
 <div class="animate-[bounce_1s_ease-in-out_infinite]">Bar</div>
 ```
 
-Refer [the demo](../animations) to see the available animations in action. You
+Refer [the demo](./animations) to see the available animations in action. You
 can play with them [here](https://play.tailwindcss.com/TsNC9Yw9Nc).
 
 Also refer the official Tailwind CSS documentation on
