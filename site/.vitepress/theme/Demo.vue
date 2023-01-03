@@ -1,11 +1,11 @@
 <template>
   <div
-    class="relative mt-6 flex h-72 w-full justify-center overflow-hidden rounded-xl bg-[var(--vp-c-bg-soft)] sm:h-80"
+    class="relative mt-6 flex h-72 w-full items-center justify-center overflow-hidden rounded-xl bg-[var(--vp-c-bg-soft)] sm:h-80"
   >
     <img
-      class="w-32 animate-delay-200 animate-fill-backwards"
+      class="h-32 w-32 animate-delay-200 animate-fill-backwards"
       :class="{ [`animate-${animation}`]: true, 'animate-infinite': loop }"
-      src="/tw.svg"
+      src="/tailwind-css.svg"
       alt=""
       fetchpriority="high"
       ref="img"
