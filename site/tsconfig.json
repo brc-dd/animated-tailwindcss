@@ -1,0 +1,4 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [".vitepress/**/*", ".vitepress/**/*.vue"]
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "animated-tailwindcss",
+  "version": "3.3.0",
+  "description": "A configuration to use Animate.css with Tailwind CSS",
+  "keywords": [
+    "animate.css",
+    "animatecss",
+    "animations",
+    "configuration",
+    "css",
+    "jit",
+    "keyframes",
+    "plugin",
+    "tailwind",
+    "tailwindcss",
+    "utilities"
+  ],
+  "homepage": "https://brc-dd.github.io/animated-tailwindcss",
+  "bugs": {
+    "url": "https://github.com/brc-dd/animated-tailwindcss",
+    "email": "brc-dd@hotmail.com"
+  },
+  "repository": "github:brc-dd/animated-tailwindcss",
+  "funding": "https://github.com/sponsors/brc-dd",
+  "license": "MIT",
+  "author": "Divyansh Singh <brc-dd@hotmail.com> (https://github.com/brc-dd)",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "browser": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "rimraf dist && tsup ./src/index.ts --dts-resolve --format esm,cjs --minify --treeshake",
+    "lint": "lefthook run pre-commit",
+    "prerelease": "git add . && pnpm i && pnpm build && pnpm lint",
+    "release": "pnpm prerelease && release-it"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "@tsconfig/node12": "^1.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "@vue/tsconfig": "^0.1.3",
+    "autoprefixer": "^10.4.13",
+    "csstype": "^3.1.1",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-security": "^1.5.0",
+    "lefthook": "^1.2.6",
+    "postcss": "^8.4.20",
+    "prettier": "^2.8.1",
+    "prettier-plugin-packagejson": "^2.3.0",
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "release-it": "^15.6.0",
+    "replace": "^1.2.2",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.2.4",
+    "tsup": "^6.5.0",
+    "typescript": "~4.9.4",
+    "vitepress": "1.0.0-alpha.35",
+    "vue": "^3.2.45"
+  },
+  "peerDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3"
+  },
+  "peerDependenciesMeta": {
+    "postcss": {
+      "optional": true
+    }
+  },
+  "packageManager": "pnpm@7.21.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    },
+    "patchedDependencies": {
+      "prettier@2.8.1": "patches/prettier@2.8.1.patch"
+    }
+  }
+}

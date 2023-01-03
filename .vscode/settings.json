@@ -1,0 +1,12 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ignore][properties][shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": ["source.fixAll.format", "source.fixAll.eslint"],
+  "eslint.probe": ["typescript"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "volar.vueserver.vitePress.processMdFile": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/brc-dd/Desktop/delete/animated-tailwindcss/.github/workflows/deploy.yaml"
+  }
+}
