@@ -2,8 +2,8 @@
 <p align="center">
   <a href="https://ikcb.org/animated-tailwindcss">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://brc-dd.github.io/animated-tailwindcss/logo_dark.svg" />
-      <img src="https://brc-dd.github.io/animated-tailwindcss/logo_light.svg" width="350" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://brc-dd.github.io/animated-tailwindcss/logo-dark.svg" />
+      <img src="https://brc-dd.github.io/animated-tailwindcss/logo-light.svg" width="350" />
     </picture>
   </a>
   <br />
