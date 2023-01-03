@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vp-c-brand-lighter: #27b7f7 !important;
+  --vp-c-brand-light: #09aaf2 !important;
+  --vp-c-brand: #0792cf !important;
+  --vp-c-brand-dark: #067aad !important;
+  --vp-c-brand-darker: #05618a !important;
+  --vp-custom-block-details-code-bg: var(--vp-custom-block-info-code-bg) !important;
+}
+
+table {
+  --vp-c-bg-mute: transparent;
+}
+
+th,
+td {
+  white-space: pre;
+}

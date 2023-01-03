@@ -14,11 +14,13 @@ extends:
   - plugin:prettier/recommended
 ignorePatterns:
   - dist
+  - '!.vitepress'
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: 2019
   project:
     - tsconfig.json
+    - site/tsconfig.json
   sourceType: module
 plugins:
   - '@typescript-eslint'
@@ -31,6 +33,9 @@ settings:
 rules:
   eslint-comments/no-unused-disable: error
   security/detect-object-injection: off # ts handles this
+  import/no-extraneous-dependencies:
+    - error
+    - devDependencies: true
   import/prefer-default-export: off
   '@typescript-eslint/array-type':
     - error

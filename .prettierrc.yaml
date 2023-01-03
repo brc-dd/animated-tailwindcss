@@ -3,9 +3,11 @@ semi: false
 singleQuote: true
 trailingComma: all
 printWidth: 100
+htmlWhitespaceSensitivity: ignore
 overrides:
   - files: '*.md'
     options:
       printWidth: 80
 plugins:
   - prettier-plugin-packagejson
+  - prettier-plugin-tailwindcss

@@ -1,0 +1,4 @@
+plugins:
+  tailwindcss/nesting: {}
+  tailwindcss: {}
+  autoprefixer: {}

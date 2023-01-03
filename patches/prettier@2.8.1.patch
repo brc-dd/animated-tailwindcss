@@ -1,0 +1,23 @@
+diff --git a/index.js b/index.js
+index e6b12ba57310caaf0497313bb0a93e0ab7cdd8ba..c2c20c22f81b795feb394b40da4d272c29a8e5d6 100644
+--- a/index.js
++++ b/index.js
+@@ -32917,6 +32917,18 @@ var require_embed3 = __commonJS2({
+         }
+       }
+       switch (node.type) {
++        case "html":
++          const isWrapped = !/\s*(script|style|template)/.test(node.value)
++          const doc = textToDoc(isWrapped ? `<template>${node.value}</template>` : node.value, {
++            parser: "vue"
++          }, {
++            stripTrailingHardline: true
++          });
++          if (isWrapped) {
++            const { contents: c } = doc[0].contents;
++            c.contents = c.contents.find(node => node.type === "indent").contents.slice(1);
++          }
++          return [doc];
+         case "front-matter":
+           return printFrontMatter(node, textToDoc);
+         case "importExport":
