@@ -28,7 +28,7 @@
   <a href="https://github.com/animate-css/animate.css/releases/tag/v4.1.1">
     <img src="https://brc-dd.github.io/animated-tailwindcss/animate-css.svg" />
   </a>
-  <a href="https://github.com/brc-dd/animated-tailwindcss/blob/main/LICENSE">
+  <a href="https://github.com/brc-dd/animated-tailwindcss/blob/main/LICENSE.md">
     <img src="https://brc-dd.github.io/animated-tailwindcss/license.svg" />
   </a>
   <a href="https://conventionalcommits.org">

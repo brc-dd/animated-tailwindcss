@@ -23,7 +23,11 @@ import './index.css'
             <VPButton text="Get Started" href="/docs/installation" />
           </div>
           <div class="shrink-0 p-1.5">
-            <VPButton text="Playground" href="/playground" theme="alt" />
+            <VPButton
+              text="Playground"
+              href="https://play.tailwindcss.com/R720JOwrbb"
+              theme="alt"
+            />
           </div>
           <div class="shrink-0 p-1.5">
             <VPButton
