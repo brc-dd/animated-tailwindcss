@@ -27,10 +27,10 @@ jobs:
           node-version: lts/*
           cache: pnpm
       - uses: actions/configure-pages@v1
-      - run: pnpm i && pnpm build && pnpm vitepress build site --base /animated-tailwindcss/
+      - run: pnpm i && pnpm build && pnpm vitepress build docs --base /animated-tailwindcss/
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: site/.vitepress/dist
+          path: docs/.vitepress/dist
 
   deploy:
     environment:

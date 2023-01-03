@@ -20,7 +20,7 @@ import './index.css'
         </h1>
         <div class="flex flex-wrap justify-center pt-6">
           <div class="shrink-0 p-1.5">
-            <VPButton text="Get Started" href="/docs/installation" />
+            <VPButton text="Get Started" href="/installation" />
           </div>
           <div class="shrink-0 p-1.5">
             <VPButton

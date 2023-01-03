@@ -20,7 +20,7 @@ parserOptions:
   ecmaVersion: 2019
   project:
     - tsconfig.json
-    - site/tsconfig.json
+    - docs/tsconfig.json
   sourceType: module
 plugins:
   - '@typescript-eslint'
