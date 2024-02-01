@@ -38,6 +38,33 @@
 
 ---
 
+## Documentation
+
+[View documentation](https://brc-dd.github.io/animated-tailwindcss/)
+
+## Installation
+
+Please see the [full installation instructions](https://brc-dd.github.io/animated-tailwindcss/installation) for detailed steps and examples.
+
+### Quick start with NPM
+
+In a project where you're using Tailwind CSS **v3**, run this to install this
+package:
+
+```sh
+npm add -D animated-tailwindcss
+```
+
+Then configure your `tailwind.config.js` to use the animations:
+
+```js
+const { withAnimations } = require('animated-tailwindcss')
+
+module.exports = withAnimations({
+  // your (existing) Tailwind CSS config here
+})
+```
+
 ## Credits
 
 - [Animate.css](https://github.com/animate-css/animate.css) &ndash; for
